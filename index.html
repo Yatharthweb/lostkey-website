@@ -1237,23 +1237,23 @@ function App() {
 
           {/* Review Grid (3 Columns Desktop / Slider Mobile & Tablet) */}
           <div className="relative">
-            {/* Left Arrow Mobile/Tablet */}
+            {/* Left Arrow Mobile/Tablet/Desktop */}
             <button 
               onClick={() => scrollSlider(textSliderRef, 'left')}
-              className="absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex lg:hidden items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              className="absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               <ChevronLeft size={24} />
             </button>
             
             <div 
               ref={textSliderRef}
-              className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
+              className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
               style={{ scrollBehavior: 'smooth' }}
             >
             {testimonials.map((review, idx) => (
               <div 
                 key={idx} 
-                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl w-[85vw] md:w-[350px] lg:w-auto snap-center flex-shrink-0 lg:flex-shrink"
+                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl w-[85vw] md:w-[350px] lg:w-[400px] snap-center flex-shrink-0"
               >
                 <div className="flex space-x-1 mb-6">
                   {[...Array(review.rating)].map((_, i) => (
@@ -1291,10 +1291,10 @@ function App() {
             ))}
             </div>
             
-            {/* Right Arrow Mobile/Tablet */}
+            {/* Right Arrow Mobile/Tablet/Desktop */}
             <button 
               onClick={() => scrollSlider(textSliderRef, 'right')}
-              className="absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex lg:hidden items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+              className="absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               <ChevronRight size={24} />
             </button>
