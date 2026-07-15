@@ -78,6 +78,7 @@ function App() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [heroSlide, setHeroSlide] = useState(0);
   const [actionSlide, setActionSlide] = useState(1);
@@ -521,12 +522,21 @@ function App() {
                 if (item === 'Services') {
                   return (
                     <div key={item} className="flex flex-col border-b border-[#132B4F]">
-                      <div className="flex justify-between items-center py-4 text-white font-semibold text-lg">
-                        {item} <ChevronDown size={18} className="text-gray-500" />
+                      <div 
+                        className="flex justify-between items-center py-4 text-white font-semibold text-lg cursor-pointer"
+                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                      >
+                        {item} 
+                        <ChevronDown 
+                          size={18} 
+                          className={`text-gray-500 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} 
+                        />
                       </div>
-                      <div className="flex flex-col pl-4 pb-4 space-y-4 max-h-[40vh] overflow-y-auto custom-scrollbar">
+                      <div 
+                        className={`flex flex-col pl-4 space-y-4 transition-all duration-300 custom-scrollbar ${mobileServicesOpen ? 'max-h-[40vh] pb-4 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'}`}
+                      >
                         {MAIN_SERVICES.map((service, idx) => (
-                          <a key={idx} href="#contact" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                          <a key={idx} href="#contact" className="flex items-center space-x-3 text-gray-400 hover:text-white transition-colors" onClick={() => { setMobileMenuOpen(false); setMobileServicesOpen(false); }}>
                             <service.icon size={16} className="text-[#F4C430] flex-shrink-0" />
                             <span className="text-[15px]">{service.name}</span>
                           </a>
