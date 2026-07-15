@@ -87,6 +87,16 @@ function App() {
   const [aboutCountersVisible, setAboutCountersVisible] = useState(false);
   const aboutCountersRef = useRef(null);
 
+  const videoSliderRef = useRef(null);
+  const textSliderRef = useRef(null);
+
+  const scrollSlider = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = ref.current.clientWidth * 0.8;
+      ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
   const [quoteStep, setQuoteStep] = useState(1);
   const [selectedQuoteService, setSelectedQuoteService] = useState(null);
   const [openFaq, setOpenFaq] = useState(2); // 2nd index open by default to match image
@@ -898,14 +908,21 @@ function App() {
             
             {/* Left Arrow */}
             <button 
-              onClick={() => setActionSlide(prev => (prev === 0 ? actionVideos.length - 1 : prev - 1))}
-              className="absolute left-2 md:left-[-40px] z-30 bg-white/90 md:bg-white w-10 h-10 md:w-12 md:h-12 rounded-full hidden lg:flex items-center justify-center shadow-md hover:shadow-lg transition-all text-gray-800"
+              onClick={() => {
+                const nextSlide = actionSlide === 0 ? actionVideos.length - 1 : actionSlide - 1;
+                setActionSlide(nextSlide);
+                if (videoSliderRef.current) {
+                  videoSliderRef.current.children[nextSlide]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+              }}
+              className="absolute left-2 md:left-[-40px] z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               <ChevronLeft size={24} />
             </button>
 
             {/* Cards Container */}
             <div 
+              ref={videoSliderRef}
               className="flex gap-4 lg:gap-8 justify-start lg:justify-center items-center w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory px-4 lg:px-0 pb-6 lg:pb-0 custom-scrollbar"
               style={{ scrollBehavior: 'smooth' }}
             >
@@ -969,8 +986,14 @@ function App() {
 
             {/* Right Arrow */}
             <button 
-              onClick={() => setActionSlide(prev => (prev === actionVideos.length - 1 ? 0 : prev + 1))}
-              className="absolute right-2 md:right-[-40px] z-30 bg-white/90 md:bg-white w-10 h-10 md:w-12 md:h-12 rounded-full hidden lg:flex items-center justify-center shadow-md hover:shadow-lg transition-all text-gray-800"
+              onClick={() => {
+                const nextSlide = actionSlide === actionVideos.length - 1 ? 0 : actionSlide + 1;
+                setActionSlide(nextSlide);
+                if (videoSliderRef.current) {
+                  videoSliderRef.current.children[nextSlide]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+              }}
+              className="absolute right-2 md:right-[-40px] z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               <ChevronRight size={24} />
             </button>
@@ -1213,10 +1236,20 @@ function App() {
           </div>
 
           {/* Review Grid (3 Columns Desktop / Slider Mobile & Tablet) */}
-          <div 
-            className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
-            style={{ scrollBehavior: 'smooth' }}
-          >
+          <div className="relative">
+            {/* Left Arrow Mobile/Tablet */}
+            <button 
+              onClick={() => scrollSlider(textSliderRef, 'left')}
+              className="absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex lg:hidden items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            
+            <div 
+              ref={textSliderRef}
+              className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
+              style={{ scrollBehavior: 'smooth' }}
+            >
             {testimonials.map((review, idx) => (
               <div 
                 key={idx} 
@@ -1256,6 +1289,15 @@ function App() {
                 </div>
               </div>
             ))}
+            </div>
+            
+            {/* Right Arrow Mobile/Tablet */}
+            <button 
+              onClick={() => scrollSlider(textSliderRef, 'right')}
+              className="absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex lg:hidden items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+            >
+              <ChevronRight size={24} />
+            </button>
           </div>
 
           {/* Review Us on Google Button */}
