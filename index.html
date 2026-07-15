@@ -1232,7 +1232,7 @@ function App() {
             {testimonials.map((review, idx) => (
               <div 
                 key={idx} 
-                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center flex-shrink-0 lg:flex-shrink"
+                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl w-[85vw] md:w-[350px] lg:w-auto snap-center flex-shrink-0 lg:flex-shrink"
               >
                 <div className="flex space-x-1 mb-6">
                   {[...Array(review.rating)].map((_, i) => (
