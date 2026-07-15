@@ -1224,12 +1224,15 @@ function App() {
             </p>
           </div>
 
-          {/* Review Grid (3 Columns) */}
-          <div className="grid md:grid-cols-3 gap-8">
+          {/* Review Grid (3 Columns Desktop / Slider Mobile & Tablet) */}
+          <div 
+            className="flex lg:grid lg:grid-cols-3 gap-6 lg:gap-8 overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
+            style={{ scrollBehavior: 'smooth' }}
+          >
             {testimonials.map((review, idx) => (
               <div 
                 key={idx} 
-                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl"
+                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl min-w-[85vw] md:min-w-[350px] lg:min-w-0 snap-center flex-shrink-0 lg:flex-shrink"
               >
                 <div className="flex space-x-1 mb-6">
                   {[...Array(review.rating)].map((_, i) => (
