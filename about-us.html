@@ -96,70 +96,70 @@ const MAIN_SERVICES = [
 
 const whatWeDoList = [
   {
-    title: "Emergency Lockouts",
+    title: "Emergency lockouts",
     subtitle: "Homes, apartments, offices, and vehicles",
     icon: AlertTriangle,
     desc: "Fast emergency lockout response anytime, day or night across Auckland. We gain entry quickly using non-destructive methods wherever possible."
   },
   {
-    title: "Lock Repairs & Replacements",
-    subtitle: "Front doors, back doors, deadbolts, and windows",
-    icon: Wrench,
+    title: "Lock repairs and replacements",
+    subtitle: "For front doors, back doors, deadbolts, and windows",
+    icon: PenTool,
     desc: "Expert repairs and precision replacements for all types of door and window locks, deadbolts, and high-security lock mechanisms."
   },
   {
     title: "Rekeying",
-    subtitle: "For new homeowners, tenants, or lost keys",
+    subtitle: "For new homeowners or tenants or after a lost key",
     icon: KeyRound,
     desc: "Change lock tumblers so old keys no longer work. An affordable way to restore peace of mind when moving into a new property or after losing keys."
   },
   {
-    title: "Car Key & Transponder Replacement",
+    title: "Car key and transponder replacement",
     subtitle: "Cut and programmed on-site",
     icon: Car,
     desc: "Full automotive locksmith service. Mobile cutting and programming for spare or lost car keys, transponders, and keyless entry remotes."
   },
   {
-    title: "Commercial Locksmith Work",
-    subtitle: "Master key systems and access control",
+    title: "Commercial locksmith work",
+    subtitle: "Including master key systems and access control",
     icon: Building,
     desc: "Comprehensive business security including master keying, restricted key systems, digital access control, and commercial door hardware."
   },
   {
-    title: "Safes",
-    subtitle: "Supply, repair, and servicing",
-    icon: ShieldCheck,
-    desc: "Safe installation, opening, maintenance, and lock servicing for home and commercial security safes."
+    title: "Residential Locksmith",
+    subtitle: "For houses, home owners who give their homes for rent",
+    icon: Home,
+    desc: "Complete locksmith solutions for homeowners, landlords, and property managers across Auckland."
   }
 ];
 
 const whyChooseList = [
   {
-    title: "We're there when you need us",
+    title: "We're there when you need us.",
     icon: Clock,
     desc: "Our locksmith team is on call 24 hours a day, every day of the year, including public holidays.",
     tag: "24/7 365 Days"
   },
   {
-    title: "We come to you",
+    title: "We come to you.",
     icon: MapPin,
     desc: "As a mobile locksmith service, our vans are spread across Auckland, so most callouts are answered within 20 to 40 minutes.",
     tag: "20-40 Min Response"
   },
   {
-    title: "We stand by our work",
+    title: "We stand by our work.",
     icon: BadgeCheck,
     desc: "Every job comes with a workmanship guarantee. If something we've fitted isn't right, we come back and fix it at no extra cost.",
     tag: "Guaranteed"
   },
   {
-    title: "We're upfront about pricing",
+    title: "We're upfront about pricing.",
     icon: DollarSign,
-    desc: "You'll know the cost before we start the job, not after. No hidden fees or unexpected surprises.",
+    desc: "You'll know the cost before we start the job, not after.",
     tag: "Zero Surprises"
   },
   {
-    title: "We make it easier to pay",
+    title: "We make it easier to pay.",
     icon: CreditCard,
     desc: "Afterpay is available on our services, so an unexpected callout doesn't have to be paid in full upfront.",
     tag: "Afterpay Available"
@@ -378,11 +378,11 @@ function AboutUsHtmlPage() {
 
           <div className="max-w-4xl">
             <span className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-              <Award size={14} className="mr-2 fill-current" />
-              5,000+ JOBS COMPLETED ACROSS AUCKLAND
+              <Shield size={14} className="mr-2 fill-current" />
+              NEW ZEALAND OWNED LOCKSMITH
             </span>
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-black leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              About <span style={{ color: COLORS.yellow }}>Lostkey Locksmith Auckland</span>
+              About <span style={{ color: COLORS.yellow }}>Lostkey</span>
             </h1>
             <h2 className="text-2xl sm:text-3xl font-bold text-gray-200 mb-6 tracking-tight">
               Auckland's Mobile Locksmith Team, On Call 24/7
@@ -457,10 +457,7 @@ function AboutUsHtmlPage() {
 
               <div className="space-y-6 text-gray-600 text-lg leading-relaxed font-normal">
                 <p className="text-xl font-medium text-[#1F2937] leading-relaxed">
-                  Lostkey started with a simple idea: locksmith call-outs shouldn't mean waiting around all day or getting hit with a surprise bill.
-                </p>
-                <p>
-                  We've spent 5+ years building a team that turns up fast, explains what's wrong, and fixes it properly the first time. Every van on the road carries the tools and stock to finish most jobs in a single visit, rather than sending someone away to "come back with parts".
+                  Lostkey started with a simple idea: locksmith call-outs shouldn't mean waiting around all day or getting hit with a surprise bill. We've spent 5+ years building a team that turns up fast, explains what's wrong, and fixes it properly the first time. Every van on the road carries the tools and stock to finish most jobs in a single visit, rather than sending someone away to "come back with parts".
                 </p>
                 <p>
                   We've now completed more than <strong className="text-[#1F2937] font-bold">5,000+ jobs across Auckland</strong>, from simple lockouts to full commercial security fit-outs. That number keeps growing every week, but the way we work hasn't changed — turn up fast, do it right, and treat every job like it's the only one that matters.
@@ -525,7 +522,7 @@ function AboutUsHtmlPage() {
                     {item.title}
                   </h3>
                   <span className="inline-block text-xs font-bold uppercase tracking-wider text-gray-400 mb-4">
-                    {item.subtitle}
+                    — {item.subtitle}
                   </span>
                   <p className="text-gray-600 leading-relaxed text-sm">
                     {item.desc}
@@ -624,14 +621,22 @@ function AboutUsHtmlPage() {
                 Where We Work
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed font-normal">
-                Wherever you are in Auckland, a Lostkey locksmith isn't far away. Our mobile vans are spread across the region, from the CBD to the Hibiscus Coast, so call-outs get answered fast, not just in central suburbs.
+                We cover the full Auckland region, including:
               </p>
-              <div className="pt-4">
+              <ul className="space-y-2 text-gray-700 font-semibold">
+                {serviceAreas.map((area, idx) => (
+                  <li key={idx} className="flex items-center space-x-2">
+                    <MapPin size={16} className="text-[#F4C430]" />
+                    <span>{area}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="pt-4 border-t border-gray-200">
                 <a 
                   href="areas-we-cover.html" 
                   className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-[#0B1F3A] hover:text-[#F4C430] transition-colors"
                 >
-                  Explore All 8 Service Regions →
+                  See the full list of suburbs we service on our Areas We Cover page →
                 </a>
               </div>
             </div>
@@ -660,16 +665,22 @@ function AboutUsHtmlPage() {
         </div>
       </section>
 
-      {/* URGENT CALLOUT BANNER */}
+      {/* GET IN TOUCH SECTION */}
       <section className="py-20 bg-[#0B1F3A] text-white text-center">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
+          <span 
+            className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-2"
+            style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+          >
+            CONTACT OUR TEAM
+          </span>
           <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-            Locked out right now?
+            Get in Touch
           </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-            Don't wait — call <strong className="text-[#F4C430]">0800 828 345</strong> and we'll have someone on the way.
+          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+            Whether it's a home, a car, or a business, our team is ready to help. Call <strong className="text-[#F4C430]">0800 828 345</strong> to talk to a member of our team now, or get in touch online, and we'll be back to you shortly.
           </p>
-          <div className="pt-4">
+          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
             <a 
               href="tel:0800828345" 
               className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
@@ -677,6 +688,13 @@ function AboutUsHtmlPage() {
             >
               <Phone size={24} className="fill-current" />
               <span>Call 0800 828 345 Now</span>
+            </a>
+            <a 
+              href="contact-us.html" 
+              className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider border-2 border-white hover:border-[#F4C430] hover:text-[#F4C430] transition-all"
+            >
+              <Mail size={24} />
+              <span>Contact Online</span>
             </a>
           </div>
         </div>
