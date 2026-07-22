@@ -573,6 +573,17 @@ function App() {
                     </a>
                   );
                 }
+                if (item === 'Contact') {
+                  return (
+                    <a 
+                      key={item}
+                      href="contact-us.html"
+                      className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg border-b border-gray-100 hover:pl-2 transition-all hover:text-[#F4C430]"
+                    >
+                      {item} <ChevronRight size={18} className="text-gray-400" />
+                    </a>
+                  );
+                }
                 return (
                   <a 
                     key={item}
@@ -1616,8 +1627,8 @@ function App() {
                 {['Home', 'About Us', 'Reviews', 'Contact'].map((item) => (
                   <li key={item}>
                     <a 
-                      href={item === 'About Us' ? 'about-us.html' : `#${item.toLowerCase().replace(' ', '-')}`}
-                      onClick={item === 'About Us' ? undefined : (e) => handleNavClick(e, item === 'Home' ? 'home' : item.toLowerCase())}
+                      href={item === 'About Us' ? 'about-us.html' : item === 'Contact' ? 'contact-us.html' : `#${item.toLowerCase().replace(' ', '-')}`}
+                      onClick={(item === 'About Us' || item === 'Contact') ? undefined : (e) => handleNavClick(e, item === 'Home' ? 'home' : item.toLowerCase())}
                       className="hover:text-white transition-colors inline-flex items-center"
                     >
                       <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
@@ -1761,8 +1772,7 @@ function App() {
           <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Call Now</span>
         </a>
         <a 
-          href="#contact" 
-          onClick={(e) => handleNavClick(e, 'contact')}
+          href="contact-us.html" 
           className="bg-[#F4C430] text-[#0B1F3A] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer border-t border-[#132B4F] group"
         >
           <Calendar size={20} className="group-hover:scale-110 transition-transform" />

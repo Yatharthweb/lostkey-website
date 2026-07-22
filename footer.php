@@ -238,7 +238,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
           <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Call Now</span>
         </a>
         <a 
-          href="#contact" 
+          href="contact-us.php" 
           className="bg-[#F4C430] text-[#0B1F3A] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer border-t border-[#132B4F] group"
         >
           <Calendar size={20} className="group-hover:scale-110 transition-transform" />
