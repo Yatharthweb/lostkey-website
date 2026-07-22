@@ -190,6 +190,7 @@ function AboutUsHtmlPage() {
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
       
       {/* TOP INFO BAR */}
+      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
       <div className="text-sm py-2.5" style={{ backgroundColor: COLORS.black, borderBottom: '1px solid #222' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           <div className="md:hidden flex flex-col w-full gap-y-2.5 px-1">
@@ -253,7 +254,7 @@ function AboutUsHtmlPage() {
       </div>
 
       {/* NAVIGATION */}
-      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
+      <nav className="w-full" style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           <a href="index.html" className="flex items-center space-x-1 cursor-pointer group">
             <span className="text-4xl md:text-[42px] font-black tracking-tighter flex items-center" style={{ color: COLORS.yellow, fontFamily: "'Inter Tight', sans-serif" }}>
@@ -366,6 +367,7 @@ function AboutUsHtmlPage() {
           </div>
         )}
       </nav>
+    </header>
 
       {/* HERO SECTION */}
       <section className="relative bg-[#0B1F3A] text-white py-20 lg:py-28 overflow-hidden">

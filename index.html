@@ -359,6 +359,7 @@ function App() {
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
       
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TOP INFO BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
       <div className="text-sm py-2.5" style={{ backgroundColor: COLORS.black, borderBottom: '1px solid #222' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           
@@ -425,7 +426,7 @@ function App() {
       </div>
 
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• MAIN NAVIGATION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
-      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
+      <nav className="w-full" style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           
           {/* Logo */}
@@ -650,6 +651,7 @@ function App() {
           </div>
         )}
       </nav>
+    </header>
 
       {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="home" className="relative text-white overflow-hidden min-h-[600px] md:h-[680px] flex items-center" style={{ backgroundColor: COLORS.black }}>

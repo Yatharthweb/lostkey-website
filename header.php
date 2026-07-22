@@ -129,7 +129,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
   }, []);
 
   return (
-    <>
+    <header className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
       {/* TOP INFO BAR */}
       <div className="text-sm py-2.5" style={{ backgroundColor: COLORS.black, borderBottom: '1px solid #222' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
@@ -194,7 +194,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
       </div>
 
       {/* MAIN NAVIGATION */}
-      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
+      <nav className="w-full" style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           
           <a href="index.php" className="flex items-center space-x-1 cursor-pointer group">
@@ -392,6 +392,6 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
           </div>
         )}
       </nav>
-    </>
+    </header>
   );
 };
