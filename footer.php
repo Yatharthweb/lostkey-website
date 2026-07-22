@@ -96,6 +96,12 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                   </a>
                 </li>
                 <li>
+                  <a href="areas-we-cover.php" className="hover:text-white transition-colors inline-flex items-center">
+                    <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
+                    Areas We Cover
+                  </a>
+                </li>
+                <li>
                   <a href="index.php#reviews" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Reviews

@@ -248,15 +248,18 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
               </div>
 
               <div className="relative group h-full flex items-center">
-                <div className="flex items-center cursor-pointer text-white hover:opacity-80 transition py-6">
+                <a 
+                  href="areas-we-cover.php" 
+                  className={currentPage === 'areas' ? 'flex items-center text-[#F4C430] font-extrabold border-b-2 border-[#F4C430] py-6' : 'flex items-center text-white hover:opacity-80 transition py-6'}
+                >
                   Areas We Cover <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
-                </div>
+                </a>
                 <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[500px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-6 border-t-[4px] border-[#F4C430] cursor-default z-50">
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                     {serviceAreas.map((area, idx) => (
                       <a 
                         key={idx} 
-                        href={currentPage === 'about' ? '#areas-we-cover' : 'index.php#contact'} 
+                        href="areas-we-cover.php" 
                         className="flex items-center space-x-3 group/item hover:bg-gray-50 p-2 -m-2 rounded-xl transition-colors"
                       >
                         <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
@@ -304,6 +307,9 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
               </a>
               <a href="about-us.php" className={`flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100 ${currentPage === 'about' ? 'text-[#F4C430]' : 'text-gray-900'}`}>
                 About Us <ChevronRight size={18} className={currentPage === 'about' ? 'text-[#F4C430]' : 'text-gray-400'} />
+              </a>
+              <a href="areas-we-cover.php" className={`flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100 ${currentPage === 'areas' ? 'text-[#F4C430]' : 'text-gray-900'}`}>
+                Areas We Cover <ChevronRight size={18} className={currentPage === 'areas' ? 'text-[#F4C430]' : 'text-gray-400'} />
               </a>
               <div className="flex flex-col border-b border-gray-100">
                 <div 
