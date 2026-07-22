@@ -209,7 +209,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
             </p>
             <div className="flex space-x-6">
               <a href="terms-and-conditions.php" className="hover:text-[#F4C430] transition-colors">Terms & Conditions</a>
-              <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
+              <a href="privacy-policy.php" className="hover:text-[#F4C430] transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>
