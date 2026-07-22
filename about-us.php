@@ -448,36 +448,38 @@ function AboutUsPageContent() {
       </section>
 
       {/* GET IN TOUCH SECTION */}
-      <section className="py-20 bg-[#0B1F3A] text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span 
-            className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-2"
-            style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
-          >
-            CONTACT OUR TEAM
-          </span>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-            Get in Touch
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Whether it's a home, a car, or a business, our team is ready to help. Call <strong className="text-[#F4C430]">0800 828 345</strong> to talk to a member of our team now, or get in touch online, and we'll be back to you shortly.
-          </p>
-          <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="tel:0800828345" 
-              className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#0B1F3A] rounded-3xl p-10 md:p-16 text-white text-center space-y-6 shadow-2xl relative overflow-hidden border border-[#132B4F]">
+            <span 
+              className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-2"
               style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
             >
-              <Phone size={24} className="fill-current" />
-              <span>Call 0800 828 345 Now</span>
-            </a>
-            <a 
-              href="contact-us.php" 
-              className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider border-2 border-white hover:border-[#F4C430] hover:text-[#F4C430] transition-all"
-            >
-              <Mail size={24} />
-              <span>Contact Online</span>
-            </a>
+              CONTACT OUR TEAM
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              Get in Touch
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Whether it's a home, a car, or a business, our team is ready to help. Call <strong className="text-[#F4C430]">0800 828 345</strong> to talk to a member of our team now, or get in touch online, and we'll be back to you shortly.
+            </p>
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+              <a 
+                href="tel:0800828345" 
+                className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
+                style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+              >
+                <Phone size={24} className="fill-current" />
+                <span>Call 0800 828 345 Now</span>
+              </a>
+              <a 
+                href="contact-us.php" 
+                className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider border-2 border-white hover:border-[#F4C430] hover:text-[#F4C430] transition-all"
+              >
+                <Mail size={24} />
+                <span>Contact Online</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
