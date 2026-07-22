@@ -95,6 +95,44 @@ function ContactPageContent() {
         </div>
       </section>
 
+      {/* ═══════════════ PARTNERS LOGO SCROLLER ═══════════════ */}
+      <section className="bg-white py-10 border-b border-gray-100 overflow-hidden relative z-10">
+        <div className="relative w-full overflow-hidden flex items-center">
+          {/* Gradient Masks for smooth fading edges */}
+          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex animate-marquee whitespace-nowrap items-center">
+            {/* Set 1 */}
+            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
+              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
+            </div>
+            {/* Set 2 */}
+            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
+              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* OUR DETAILS SECTION */}
       <section className="py-20 bg-white relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
