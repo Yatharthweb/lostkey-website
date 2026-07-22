@@ -208,7 +208,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
               Designed and Developed By <a href="https://atrangihome.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#F4C430] transition-colors font-bold">Atrangi Home</a>
             </p>
             <div className="flex space-x-6">
-              <a href="#" className="hover:text-white transition-colors">Terms & Conditions</a>
+              <a href="terms-and-conditions.php" className="hover:text-[#F4C430] transition-colors">Terms & Conditions</a>
               <a href="#" className="hover:text-white transition-colors">Privacy Policy</a>
             </div>
           </div>
