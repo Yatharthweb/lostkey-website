@@ -119,17 +119,10 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
             <div>
               <h4 className="text-white font-bold text-lg mb-6">Our Services</h4>
               <ul className="space-y-3 text-gray-400">
-                {[
-                  { name: 'Emergency Locksmith Auckland', icon: Zap },
-                  { name: '24-Hour Locksmith Auckland', icon: Clock },
-                  { name: 'Residential Locksmith Auckland', icon: Home },
-                  { name: 'Automotive Locksmith Auckland', icon: Car },
-                  { name: 'Car Key Replacement Auckland', icon: KeyRound },
-                  { name: 'Lock Rekeying Auckland', icon: Lock }
-                ].map((service, idx) => (
+                {MAIN_SERVICES.slice(0, 6).map((service, idx) => (
                   <li key={idx}>
                     <a 
-                      href="index.php#contact"
+                      href={service.url}
                       className="hover:text-[#F4C430] transition-colors flex items-start space-x-2 group"
                     >
                       <service.icon size={16} className="text-[#F4C430] flex-shrink-0 mt-0.5" />

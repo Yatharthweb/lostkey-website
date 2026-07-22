@@ -97,21 +97,21 @@ const serviceAreas = [
 ];
 
 const MAIN_SERVICES = [
-  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
-  { name: '24 Hour Locksmith Auckland', icon: Clock },
-  { name: 'Residential Locksmith Auckland', icon: Home },
-  { name: 'Commercial Locksmith Auckland', icon: Building },
-  { name: 'Automotive Locksmith Auckland', icon: Car },
-  { name: 'Car Key Replacement Auckland', icon: Key },
-  { name: 'Lock Rekeying Auckland', icon: Wrench },
-  { name: 'Lock Repair Auckland', icon: PenTool },
-  { name: 'Lock Replacement Auckland', icon: Shield },
-  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
-  { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
-  { name: 'Ignition Repair Auckland', icon: Settings },
-  { name: 'Ignition Replacement Auckland', icon: Power },
-  { name: 'Master Key Systems Auckland', icon: Layers },
-  { name: 'Restricted Key Systems Auckland', icon: Lock },
+  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.php' },
+  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.php' },
+  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.php' },
+  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.php#contact' },
+  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.php' },
+  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.php#contact' },
+  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.php#contact' },
+  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.php#contact' },
+  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.php#contact' },
+  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.php#contact' },
+  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.php#contact' },
+  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.php#contact' },
+  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.php#contact' },
+  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.php#contact' },
+  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.php#contact' },
 ];
 
 window.HeaderComponent = function HeaderComponent({ currentPage }) {
@@ -233,7 +233,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                     {MAIN_SERVICES.map((service, idx) => (
                       <a 
                         key={idx} 
-                        href={service.name === 'Automotive Locksmith Auckland' ? 'automotive-locksmith-auckland.php' : service.name === 'Residential Locksmith Auckland' ? 'residential-locksmith-auckland.php' : service.name === '24 Hour Locksmith Auckland' ? '24-hour-locksmith-auckland.php' : service.name === 'Emergency Locksmith Auckland' ? 'emergency-locksmith-auckland.php' : 'index.php#contact'} 
+                        href={service.url} 
                         className="flex items-center space-x-3 group/item hover:bg-gray-50 p-2 -m-2 rounded-xl transition-colors"
                       >
                         <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
@@ -362,7 +362,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   {MAIN_SERVICES.map((service, idx) => (
                     <a 
                       key={idx} 
-                      href={service.name === 'Automotive Locksmith Auckland' ? 'automotive-locksmith-auckland.php' : service.name === 'Residential Locksmith Auckland' ? 'residential-locksmith-auckland.php' : service.name === '24 Hour Locksmith Auckland' ? '24-hour-locksmith-auckland.php' : service.name === 'Emergency Locksmith Auckland' ? 'emergency-locksmith-auckland.php' : 'index.php#contact'} 
+                      href={service.url} 
                       className="flex flex-col items-center text-center group px-1" 
                       onClick={() => { setMobileMenuOpen(false); setMobileServicesOpen(false); }}
                     >
