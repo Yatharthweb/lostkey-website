@@ -233,7 +233,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                     {MAIN_SERVICES.map((service, idx) => (
                       <a 
                         key={idx} 
-                        href={service.name === 'Automotive Locksmith Auckland' ? 'automotive-locksmith-auckland.php' : 'index.php#contact'} 
+                        href={service.name === 'Automotive Locksmith Auckland' ? 'automotive-locksmith-auckland.php' : service.name === 'Residential Locksmith Auckland' ? 'residential-locksmith-auckland.php' : 'index.php#contact'} 
                         className="flex items-center space-x-3 group/item hover:bg-gray-50 p-2 -m-2 rounded-xl transition-colors"
                       >
                         <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
@@ -362,7 +362,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   {MAIN_SERVICES.map((service, idx) => (
                     <a 
                       key={idx} 
-                      href={service.name === 'Automotive Locksmith Auckland' ? 'automotive-locksmith-auckland.php' : 'index.php#contact'} 
+                      href={service.name === 'Automotive Locksmith Auckland' ? 'automotive-locksmith-auckland.php' : service.name === 'Residential Locksmith Auckland' ? 'residential-locksmith-auckland.php' : 'index.php#contact'} 
                       className="flex flex-col items-center text-center group px-1" 
                       onClick={() => { setMobileMenuOpen(false); setMobileServicesOpen(false); }}
                     >
