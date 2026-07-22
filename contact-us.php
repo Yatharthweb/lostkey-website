@@ -481,7 +481,7 @@ function ContactPageContent() {
               style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
             >
               <Phone size={28} className="fill-current" />
-              <span>Call 0800 828 345 Now</span>
+              <span>Call Now: 0800 828 345</span>
             </a>
           </div>
         </div>

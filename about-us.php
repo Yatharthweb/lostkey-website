@@ -380,7 +380,7 @@ function AboutUsPageContent() {
                 className="bg-[#0B1F3A] text-white hover:bg-black transition-colors py-4 px-6 rounded-full font-bold text-center text-sm uppercase tracking-wider shadow-lg flex items-center justify-center space-x-2"
               >
                 <Phone size={18} />
-                <span>Call 0800 828 345</span>
+                <span>Call Now: 0800 828 345</span>
               </a>
             </div>
           </div>
@@ -470,7 +470,7 @@ function AboutUsPageContent() {
                 style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
               >
                 <Phone size={24} className="fill-current" />
-                <span>Call 0800 828 345 Now</span>
+                <span>Call Now: 0800 828 345</span>
               </a>
               <a 
                 href="contact-us.php" 
