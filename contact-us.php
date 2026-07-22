@@ -464,28 +464,7 @@ function ContactPageContent() {
         </div>
       </section>
 
-      {/* URGENT CALLOUT BANNER */}
-      <section className="py-16 bg-[#0B1F3A] text-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
-          <h2 className="text-3xl md:text-5xl font-black" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-            Locked out right now?
-          </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-medium">
-            Don't wait — call <strong className="text-[#F4C430]">0800 828 345</strong> and we'll have someone on the way.
-          </p>
 
-          <div className="pt-4">
-            <a 
-              href="tel:0800828345" 
-              className="inline-flex items-center space-x-4 px-8 py-5 rounded-full font-black text-xl md:text-2xl uppercase tracking-wider hover:brightness-110 shadow-2xl transition-all"
-              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
-            >
-              <Phone size={28} className="fill-current" />
-              <span>Call Now: 0800 828 345</span>
-            </a>
-          </div>
-        </div>
-      </section>
 
       <window.FooterComponent currentPage="contact" />
     </div>
