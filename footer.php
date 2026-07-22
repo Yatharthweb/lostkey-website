@@ -102,7 +102,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="contact-us.php" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Contact
                   </a>

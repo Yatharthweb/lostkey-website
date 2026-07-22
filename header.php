@@ -270,7 +270,12 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   </div>
                 </div>
               </div>
-              <a href="#contact" className="text-white hover:opacity-80 transition py-6">Contact</a>
+              <a 
+                href="contact-us.php" 
+                className={currentPage === 'contact' ? 'text-[#F4C430] font-extrabold border-b-2 border-[#F4C430] py-6' : 'text-white hover:opacity-80 transition py-6'}
+              >
+                Contact
+              </a>
             </div>
             
             <a 
@@ -327,8 +332,8 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   ))}
                 </div>
               </div>
-              <a href="#contact" onClick={() => setMobileMenuOpen(false)} className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg border-b border-gray-100 hover:text-[#F4C430]">
-                Contact <ChevronRight size={18} className="text-gray-400" />
+              <a href="contact-us.php" onClick={() => setMobileMenuOpen(false)} className={`flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100 ${currentPage === 'contact' ? 'text-[#F4C430]' : 'text-gray-900'}`}>
+                Contact <ChevronRight size={18} className={currentPage === 'contact' ? 'text-[#F4C430]' : 'text-gray-400'} />
               </a>
 
               <div className="pt-6 pb-2">

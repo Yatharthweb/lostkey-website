@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Lostkey Locksmith Auckland | Need a Locksmith? Get in Touch Now</title>
+    <meta name="description" content="Contact Lostkey Locksmith in Auckland. Emergency locksmith services on call 24/7 across Auckland. Call 0800 828 345 for fast 20-40 min arrival.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "react": "https://esm.sh/react@18.2.0",
+          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+          "lucide-react": "https://esm.sh/lucide-react@0.292.0"
+        }
+      }
+    </script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
+      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
+      body { margin: 0; padding: 0; }
+      @keyframes ring-shake {
+        0% { transform: rotate(0deg); }
+        15% { transform: rotate(15deg); }
+        30% { transform: rotate(-10deg); }
+        45% { transform: rotate(5deg); }
+        60% { transform: rotate(-5deg); }
+        75% { transform: rotate(2deg); }
+        100% { transform: rotate(0deg); }
+      }
+      .hover-ring:hover .phone-icon {
+        animation: ring-shake 0.5s ease-in-out infinite;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0%); }
+        100% { transform: translateX(-100%); }
+      }
+      .animate-marquee {
+        animation: marquee 25s linear infinite;
+      }
+    </style>
+</head>
+<body>
+    <div id="root"></div>
+    <script type="text/babel" data-type="module">
+import React, { useState, useEffect } from 'react';
+import { createRoot } from 'react-dom/client';
+import { 
+  Menu, X, Phone, Lock, Home, Car, 
+  ShieldCheck, ChevronRight, ChevronLeft, ChevronDown,
+  Key, Clock, Award, MapPin, Wrench,
+  Star, Quote, CheckCircle2,
+  ArrowRight, Shield, Mail, Facebook, Twitter, Youtube,
+  Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound,
+  Users, Check, User, Calendar, Play, ArrowUp, FileText,
+  AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers,
+  CreditCard, Send
+} from 'lucide-react';
+
+const COLORS = {
+  yellow: '#F4C430',
+  black: '#0B1F3A',
+  white: '#FFFFFF',
+};
+
+const serviceAreas = [
+  "Auckland Central",
+  "North Shore",
+  "West Auckland",
+  "South Auckland",
+  "East Auckland",
+  "Rodney",
+  "Franklin",
+  "Orewa & Hibiscus Coast"
+];
+
+const MAIN_SERVICES = [
+  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
+  { name: '24 Hour Locksmith Auckland', icon: Clock },
+  { name: 'Residential Locksmith Auckland', icon: Home },
+  { name: 'Commercial Locksmith Auckland', icon: Building },
+  { name: 'Automotive Locksmith Auckland', icon: Car },
+  { name: 'Car Key Replacement Auckland', icon: Key },
+  { name: 'Lock Rekeying Auckland', icon: Wrench },
+  { name: 'Lock Repair Auckland', icon: PenTool },
+  { name: 'Lock Replacement Auckland', icon: Shield },
+  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
+  { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
+  { name: 'Ignition Repair Auckland', icon: Settings },
+  { name: 'Ignition Replacement Auckland', icon: Power },
+  { name: 'Master Key Systems Auckland', icon: Layers },
+  { name: 'Restricted Key Systems Auckland', icon: Lock },
+];
+
+function ContactUsHtmlPage() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (formData.name && formData.email && formData.phone && formData.message) {
+      setSubmitted(true);
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
+      
+      {/* TOP INFO BAR */}
+      <div className="text-sm py-2.5" style={{ backgroundColor: COLORS.black, borderBottom: '1px solid #222' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
+          <div className="md:hidden flex flex-col w-full gap-y-2.5 px-1">
+            <div className="flex justify-between items-center w-full">
+              <span className="flex items-center text-gray-300 text-[11px]">
+                <MapPin size={12} className="mr-1.5 flex-shrink-0" style={{ color: COLORS.yellow }} />
+                12 Queen St, Auckland 1010
+              </span>
+              <span className="flex items-center text-gray-300 text-[11px] font-bold">
+                <Phone size={12} className="mr-1.5 flex-shrink-0" style={{ color: COLORS.yellow }} />
+                0800 828 345
+              </span>
+            </div>
+            <div className="flex justify-between items-center w-full">
+              <span className="flex items-center text-gray-300 text-[11px]">
+                <Mail size={12} className="mr-1.5 flex-shrink-0" style={{ color: COLORS.yellow }} />
+                hello@lostkey.co.nz
+              </span>
+              <div className="flex items-center space-x-2">
+                <a href="#" className="w-6 h-6 flex items-center justify-center border border-gray-600 hover:border-white hover:bg-white/10 transition-colors rounded-sm" aria-label="Facebook">
+                  <Facebook size={10} className="text-gray-300" />
+                </a>
+                <a href="#" className="w-6 h-6 flex items-center justify-center border border-gray-600 hover:border-white hover:bg-white/10 transition-colors rounded-sm" aria-label="Twitter">
+                  <Twitter size={10} className="text-gray-300" />
+                </a>
+                <a href="#" className="w-6 h-6 flex items-center justify-center border border-gray-600 hover:border-white hover:bg-white/10 transition-colors rounded-sm" aria-label="YouTube">
+                  <Youtube size={10} className="text-gray-300" />
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div className="hidden md:flex justify-between items-center w-full">
+            <div className="flex items-center gap-x-5">
+              <span className="flex items-center text-gray-300 text-sm">
+                <MapPin size={13} className="mr-1.5 flex-shrink-0" style={{ color: COLORS.yellow }} />
+                12 Queen St, Auckland 1010
+              </span>
+              <span className="flex items-center text-gray-300 text-sm">
+                <Mail size={13} className="mr-1.5 flex-shrink-0" style={{ color: COLORS.yellow }} />
+                hello@lostkey.co.nz
+              </span>
+              <span className="flex items-center text-gray-300 text-sm font-bold">
+                <Phone size={13} className="mr-1.5 flex-shrink-0" style={{ color: COLORS.yellow }} />
+                0800 828 345
+              </span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <a href="#" className="w-7 h-7 flex items-center justify-center border border-gray-600 hover:border-white hover:bg-white/10 transition-colors rounded-sm" aria-label="Facebook">
+                <Facebook size={12} className="text-gray-300" />
+              </a>
+              <a href="#" className="w-7 h-7 flex items-center justify-center border border-gray-600 hover:border-white hover:bg-white/10 transition-colors rounded-sm" aria-label="Twitter">
+                <Twitter size={12} className="text-gray-300" />
+              </a>
+              <a href="#" className="w-7 h-7 flex items-center justify-center border border-gray-600 hover:border-white hover:bg-white/10 transition-colors rounded-sm" aria-label="YouTube">
+                <Youtube size={12} className="text-gray-300" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* NAVIGATION */}
+      <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
+          <a href="index.html" className="flex items-center space-x-1 cursor-pointer group">
+            <span className="text-4xl md:text-[42px] font-black tracking-tighter flex items-center" style={{ color: COLORS.yellow, fontFamily: "'Inter Tight', sans-serif" }}>
+              L
+              <span className="relative flex items-center justify-center mx-[1px]">
+                O
+                <Lock size={15} fill={COLORS.black} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style={{ color: COLORS.black }} />
+              </span>
+              ST
+              <span className="text-white ml-2">KEY</span>
+            </span>
+          </a>
+
+          <div className="hidden lg:flex items-center space-x-12">
+            <div className="flex space-x-8 text-[15px] font-bold tracking-wide h-full items-center">
+              <a href="index.html" className="text-white hover:opacity-80 transition py-6">Home</a>
+              <a href="about-us.html" className="text-white hover:opacity-80 transition py-6">About Us</a>
+              <div className="relative group h-full flex items-center">
+                <a href="index.html#services" className="flex items-center text-white hover:opacity-80 transition py-6">
+                  Services <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
+                </a>
+              </div>
+              <a href="contact-us.html" className="text-[#F4C430] font-extrabold border-b-2 border-[#F4C430] py-6">Contact</a>
+            </div>
+            
+            <a 
+              href="tel:0800828345" 
+              className="hover-ring flex items-center px-6 py-3 font-bold text-[13px] uppercase tracking-wider transition-all hover:brightness-110 rounded-full shadow-lg"
+              style={{ backgroundColor: '#DC2626', color: COLORS.white }}
+            >
+              <Phone size={16} className="mr-2 phone-icon" strokeWidth={2.5} />
+              Emergency
+            </a>
+          </div>
+
+          <button className="lg:hidden p-2 text-white focus:outline-none" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+            {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
+        </div>
+
+        {mobileMenuOpen && (
+          <div className="lg:hidden absolute top-full left-0 w-full shadow-2xl bg-white border-t border-gray-100">
+            <div className="flex flex-col px-4 py-6 space-y-1">
+              <a href="index.html" className="flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100">
+                Home <ChevronRight size={18} className="text-gray-400" />
+              </a>
+              <a href="about-us.html" className="flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100">
+                About Us <ChevronRight size={18} className="text-gray-400" />
+              </a>
+              <a href="contact-us.html" className="flex justify-between items-center py-4 text-[#F4C430] font-bold text-lg border-b border-gray-100">
+                Contact <ChevronRight size={18} className="text-[#F4C430]" />
+              </a>
+            </div>
+          </div>
+        )}
+      </nav>
+
+      {/* HERO SECTION */}
+      <section className="relative bg-[#0B1F3A] text-white py-20 lg:py-28 overflow-hidden">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
+          <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
+            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <ChevronRight size={14} className="text-gray-500" />
+            <span className="text-[#F4C430] font-bold">Contact</span>
+          </div>
+
+          <div className="max-w-4xl">
+            <span 
+              className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              <Phone size={14} className="mr-2 fill-current" />
+              24/7 LOCKSMITH SERVICE AUCKLAND
+            </span>
+
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[64px] font-black leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              Contact <span style={{ color: COLORS.yellow }}>Lostkey Locksmith Auckland</span>
+            </h1>
+
+            <h2 className="text-2xl sm:text-3xl font-bold text-gray-200 mb-6 tracking-tight">
+              Need a Locksmith? Get in Touch Now.
+            </h2>
+
+            <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl font-medium mb-8">
+              Is the lockout situation puzzling you? Did you lose your keys? Do you require repairing a lock? Just reach us on <strong className="text-white">0800 828 345</strong>. We offer emergency locksmith services throughout Auckland and are on call 24/7 regardless of the time of the day.
+            </p>
+
+            <div className="pt-2">
+              <a 
+                href="tel:0800828345" 
+                className="inline-flex items-center space-x-4 border border-white rounded-full px-2 py-2 pr-10 hover:border-[#F4C430] transition-all group bg-[#0B1F3A]/40"
+              >
+                <div className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: COLORS.yellow }}>
+                  <Phone size={24} style={{ color: COLORS.black, fill: COLORS.black }} />
+                </div>
+                <div className="flex flex-col">
+                  <span className="text-[11px] uppercase tracking-wider text-gray-200 font-bold mb-0.5">Call Now 24/7</span>
+                  <span className="text-white font-black text-2xl md:text-3xl tracking-wide leading-none whitespace-nowrap">0800 828 345</span>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* OUR DETAILS SECTION */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+              CONTACT INFORMATION
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1F2937] tracking-tight mb-4" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              Our Details
+            </h2>
+            <p className="text-gray-500 text-lg">Here is how you can reach our workshop, office, or mobile locksmith units anytime.</p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-6 text-[#F4C430]"><Phone size={26} /></div>
+                <h3 className="text-xl font-bold text-[#1F2937] mb-2">Phone</h3>
+                <p className="text-gray-500 text-sm mb-4">Direct dispatch line for all Auckland callouts.</p>
+                <a href="tel:0800828345" className="text-2xl font-black text-[#0B1F3A] hover:text-[#F4C430] transition-colors block">0800 828 345</a>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-6 text-[#F4C430]"><Mail size={26} /></div>
+                <h3 className="text-xl font-bold text-[#1F2937] mb-2">Email</h3>
+                <p className="text-gray-500 text-sm mb-4">For general inquiries, quotes & invoicing.</p>
+                <a href="mailto:info@lostkey.co.nz" className="text-lg font-bold text-[#0B1F3A] hover:text-[#F4C430] transition-colors block">info@lostkey.co.nz</a>
+                <a href="mailto:hello@lostkey.co.nz" className="text-sm font-semibold text-gray-600 hover:text-[#F4C430] transition-colors block mt-1">hello@lostkey.co.nz</a>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-6 text-[#F4C430]"><MapPin size={26} /></div>
+                <h3 className="text-xl font-bold text-[#1F2937] mb-2">Address</h3>
+                <p className="text-gray-500 text-sm mb-4">Workshop & central office location.</p>
+                <p className="text-lg font-bold text-[#0B1F3A]">12 Queen Street, Auckland 1010</p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-6 text-[#F4C430]"><Building size={26} /></div>
+                <h3 className="text-xl font-bold text-[#1F2937] mb-2">Workshop Hours</h3>
+                <p className="text-base font-bold text-[#0B1F3A]">Monday to Friday: <span className="text-emerald-600 font-extrabold">Open 24 hours</span></p>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-6 text-[#F4C430]"><Wrench size={26} /></div>
+                <h3 className="text-xl font-bold text-[#1F2937] mb-2">On-Road Service</h3>
+                <p className="text-base font-bold text-[#0B1F3A]">Monday to Friday: 8:00am – 5:00pm</p>
+              </div>
+            </div>
+
+            <div className="bg-[#0B1F3A] text-white rounded-3xl p-8 shadow-xl flex flex-col justify-between">
+              <div>
+                <div className="w-14 h-14 rounded-2xl bg-[#F4C430] flex items-center justify-center mb-6 text-[#0B1F3A]"><Clock size={26} /></div>
+                <h3 className="text-xl font-bold text-white mb-2">After Hours</h3>
+                <p className="text-gray-300 text-sm mb-4">24/7 emergency locksmith service available right across Auckland.</p>
+                <a href="tel:0800828345" className="text-2xl font-black text-[#F4C430] hover:underline block">0800 828 345</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* MAP */}
+      <section className="bg-gray-100 py-12 border-y border-gray-200">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white h-[450px]">
+            <iframe 
+              title="Lostkey Locksmith Location Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d102069.96783852028!2d174.7369081!3d-36.8686223!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54062ef2b1bb7df%3A0x5233608b17fcbe38!2sLost%20Key%20NZ%20%7C%20Automotive%20Locksmith%20Auckland!5e0!3m2!1sen!2snz!4v1700000000000!5m2!1sen!2snz" 
+              className="w-full h-full border-0" 
+              allowFullScreen="" 
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      {/* HOW TO REACH US */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            <div className="lg:col-span-6 space-y-6">
+              <span className="inline-block text-xs font-black uppercase tracking-widest px-5 py-2 rounded-full" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+                PROMPT & RELIABLE SERVICE
+              </span>
+              <h2 className="text-4xl md:text-5xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>How to Reach Us</h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Whether it is for replacing locks, rekeying locks or for new house keys, our workshop team is ready to help you during business hours. For all urgent requirements, we have mobile locksmiths across Auckland who are ready to help you round the clock in any sort of urgent situation. Just call us and we will send our locksmith to solve the problem for you.
+              </p>
+              <p className="text-gray-600 text-lg leading-relaxed bg-[#FFF8E1] border-l-4 border-[#F4C430] p-5 rounded-r-2xl">
+                Want to know more about what we do first? Check out our residential, commercial, and automotive locksmith services, or read what our customers have to say on our testimonials page.
+              </p>
+            </div>
+            <div className="lg:col-span-6">
+              <img src="office-lock.jpeg" alt="Lostkey service" className="rounded-3xl shadow-2xl w-full h-[450px] object-cover" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* SEND US A MESSAGE FORM */}
+      <section className="py-20 bg-gray-50 border-t border-gray-100">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-2xl mx-auto mb-12">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+              ONLINE INQUIRY
+            </span>
+            <h2 className="text-4xl md:text-5xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>Send Us a Message</h2>
+            <p className="text-gray-600 text-lg">Prefer to write to us instead of calling? Fill in the form below and our team will get back to you as soon as possible.</p>
+          </div>
+
+          <div className="bg-[#0B1F3A] rounded-3xl p-8 sm:p-12 md:p-16 shadow-2xl text-white">
+            {submitted ? (
+              <div className="bg-emerald-500/20 border border-emerald-500 text-white p-8 rounded-2xl text-center space-y-4">
+                <h3 className="text-2xl font-bold">Thank You! Message Sent.</h3>
+                <p className="text-gray-200">Our team has received your message and will respond shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Your Name*</label>
+                    <input type="text" required placeholder="John Doe" value={formData.name} onChange={(e) => setFormData({...formData, name: e.target.value})} className="w-full bg-[#132B4F] border border-white/10 rounded-xl text-white p-4 text-sm" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Your Email*</label>
+                    <input type="email" required placeholder="john@example.com" value={formData.email} onChange={(e) => setFormData({...formData, email: e.target.value})} className="w-full bg-[#132B4F] border border-white/10 rounded-xl text-white p-4 text-sm" />
+                  </div>
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Your Phone*</label>
+                  <input type="tel" required placeholder="021 123 4567" value={formData.phone} onChange={(e) => setFormData({...formData, phone: e.target.value})} className="w-full bg-[#132B4F] border border-white/10 rounded-xl text-white p-4 text-sm" />
+                </div>
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-2">Your Message*</label>
+                  <textarea required rows={4} placeholder="Describe how we can help you..." value={formData.message} onChange={(e) => setFormData({...formData, message: e.target.value})} className="w-full bg-[#132B4F] border border-white/10 rounded-xl text-white p-4 text-sm resize-none"></textarea>
+                </div>
+                <button type="submit" className="px-10 py-4 font-black text-xs uppercase rounded-full" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+                  SEND MESSAGE
+                </button>
+              </form>
+            )}
+          </div>
+        </div>
+      </section>
+
+      {/* GUARANTEE */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#FFF8E1] border-2 border-[#F4C430] rounded-3xl p-8 md:p-12 shadow-lg">
+            <h3 className="text-3xl font-black text-[#1F2937] mb-4">Our Guarantee</h3>
+            <p className="text-gray-700 text-lg leading-relaxed font-medium">
+              Every job comes with our workmanship guarantee. If a lock or key we've fitted doesn't work as it should, we'll come back and make it right at no extra cost to you. We also offer Afterpay on our services, so an unexpected callout doesn't have to be paid in full upfront.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* URGENT BANNER */}
+      <section className="py-16 bg-[#0B1F3A] text-white text-center">
+        <h2 className="text-3xl md:text-5xl font-black mb-4">Locked out right now?</h2>
+        <p className="text-xl text-gray-300 mb-6">Don't wait — call <strong className="text-[#F4C430]">0800 828 345</strong> and we'll have someone on the way.</p>
+        <a href="tel:0800828345" className="inline-flex items-center px-8 py-5 rounded-full font-black text-xl uppercase" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+          Call 0800 828 345 Now
+        </a>
+      </section>
+
+      {/* FOOTER */}
+      <footer style={{ backgroundColor: COLORS.black }} className="py-12 text-center text-gray-400 text-sm">
+        <p>© 2026 LostKey. All Rights Reserved.</p>
+      </footer>
+    </div>
+  );
+}
+
+const root = createRoot(document.getElementById('root'));
+root.render(<ContactUsHtmlPage />);
+    </script>
+</body>
+</html>
