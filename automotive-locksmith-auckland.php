@@ -575,26 +575,28 @@ function AutomotiveLocksmithPageContent() {
       </section>
 
       {/* CONTACT / CALLOUT SECTION */}
-      <section className="py-20 bg-[#0B1F3A] text-white text-center">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-2" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-            24/7 EMERGENCY AUTO LOCKSMITH
-          </span>
-          <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-            Contact Lostkey Automotive Locksmith Auckland
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-            Locked out or lost your car key? A mobile automotive locksmith can be with you in minutes – no towing and no dealership wait. Call us now on <strong className="text-[#F4C430]">0800 828 345</strong> with your location and vehicle details, and we'll send a locksmith for you. We're on call 24/7 across all of Auckland.
-          </p>
-          <div className="pt-4">
-            <a 
-              href="tel:0800828345" 
-              className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
-              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
-            >
-              <Phone size={24} className="fill-current" />
-              <span>Call 0800 828 345 Now</span>
-            </a>
+      <section className="py-20 bg-gray-50 border-t border-gray-200">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-[#0B1F3A] rounded-3xl p-10 md:p-16 text-white text-center space-y-6 shadow-2xl relative overflow-hidden border border-[#132B4F]">
+            <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-2" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+              24/7 EMERGENCY AUTO LOCKSMITH
+            </span>
+            <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              Contact Lostkey Automotive Locksmith Auckland
+            </h2>
+            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+              Locked out or lost your car key? A mobile automotive locksmith can be with you in minutes – no towing and no dealership wait. Call us now on <strong className="text-[#F4C430]">0800 828 345</strong> with your location and vehicle details, and we'll send a locksmith for you. We're on call 24/7 across all of Auckland.
+            </p>
+            <div className="pt-4">
+              <a 
+                href="tel:0800828345" 
+                className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
+                style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+              >
+                <Phone size={24} className="fill-current" />
+                <span>Call 0800 828 345 Now</span>
+              </a>
+            </div>
           </div>
         </div>
       </section>
