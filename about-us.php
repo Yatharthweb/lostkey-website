@@ -148,7 +148,7 @@ function AboutUsPageContent() {
                 <span className="text-xs uppercase tracking-wider font-bold text-gray-400 mt-1">Jobs Completed</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-3xl md:text-4xl font-black" style={{ color: COLORS.yellow }}>20-40m</span>
+                <span className="text-3xl md:text-4xl font-black" style={{ color: COLORS.yellow }}>20-40min</span>
                 <span className="text-xs uppercase tracking-wider font-bold text-gray-400 mt-1">Average Response</span>
               </div>
               <div className="flex flex-col">
