@@ -415,35 +415,113 @@ function AutomotiveLocksmithPageContent() {
 
           <div className="space-y-10">
             <div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Car Brands</h3>
-              <div className="flex flex-wrap gap-2.5">
-                {carBrands.map((brand, idx) => (
-                  <a key={idx} href="tel:0800828345" className="bg-white hover:bg-[#F4C430] hover:text-[#0B1F3A] border border-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold text-gray-800 transition-all shadow-sm">
-                    {brand} Key Replacement Auckland
-                  </a>
-                ))}
+              <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Car Brands</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {carBrands.map((brand, idx) => {
+                  const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  return (
+                    <a 
+                      key={idx} 
+                      href="tel:0800828345" 
+                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-between text-center transition-all shadow-sm hover:shadow-md group aspect-square"
+                      style={{ aspectRatio: '1 / 1' }}
+                    >
+                      <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-xl p-3 group-hover:bg-[#FFF8E1] transition-colors relative overflow-hidden">
+                        <img 
+                          src={`images/brands/${slug}.svg`} 
+                          alt={`${brand} logo`} 
+                          className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                        <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
+                          {brand.substring(0, 2).toUpperCase()}
+                        </div>
+                      </div>
+                      <div className="mt-2 w-full">
+                        <span className="text-xs font-bold text-gray-800 group-hover:text-[#F4C430] transition-colors block truncate">{brand}</span>
+                        <span className="text-[10px] text-gray-400 font-semibold block uppercase tracking-tight">Key Replacement</span>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
-              <div className="flex flex-wrap gap-2.5">
-                {vanBrands.map((brand, idx) => (
-                  <a key={idx} href="tel:0800828345" className="bg-white hover:bg-[#F4C430] hover:text-[#0B1F3A] border border-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold text-gray-800 transition-all shadow-sm">
-                    {brand} Key Replacement Auckland
-                  </a>
-                ))}
+              <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {vanBrands.map((brand, idx) => {
+                  const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  return (
+                    <a 
+                      key={idx} 
+                      href="tel:0800828345" 
+                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-between text-center transition-all shadow-sm hover:shadow-md group aspect-square"
+                      style={{ aspectRatio: '1 / 1' }}
+                    >
+                      <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-xl p-3 group-hover:bg-[#FFF8E1] transition-colors relative overflow-hidden">
+                        <img 
+                          src={`images/brands/${slug}.svg`} 
+                          alt={`${brand} logo`} 
+                          className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                        <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
+                          {brand.substring(0, 2).toUpperCase()}
+                        </div>
+                      </div>
+                      <div className="mt-2 w-full">
+                        <span className="text-xs font-bold text-gray-800 group-hover:text-[#F4C430] transition-colors block truncate">{brand}</span>
+                        <span className="text-[10px] text-gray-400 font-semibold block uppercase tracking-tight">Van Key Replacement</span>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 
             <div>
-              <h3 className="text-xl font-bold text-[#1F2937] mb-4 flex items-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
-              <div className="flex flex-wrap gap-2.5">
-                {truckBrands.map((brand, idx) => (
-                  <a key={idx} href="tel:0800828345" className="bg-white hover:bg-[#F4C430] hover:text-[#0B1F3A] border border-gray-200 px-4 py-2 rounded-xl text-xs md:text-sm font-bold text-gray-800 transition-all shadow-sm">
-                    {brand} Truck Key Replacement Auckland
-                  </a>
-                ))}
+              <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+                {truckBrands.map((brand, idx) => {
+                  const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  return (
+                    <a 
+                      key={idx} 
+                      href="tel:0800828345" 
+                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-between text-center transition-all shadow-sm hover:shadow-md group aspect-square"
+                      style={{ aspectRatio: '1 / 1' }}
+                    >
+                      <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-xl p-3 group-hover:bg-[#FFF8E1] transition-colors relative overflow-hidden">
+                        <img 
+                          src={`images/brands/${slug}.svg`} 
+                          alt={`${brand} logo`} 
+                          className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                          onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.style.display = 'none';
+                            e.target.nextSibling.style.display = 'flex';
+                          }}
+                        />
+                        <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
+                          {brand.substring(0, 2).toUpperCase()}
+                        </div>
+                      </div>
+                      <div className="mt-2 w-full">
+                        <span className="text-xs font-bold text-gray-800 group-hover:text-[#F4C430] transition-colors block truncate">{brand}</span>
+                        <span className="text-[10px] text-gray-400 font-semibold block uppercase tracking-tight">Truck Key Replacement</span>
+                      </div>
+                    </a>
+                  );
+                })}
               </div>
             </div>
 

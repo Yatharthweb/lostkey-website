@@ -108,6 +108,12 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                   </a>
                 </li>
                 <li>
+                  <a href="property-managers-landlords.php" className="hover:text-white transition-colors inline-flex items-center">
+                    <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
+                    Property Managers & Landlords
+                  </a>
+                </li>
+                <li>
                   <a href="contact-us.php" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Contact

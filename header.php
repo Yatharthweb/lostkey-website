@@ -120,6 +120,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -290,6 +291,21 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                 </div>
               </div>
 
+              {/* More Dropdown */}
+              <div className="relative group h-full flex items-center">
+                <button className={`flex items-center text-white hover:opacity-80 transition py-6 font-bold tracking-wide text-[15px] bg-transparent border-none cursor-pointer ${currentPage === 'property-managers' ? 'text-[#F4C430] font-extrabold border-b-2 border-[#F4C430]' : ''}`}>
+                  More <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
+                </button>
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[280px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-4 border-t-[4px] border-[#F4C430] cursor-default z-50">
+                  <a href="property-managers-landlords.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Building size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Property Managers & Landlords</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
             
             <a 
@@ -399,6 +415,19 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                 </div>
               </div>
 
+
+              {/* More mobile dropdown */}
+              <div className="flex flex-col border-b border-gray-100">
+                <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer" onClick={() => setMobileMoreOpen(!mobileMoreOpen)}>
+                  More <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${mobileMoreOpen ? 'rotate-180' : ''}`} />
+                </div>
+                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileMoreOpen ? 'max-h-40 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <a href="property-managers-landlords.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Building size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Property Managers & Landlords</span>
+                  </a>
+                </div>
+              </div>
 
               <div className="pt-6 pb-2">
                 <a 
