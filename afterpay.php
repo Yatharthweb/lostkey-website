@@ -277,5 +277,4 @@ const renderApp = () => {
 };
 renderApp();
 </script>
-</body>
-</html>
+<?php include 'footer.php'; ?>

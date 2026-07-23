@@ -301,6 +301,18 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Property Managers & Landlords</span>
                   </a>
+                  <a href="insurance-claims.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <FileText size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Insurance Claims</span>
+                  </a>
+                  <a href="afterpay.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <CreditCard size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Afterpay</span>
+                  </a>
                 </div>
               </div>
 
@@ -424,6 +436,14 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Building size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">Property Managers & Landlords</span>
                   </a>
+                  <a href="insurance-claims.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><FileText size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Insurance Claims</span>
+                  </a>
+                  <a href="afterpay.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><CreditCard size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Afterpay</span>
+                  </a>
                 </div>
               </div>
 
@@ -462,41 +482,6 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
 
   return (
     <>
-      {/* PARTNERS LOGO SCROLLER */}
-      <section className="bg-white py-10 border-b border-gray-100 overflow-hidden relative z-10">
-        <div className="relative w-full overflow-hidden flex items-center">
-          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
-          
-          <div className="flex animate-marquee whitespace-nowrap items-center">
-            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
-              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
-            </div>
-            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
-              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
-              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* FOOTER */}
       <footer style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -542,6 +527,18 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                   <a href="property-managers-landlords.php" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Property Managers & Landlords
+                  </a>
+                </li>
+                <li>
+                  <a href="insurance-claims.php" className="hover:text-white transition-colors inline-flex items-center">
+                    <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
+                    Insurance Claims
+                  </a>
+                </li>
+                <li>
+                  <a href="afterpay.php" className="hover:text-white transition-colors inline-flex items-center">
+                    <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
+                    Afterpay
                   </a>
                 </li>
                 <li>
