@@ -520,7 +520,14 @@ function ResidentialLocksmithPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<ResidentialLocksmithPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<ResidentialLocksmithPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

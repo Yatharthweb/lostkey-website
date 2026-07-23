@@ -255,7 +255,14 @@ function TermsPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<TermsPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<TermsPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

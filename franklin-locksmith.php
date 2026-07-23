@@ -389,7 +389,14 @@ export default function FranklinLocksmith() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<FranklinLocksmith />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<FranklinLocksmith />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <div id="root"></div>

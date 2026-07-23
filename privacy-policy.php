@@ -226,7 +226,14 @@ function PrivacyPolicyPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<PrivacyPolicyPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<PrivacyPolicyPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

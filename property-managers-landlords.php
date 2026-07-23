@@ -503,7 +503,14 @@ function PropertyManagersPage() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<PropertyManagersPage />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<PropertyManagersPage />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

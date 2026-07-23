@@ -665,7 +665,14 @@ function AutomotiveLocksmithPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<AutomotiveLocksmithPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<AutomotiveLocksmithPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

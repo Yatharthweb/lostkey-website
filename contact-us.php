@@ -511,7 +511,14 @@ function ContactPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<ContactPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<ContactPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

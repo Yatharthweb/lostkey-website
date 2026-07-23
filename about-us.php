@@ -491,7 +491,14 @@ function AboutUsPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<AboutUsPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<AboutUsPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php

@@ -401,7 +401,14 @@ export default function NorthShoreLocksmith() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<NorthShoreLocksmith />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<NorthShoreLocksmith />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <div id="root"></div>

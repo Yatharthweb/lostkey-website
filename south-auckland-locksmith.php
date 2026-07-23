@@ -397,7 +397,14 @@ export default function SouthAucklandLocksmith() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<SouthAucklandLocksmith />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<SouthAucklandLocksmith />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <div id="root"></div>

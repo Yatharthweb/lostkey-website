@@ -428,7 +428,14 @@ function EmergencyLocksmithPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<EmergencyLocksmithPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<EmergencyLocksmithPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <?php
