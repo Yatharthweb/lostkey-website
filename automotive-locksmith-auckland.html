@@ -878,29 +878,26 @@ function AutomotiveLocksmithHtmlPage() {
           <div className="space-y-10">
             <div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Car Brands</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
                 {carBrands.map((brand, idx) => {
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all group aspect-square"
-                      style={{ aspectRatio: '1 / 1' }}
+                      className="flex items-center justify-center transition-all group h-14 sm:h-16 lg:h-20 w-full hover:opacity-75"
                     >
-                      <div className="w-full h-full flex items-center justify-center bg-white rounded-xl p-3 relative overflow-hidden">
-                        <img 
-                          src={`images/brands/CAR LOGO/${brand === 'Mini' ? 'Mini Cooper' : brand} Key Replacement Auckland.png`} 
-                          alt={`${brand} Key Replacement`} 
-                          className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                        <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
-                          {brand.substring(0, 2).toUpperCase()}
-                        </div>
+                      <img 
+                        src={`images/brands/CAR LOGO/${brand === 'Mini' ? 'Mini Cooper' : brand} Key Replacement Auckland.png`} 
+                        alt={`${brand} Key Replacement`} 
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="hidden w-14 h-14 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300">
+                        {brand.substring(0, 2).toUpperCase()}
                       </div>
                     </a>
                   );
@@ -910,29 +907,26 @@ function AutomotiveLocksmithHtmlPage() {
 
             <div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
                 {vanBrands.map((brand, idx) => {
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all group aspect-square"
-                      style={{ aspectRatio: '1 / 1' }}
+                      className="flex items-center justify-center transition-all group h-14 sm:h-16 lg:h-20 w-full hover:opacity-75"
                     >
-                      <div className="w-full h-full flex items-center justify-center bg-white rounded-xl p-3 relative overflow-hidden">
-                        <img 
-                          src={`images/brands/VAN LOGO/${brand} Key Replacement Auckland.png`} 
-                          alt={`${brand} Van Key Replacement`} 
-                          className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                        <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
-                          {brand.substring(0, 2).toUpperCase()}
-                        </div>
+                      <img 
+                        src={`images/brands/VAN LOGO/${brand} Key Replacement Auckland.png`} 
+                        alt={`${brand} Van Key Replacement`} 
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="hidden w-14 h-14 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300">
+                        {brand.substring(0, 2).toUpperCase()}
                       </div>
                     </a>
                   );
@@ -942,29 +936,26 @@ function AutomotiveLocksmithHtmlPage() {
 
             <div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
                 {truckBrands.map((brand, idx) => {
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all group aspect-square"
-                      style={{ aspectRatio: '1 / 1' }}
+                      className="flex items-center justify-center transition-all group h-14 sm:h-16 lg:h-20 w-full hover:opacity-75"
                     >
-                      <div className="w-full h-full flex items-center justify-center bg-white rounded-xl p-3 relative overflow-hidden">
-                        <img 
-                          src={`images/brands/TRUCK LOGO/${brand === 'UD Trucks' ? 'UD' : brand} Truck Key Replacement Auckland.png`} 
-                          alt={`${brand} Truck Key Replacement`} 
-                          className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
-                          onError={(e) => {
-                            e.target.onerror = null;
-                            e.target.style.display = 'none';
-                            e.target.nextSibling.style.display = 'flex';
-                          }}
-                        />
-                        <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
-                          {brand.substring(0, 2).toUpperCase()}
-                        </div>
+                      <img 
+                        src={`images/brands/TRUCK LOGO/${brand === 'UD Trucks' ? 'UD' : brand} Truck Key Replacement Auckland.png`} 
+                        alt={`${brand} Truck Key Replacement`} 
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        onError={(e) => {
+                          e.target.onerror = null;
+                          e.target.style.display = 'none';
+                          e.target.nextSibling.style.display = 'flex';
+                        }}
+                      />
+                      <div className="hidden w-14 h-14 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300">
+                        {brand.substring(0, 2).toUpperCase()}
                       </div>
                     </a>
                   );
