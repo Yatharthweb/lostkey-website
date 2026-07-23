@@ -147,7 +147,7 @@ function HomePageContent() {
       <window.HeaderComponent currentPage="home" />
 
       {/* HERO SECTION */}
-      <section id="home" className="relative text-white overflow-hidden min-h-[600px] md:h-[680px] flex items-start pt-36 md:pt-48" style={{ backgroundColor: COLORS.black }}>
+      <section id="home" className="relative text-white overflow-hidden min-h-[600px] md:h-[680px] flex items-center" style={{ backgroundColor: COLORS.black }}>
         {heroImages.map((img, idx) => (
           <div 
             key={idx}
