@@ -924,7 +924,14 @@ function AreasWeCoverPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<AreasWeCoverPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<AreasWeCoverPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 </body>

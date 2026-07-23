@@ -1067,7 +1067,14 @@ export default function OrewaLocksmith() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<OrewaLocksmith />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<OrewaLocksmith />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <div id="root"></div>

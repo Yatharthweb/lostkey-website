@@ -867,7 +867,14 @@ function FAQPageContent() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<FAQPageContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<FAQPageContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 </body>

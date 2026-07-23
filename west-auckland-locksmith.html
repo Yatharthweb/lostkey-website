@@ -1080,7 +1080,14 @@ export default function WestAucklandLocksmith() {
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<WestAucklandLocksmith />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<WestAucklandLocksmith />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
 <div id="root"></div>
