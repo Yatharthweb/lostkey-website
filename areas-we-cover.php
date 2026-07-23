@@ -138,7 +138,7 @@ function AreasWeCoverPageContent() {
             {regionCards.map((card, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full pb-7"
+                className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full"
               >
                 <div className="flex flex-col h-full">
                   {/* Card Image & Badge */}
