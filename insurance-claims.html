@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afterpay - Pay Later Locksmith Auckland | Lostkey</title>
+    <title>Lost or Stolen Car Keys - Insurance Claims | Lostkey</title>
     <meta name="description" content="Privacy Policy for Lostkey Locksmith Auckland. Learn how we collect, protect, and manage your personal details, payment info, cookies, and privacy rights.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
@@ -47,7 +47,7 @@ import {
   Shield, Mail, Facebook, Twitter, Youtube,
   Zap, BadgeCheck, Settings, KeyRound,
   Calendar, ArrowUp, FileText, AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers
-, DollarSign } from 'lucide-react';
+, DollarSign , CheckCircle2 , ArrowRight } from 'lucide-react';
 
 const COLORS = {
   yellow: '#F4C430',
@@ -87,6 +87,19 @@ const MAIN_SERVICES = [
 function PrivacyHtmlPage() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [formData, setFormData] = useState({
+    name: '', email: '', phone: '', registration: '', make: '', 
+    yearModel: '', hasKeys: 'No keys', smartKey: 'Yes', 
+    insuranceCompany: '', claimNumber: '', message: ''
+  });
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setSubmitted(true);
+    // In a real app, you would send the formData to your backend here
+  };
+
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   
   const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
@@ -477,20 +490,20 @@ function PrivacyHtmlPage() {
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
             <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
-            <span className="text-[#F4C430] font-bold">Afterpay</span>
+            <span className="text-[#F4C430] font-bold">Insurance Claims</span>
           </div>
 
           <div className="max-w-4xl">
             <span className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-              <DollarSign size={14} className="mr-2" />
-              BUY NOW, PAY LATER
+              <Shield size={14} className="mr-2" />
+              COMPREHENSIVE COVERAGE
             </span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl font-black leading-[1.1] tracking-tight mb-4" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Afterpay – Pay Later for Your Locksmith Service
+              Lost or Stolen Car Keys &ndash; Insurance Claims
             </h1>
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed">
-              Need a locksmith in Auckland, a call-out, but don't want to pay the full amount upfront? Lostkey now accepts Afterpay on our services, so you can get the help you need today and pay it off over time. Along with Afterpay, we also accept Visa, Mastercard, Amex, and debit cards.
+              Have Comprehensive Car Insurance? Your Lost Key May Be Covered. Did you lose your vehicle's key, and are you unwilling to pay the actual money for a new one? If you own a comprehensive car insurance policy, you might already qualify for the reimbursement of key replacement in the event you lose your keys, but many car owners do not know this fact until they inquire. Lostkey works directly with various insurers across New Zealand that would assist you in getting the required reimbursement for a new car key with the least effort possible.
             </p>
           </div>
         </div>
@@ -502,90 +515,147 @@ function PrivacyHtmlPage() {
 
           <div className="space-y-4 border-b border-gray-100 pb-8">
             <h2 className="text-2xl md:text-3xl font-black text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              We Now Accept Afterpay
+              How the Process Works
             </h2>
             <p className="text-base text-gray-700">
-              Afterpay lets you split the cost of your locksmith job into 4 equal payments, made every two weeks. Unlike a lay-by, you don't have to wait to get the work done &ndash; your lock gets fixed, your car gets a new key, or your door gets opened, and you pay it off afterwards.
+              Once you have communicated with your insurance company and received a claim acknowledgment number from them, we will be able to liaise with them directly and process the necessary documentation on your behalf. Depending on your insurance policy, your replacement key expenses may either be completely financed by your insurance company or require you to just cover part of the expenses while you take care of the rest.
+            </p>
+            <p className="text-base text-gray-700 pt-2">
+              To get started, we'll need your claim number and your insurance company's name. From there, our team verifies the details with your insurer and arranges your car key replacement Auckland-wide, cutting and programming the new key on-site once everything is confirmed.
             </p>
           </div>
 
           <div className="space-y-4 border-b border-gray-100 pb-8">
             <h3 className="text-xl md:text-2xl font-bold text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              What Is Afterpay?
+              Insurers We Commonly Work With
             </h3>
             <p className="text-base text-gray-700">
-              Afterpay is a "buy now, pay later" service. Instead of paying the full cost in one go, your bill is split into four payments, spaced two weeks apart. There's no interest charged, as long as your payments go through on time.
-            </p>
-            <p className="text-base text-gray-700 pt-2">
-              This means an emergency locksmith Auckland call-out, a car key replacement, or a full lock change doesn't have to be paid for all at once. You get the job done straight away and manage the cost across a few weeks instead.
+              We regularly coordinate claims with major providers, including <strong>AA Insurance, AMI, AMP, ASB, BNZ, Club Auto, Cove, Protecta, State, Tower, Vero, and Westpac</strong>. If your insurer isn't listed here, get in touch anyway &mdash; we can usually still process the claim.
             </p>
           </div>
 
           <div className="space-y-4 border-b border-gray-100 pb-8">
             <h3 className="text-xl md:text-2xl font-bold text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              How Does Afterpay Work With Lostkey?
-            </h3>
-            <ul className="space-y-4 text-base text-gray-700 list-decimal pl-5">
-              <li><strong>Call us or book online.</strong> Tell us what's happened and where you are, whether it's a lockout, a lost car key, or a lock repair.</li>
-              <li><strong>Let us know you'd like to use Afterpay.</strong> Our team will confirm this is available for your job before we start.</li>
-              <li><strong>Complete your job as normal.</strong> Our locksmith comes to you, fixes the problem, and finishes the work the same visit, just like any other callout.</li>
-              <li><strong>Pay in 4 instalments.</strong> Afterpay splits the total cost into four equal payments, taken automatically every two weeks from your linked card.</li>
-            </ul>
-            <p className="text-base text-gray-700 pt-2">
-              If you're a new Afterpay user, or your order is a larger job, you may need to pay the first instalment upfront at the time of booking. This is standard across all Afterpay purchases, not something specific to Lostkey.
-            </p>
-          </div>
-
-          <div className="space-y-4 border-b border-gray-100 pb-8">
-            <h3 className="text-xl md:text-2xl font-bold text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Why Use Afterpay for a Locksmith Callout?
+              What We'll Need From You
             </h3>
             <ul className="space-y-2 text-base text-gray-700 list-disc pl-5">
-              <li>No interest, as long as payments are made on time</li>
-              <li>Instant approval, with no credit check needed</li>
-              <li>Spreads the cost, so an unexpected lockout or car key issue doesn't hit your budget in one go</li>
-              <li>Same fast service, whether you pay upfront or through Afterpay</li>
+              <li>Your name, phone number, and email</li>
+              <li>Vehicle registration number</li>
+              <li>Make, model, and year of your car</li>
+              <li>Whether you currently have a working key, a faulty one, or none at all</li>
+              <li>Whether your car uses a smart key or push-button start system</li>
+              <li>Your insurance company name and approved claim number</li>
             </ul>
           </div>
 
           <div className="space-y-4 border-b border-gray-100 pb-8">
             <h3 className="text-xl md:text-2xl font-bold text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Is There a Fee for Using Afterpay?
+              Why Go Through LostKey?
             </h3>
             <p className="text-base text-gray-700">
-              Afterpay doesn't charge a fee for using the service as intended. Late fees only apply if a scheduled payment doesn't go through and isn't paid another way after being notified. Full details on late fees and payment terms are available directly through Afterpay's terms of service.
+              Filing an insurance claim and finding a locksmith are usually two separate headaches. We handle both together, so you're not stuck explaining your car's key system to an insurer, or explaining your insurance details to a locksmith. One call, and we manage the coordination between the two.
+            </p>
+            <p className="text-base text-gray-700 pt-2">
+              We also carry the cutting and programming equipment for most makes and models in our vans, so once your claim is approved, we can usually complete the job the same day.
             </p>
           </div>
 
-          <div className="space-y-4 border-b border-gray-100 pb-8">
-            <h3 className="text-xl md:text-2xl font-bold text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Is Afterpay Safe to Use?
-            </h3>
-            <p className="text-base text-gray-700">
-              Yes. Afterpay is a PCI DSS Level 1 certified payment provider, which is the highest security standard in the payment industry. Your card and personal details are handled directly by Afterpay, not stored by us.
-            </p>
-          </div>
+          <div className="bg-gray-50 p-8 rounded-3xl border border-gray-200 mt-12">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-black text-[#1F2937] tracking-tight mb-4" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+                Get Your Claim Started
+              </h2>
+              <p className="text-gray-600 text-lg">
+                Lost your key and already have a claim number from your insurer? Fill in the form below with your vehicle and insurance details, and our team will be in touch to arrange your replacement key.
+              </p>
+            </div>
 
-          <div className="space-y-4 border-b border-gray-100 pb-8">
-            <h3 className="text-xl md:text-2xl font-bold text-[#0B1F3A]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Questions About Your Afterpay Payment?
-            </h3>
-            <p className="text-base text-gray-700">
-              For anything specific to your Afterpay account, such as payment schedules, declined payments, or account limits, Afterpay's own support team can help directly through the Afterpay Help Centre.
-            </p>
-          </div>
-          
-          <div className="bg-gray-50 p-8 rounded-2xl border border-gray-200">
-            <h2 className="text-2xl md:text-3xl font-black text-[#0B1F3A] mb-4" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Book Your Locksmith Now, Pay Later with Afterpay
-            </h2>
-            <p className="text-base text-gray-700 mb-6">
-              Whether it's a house lockout, a car key replacement, or an emergency locksmith in Auckland callout, you don't need to pay the full cost upfront. Call us on <strong>0800 828 345</strong> and ask about Afterpay when you book.
-            </p>
-            <a href="tel:0800828345" className="inline-flex items-center px-8 py-4 bg-[#F4C430] text-[#0B1F3A] font-bold text-lg rounded-full hover:bg-[#E5B520] transition-colors shadow-lg">
-              <Phone size={20} className="mr-2" strokeWidth={2.5} />
-              0800 828 345
-            </a>
+            {submitted ? (
+              <div className="bg-emerald-50 border border-emerald-200 text-emerald-800 rounded-2xl p-8 text-center space-y-3">
+                <CheckCircle2 size={48} className="text-emerald-500 mx-auto" />
+                <h3 className="text-2xl font-bold">Thank You!</h3>
+                <p className="text-emerald-700">Your details have been received successfully. Our team will verify with your insurer and get back to you shortly.</p>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Name*</label>
+                    <input type="text" required placeholder="e.g. John Smith" value={formData.name} onChange={(e) => setFormData({ ...formData, name: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Email*</label>
+                    <input type="email" required placeholder="e.g. john@example.co.nz" value={formData.email} onChange={(e) => setFormData({ ...formData, email: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Phone*</label>
+                    <input type="tel" required placeholder="e.g. 021 123 4567" value={formData.phone} onChange={(e) => setFormData({ ...formData, phone: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Registration Number*</label>
+                    <input type="text" required placeholder="e.g. ABC123" value={formData.registration} onChange={(e) => setFormData({ ...formData, registration: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Make of Vehicle*</label>
+                    <input type="text" required placeholder="e.g. Toyota" value={formData.make} onChange={(e) => setFormData({ ...formData, make: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Year and Model*</label>
+                    <input type="text" required placeholder="e.g. 2018 Corolla" value={formData.yearModel} onChange={(e) => setFormData({ ...formData, yearModel: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Do you currently have keys?</label>
+                    <select value={formData.hasKeys} onChange={(e) => setFormData({ ...formData, hasKeys: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium appearance-none">
+                      <option>Working key</option>
+                      <option>Faulty key</option>
+                      <option>No keys</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Does your car use a smart key system?</label>
+                    <select value={formData.smartKey} onChange={(e) => setFormData({ ...formData, smartKey: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium appearance-none">
+                      <option>Yes</option>
+                      <option>No</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Insurance Company Name*</label>
+                    <input type="text" required placeholder="e.g. AA Insurance" value={formData.insuranceCompany} onChange={(e) => setFormData({ ...formData, insuranceCompany: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                  <div>
+                    <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Approved Claim Number*</label>
+                    <input type="text" required placeholder="e.g. CLM-123456" value={formData.claimNumber} onChange={(e) => setFormData({ ...formData, claimNumber: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium" />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-xs font-bold uppercase tracking-wider text-gray-700 mb-2">Your Message*</label>
+                  <textarea required placeholder="Any other details we should know?" rows="4" value={formData.message} onChange={(e) => setFormData({ ...formData, message: e.target.value })} className="w-full px-4 py-3.5 bg-white border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-[#F4C430] text-gray-900 font-medium resize-none"></textarea>
+                </div>
+
+                <div className="pt-2">
+                  <button type="submit" className="w-full flex items-center justify-center px-8 py-4 bg-[#F4C430] text-[#0B1F3A] font-bold text-lg rounded-xl hover:bg-[#E5B520] transition-colors shadow-md group">
+                    Send Now
+                    <ArrowRight size={20} className="ml-2 group-hover:translate-x-1 transition-transform" strokeWidth={2.5} />
+                  </button>
+                </div>
+              </form>
+            )}
+            
+            <div className="mt-8 pt-8 border-t border-gray-200 text-center">
+              <p className="text-gray-500 text-sm">
+                Don't have a claim number yet? Contact your insurer first to confirm your cover, then come back and fill in this form &mdash; or call us on <a href="tel:0800828345" className="font-bold text-[#0B1F3A] hover:text-[#F4C430]">0800 828 345</a> and we'll point you in the right direction.
+              </p>
+            </div>
           </div>
 
         </div>
