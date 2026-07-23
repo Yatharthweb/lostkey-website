@@ -46,7 +46,7 @@ const regionCards = [
     desc: "Servicing Henderson, New Lynn, Te Atatū, and surrounding suburbs, with vans based locally to keep response times short across the west.",
     pills: ["Henderson", "New Lynn", "Te Atatū"],
     cta: "View West Auckland locksmith services →",
-    link: "contact-us.php"
+    link: "west-auckland-locksmith.php"
   },
   {
     badge: "FAMILY SUBURBS",
