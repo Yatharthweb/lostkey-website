@@ -1,23 +1,17 @@
 <?php
 $pageTitle = "Areas We Cover | Locksmith Services Across Greater Auckland | Lostkey";
 $pageDescription = "Lostkey provides mobile locksmith services across all of Greater Auckland. From Auckland City CBD to North Shore, West, East, South Auckland, Rodney, Franklin, and Hibiscus Coast.";
-$currentPage = "home";
+$currentPage = "areas";
 include 'header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { 
-  Menu, X, Phone, Lock, Home, Car, 
-  ShieldCheck, ChevronRight, ChevronLeft, ChevronDown,
-  Key, Clock, Award, MapPin, Wrench,
-  Star, Quote, CheckCircle2,
-  ArrowRight, Shield, Mail, Facebook, Twitter, Youtube,
-  Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound,
-  Users, Check, User, Calendar, Play, ArrowUp, Navigation,
-  AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers
+  Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
+  Clock, Check, ArrowRight, AlertTriangle, Building, ShieldCheck, CheckCircle2,
+  Navigation
 } from 'lucide-react';
 
 const COLORS = {
@@ -26,35 +20,6 @@ const COLORS = {
   white: '#FFFFFF',
 };
 
-const serviceAreas = [
-  "Auckland Central",
-  "North Shore",
-  "West Auckland",
-  "South Auckland",
-  "East Auckland",
-  "Rodney",
-  "Franklin",
-  "Orewa & Hibiscus Coast"
-];
-
-const MAIN_SERVICES = [
-  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
-  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
-  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
-  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
-  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
-  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
-  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
-  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
-  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
-  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
-  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
-  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
-  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
-  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
-  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
-];
-
 const regionCards = [
   {
     badge: "MOST POPULAR",
@@ -62,7 +27,7 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=600&q=80",
     desc: "Fast call-outs across the CBD, apartments, and inner-city suburbs, with parking and access challenges factored into every job.",
     pills: ["CBD Access", "Apartment Lockouts", "Commercial Callouts"],
-    cta: "View Auckland City locksmith services ?"
+    cta: "View Auckland City locksmith services →"
   },
   {
     badge: "COASTAL SUBURBS",
@@ -70,15 +35,15 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Takapuna, Albany, Devonport, and everywhere between, with a focus on both home lockouts and coastal properties prone to lock corrosion.",
     pills: ["Takapuna", "Albany", "Devonport"],
-    cta: "View North Shore locksmith services ?"
+    cta: "View North Shore locksmith services →"
   },
   {
     badge: "FAST RESPONSE",
     title: "West Auckland Locksmith",
     image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=600&q=80",
-    desc: "Servicing Henderson, New Lynn, Te Atatu, and surrounding suburbs, with vans based locally to keep response times short across the west.",
-    pills: ["Henderson", "New Lynn", "Te Atatu"],
-    cta: "View West Auckland locksmith services ?"
+    desc: "Servicing Henderson, New Lynn, Te Atatū, and surrounding suburbs, with vans based locally to keep response times short across the west.",
+    pills: ["Henderson", "New Lynn", "Te Atatū"],
+    cta: "View West Auckland locksmith services →"
   },
   {
     badge: "FAMILY SUBURBS",
@@ -86,15 +51,15 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Howick, Pakuranga, Botany, and nearby suburbs, handling everything from family home lockouts to local business security upgrades.",
     pills: ["Howick", "Pakuranga", "Botany"],
-    cta: "View East Auckland locksmith services ?"
+    cta: "View East Auckland locksmith services →"
   },
   {
     badge: "WIDE COVERAGE",
     title: "South Auckland Locksmith",
     image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80",
-    desc: "Servicing Manukau, Papatoetoe, Otahuhu, and the wider south, with a team large enough to cover this spread-out region without long waits.",
-    pills: ["Manukau", "Papatoetoe", "Otahuhu"],
-    cta: "View South Auckland locksmith services ?"
+    desc: "Servicing Manukau, Papatoetoe, Ōtāhuhu, and the wider south, with a team large enough to cover this spread-out region without long waits.",
+    pills: ["Manukau", "Papatoetoe", "Ōtāhuhu"],
+    cta: "View South Auckland locksmith services →"
   },
   {
     badge: "RURAL & COASTAL",
@@ -102,7 +67,7 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Warkworth, Helensville, Wellsford, and the wider Rodney district, including rural properties and lifestyle blocks outside the main city grid.",
     pills: ["Warkworth", "Helensville", "Wellsford"],
-    cta: "View Rodney locksmith services ?"
+    cta: "View Rodney locksmith services →"
   },
   {
     badge: "SOUTHERN REACH",
@@ -110,50 +75,32 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80",
     desc: "Servicing Pukekohe, Waiuku, Tuakau, and the surrounding Franklin district, covering both town centres and outlying rural addresses.",
     pills: ["Pukekohe", "Waiuku", "Tuakau"],
-    cta: "View Franklin locksmith services ?"
+    cta: "View Franklin locksmith services →"
   },
   {
     badge: "BEACHSIDE",
     title: "Orewa & Hibiscus Coast Locksmith",
     image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=600&q=80",
-    desc: "Covering Orewa, Silverdale, Whangaparaoa, and the wider Hibiscus Coast, an area that's grown fast and needs a locksmith who knows it well.",
-    pills: ["Orewa", "Silverdale", "Whangaparaoa"],
-    cta: "View Orewa & Hibiscus Coast locksmith services ?"
+    desc: "Covering Orewa, Silverdale, Whangaparāoa, and the wider Hibiscus Coast, an area that's grown fast and needs a locksmith who knows it well.",
+    pills: ["Orewa", "Silverdale", "Whangaparāoa"],
+    cta: "View Orewa & Hibiscus Coast locksmith services →"
   }
 ];
 
-function AreasWeCoverHtmlPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  
-  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+function AreasWeCoverPageContent() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      
-      {/* TOP INFO BAR */}
-      <window.HeaderComponent currentPage="home" />
+      <window.HeaderComponent currentPage="areas" />
 
       {/* HERO SECTION */}
       <section className="relative bg-[#0B1F3A] text-white py-20 lg:py-28 overflow-hidden">
+        <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F4C430_1px,transparent_1px)] [background-size:24px_24px]"></div>
+        <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#F4C430]/15 rounded-full blur-3xl"></div>
+        <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">Areas We Cover</span>
           </div>
@@ -185,22 +132,47 @@ function AreasWeCoverHtmlPage() {
       {/* 8 REGION CARDS GRID */}
       <section className="py-20 lg:py-28 bg-gray-50 border-b border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {regionCards.map((card, idx) => (
-              <div key={idx} className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl transition-all duration-300 flex flex-col justify-between group">
+              <div 
+                key={idx}
+                className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+              >
                 <div>
+                  {/* Card Image & Badge */}
                   <div className="relative h-56 overflow-hidden">
-                    <img src={card.image} alt={card.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
-                    <span className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider shadow-md" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+                    <img 
+                      src={card.image} 
+                      alt={card.title} 
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+                    <span 
+                      className="absolute top-4 right-4 px-3 py-1 rounded-full text-[11px] font-black uppercase tracking-wider shadow-md"
+                      style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+                    >
                       {card.badge}
                     </span>
                   </div>
+
+                  {/* Card Content */}
                   <div className="p-7">
-                    <h3 className="text-2xl font-bold text-[#1F2937] mb-3 leading-tight group-hover:text-[#F4C430] transition-colors">{card.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">{card.desc}</p>
+                    <h3 className="text-2xl font-bold text-[#1F2937] mb-3 leading-tight group-hover:text-[#F4C430] transition-colors">
+                      {card.title}
+                    </h3>
+                    
+                    <p className="text-gray-600 text-sm leading-relaxed mb-6 font-normal">
+                      {card.desc}
+                    </p>
+
+                    {/* Pills */}
                     <div className="flex flex-wrap gap-2 mb-6">
                       {card.pills.map((pill, pIdx) => (
-                        <span key={pIdx} className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-lg flex items-center">
+                        <span 
+                          key={pIdx}
+                          className="px-3 py-1 bg-gray-100 text-gray-700 text-xs font-semibold rounded-lg flex items-center"
+                        >
                           <MapPin size={12} className="mr-1 text-[#F4C430]" />
                           {pill}
                         </span>
@@ -208,78 +180,64 @@ function AreasWeCoverHtmlPage() {
                     </div>
                   </div>
                 </div>
+
+                {/* Card CTA Footer */}
                 <div className="px-7 pb-7">
-                  <a href="contact-us.html" className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#0B1F3A] group-hover:text-[#F4C430] transition-colors">
+                  <a 
+                    href="contact-us.php"
+                    className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#0B1F3A] group-hover:text-[#F4C430] transition-colors"
+                  >
                     {card.cta}
                   </a>
                 </div>
               </div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* CAN'T SEE YOUR SUBURB LISTED */}
+      {/* CAN'T SEE YOUR SUBURB LISTED SECTION */}
       <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0B1F3A] rounded-3xl p-8 md:p-14 text-white text-center space-y-6 shadow-2xl">
+          <div className="bg-[#0B1F3A] rounded-3xl p-8 md:p-14 text-white text-center space-y-6 shadow-2xl relative overflow-hidden">
+            <div className="w-16 h-16 rounded-full bg-[#F4C430] text-[#0B1F3A] flex items-center justify-center mx-auto mb-2">
+              <MapPin size={32} />
+            </div>
+
             <h2 className="text-3xl md:text-5xl font-black" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
               Can't See Your Suburb Listed?
             </h2>
+
             <p className="text-gray-300 text-lg md:text-xl leading-relaxed max-w-3xl mx-auto font-medium">
               These eight regions cover the whole of greater Auckland, right up to Rodney and the Hibiscus Coast. If you're unsure which area your suburb falls under, just call us on <strong className="text-[#F4C430]">0800 828 345</strong> and we'll confirm coverage and connect you with the nearest available emergency locksmith Auckland team.
             </p>
+
             <div className="pt-4">
-              <a href="tel:0800828345" className="inline-flex items-center space-x-3 px-8 py-4 rounded-full font-black text-lg uppercase tracking-wider" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+              <a 
+                href="tel:0800828345"
+                className="inline-flex items-center space-x-3 px-8 py-4 rounded-full font-black text-lg uppercase tracking-wider hover:brightness-110 shadow-xl transition-all"
+                style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+              >
                 <Phone size={22} className="fill-current" />
                 <span>Call Now: 0800 828 345</span>
               </a>
             </div>
+
+            <div className="absolute bottom-0 right-0 w-40 h-28 opacity-30" style={{ backgroundImage: `radial-gradient(${COLORS.yellow} 3px, transparent 3px)`, backgroundSize: '16px 16px' }}></div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER */}
-      <window.FooterComponent currentPage="home" />
-
-      {/* MOBILE STICKY CTA */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] flex justify-between items-center" style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}` }}>
-        <div className="flex flex-col text-white px-2">
-          <span className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: COLORS.yellow }}>Locked Out?</span>
-          <span className="font-bold text-sm">24/7 Emergency Service</span>
-        </div>
-        <a href="tel:0800828345" className="flex items-center justify-center px-6 py-3.5 font-bold rounded-full" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-          <Phone size={18} className="mr-2" /> Call Now
-        </a>
-      </div>
-
-      {/* DESKTOP FLOATING BUTTONS */}
-      <div className="hidden md:flex fixed top-1/2 right-0 -translate-y-1/2 flex-col z-50 rounded-l-lg overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.2)]">
-        <a href="tel:0800828345" className="bg-[#0B1F3A] text-white hover:text-[#1F2937] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer group">
-          <Phone size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Call Now</span>
-        </a>
-        <a href="contact-us.html" className="bg-[#F4C430] text-[#0B1F3A] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer border-t border-[#132B4F] group">
-          <Calendar size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Book Appointment</span>
-        </a>
-      </div>
-
-      {/* SCROLL TO TOP */}
-      <button onClick={scrollToTop} className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-50 p-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 ${showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-        <ArrowUp size={24} strokeWidth={2.5} />
-      </button>
-
+      <window.FooterComponent currentPage="areas" />
     </div>
   );
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<AreasWeCoverHtmlPage />);
-    
+root.render(<AreasWeCoverPageContent />);
 </script>
 
 <?php
 include 'footer.php';
 ?>
-

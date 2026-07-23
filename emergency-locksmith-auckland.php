@@ -1,24 +1,18 @@
 <?php
 $pageTitle = "Emergency Locksmith Auckland | 24/7 Fast Mobile Locksmith Service";
-$pageDescription = "Emergency Locksmith Auckland – 24/7 urgent lockout response in 20-30 mins. House, apartment, commercial & car lockouts, broken key removal, lock repair & rekeying.";
-$currentPage = "home";
+$pageDescription = "Emergency Locksmith Auckland â€“ 24/7 urgent lockout response in 20-30 mins. House, apartment, commercial & car lockouts, broken key removal, lock repair & rekeying.";
+$currentPage = "services";
 include 'header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { 
-  Menu, X, Phone, Lock, Home, Car, 
-  ShieldCheck, ChevronRight, ChevronLeft, ChevronDown,
-  Key, Clock, Award, MapPin, Wrench,
-  Star, Quote, CheckCircle2,
-  ArrowRight, Shield, Mail, Facebook, Twitter, Youtube,
-  Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound,
-  Users, Check, User, Calendar, Play, ArrowUp, FileText,
-  AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers,
-  CreditCard, Cpu, Plus, Minus, UserCheck
+  Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
+  Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
+  ShieldCheck, CheckCircle2, BadgeCheck, DollarSign, KeyRound, PenTool,
+  Zap, Settings, Key, Unlock, Plus, Minus, Layers, Cpu, DoorClosed, Power, UserCheck
 } from 'lucide-react';
 
 const COLORS = {
@@ -26,35 +20,6 @@ const COLORS = {
   black: '#0B1F3A',
   white: '#FFFFFF',
 };
-
-const serviceAreas = [
-  "Auckland Central",
-  "North Shore",
-  "West Auckland",
-  "South Auckland",
-  "East Auckland",
-  "Rodney",
-  "Franklin",
-  "Orewa & Hibiscus Coast"
-];
-
-const MAIN_SERVICES = [
-  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
-  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
-  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
-  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
-  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
-  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
-  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
-  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
-  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
-  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
-  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
-  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
-  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
-  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
-  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
-];
 
 const emServices = [
   {
@@ -152,53 +117,35 @@ const faqs = [
   }
 ];
 
-function EmergencyLocksmithHtmlPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  
-  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
+function EmergencyLocksmithPageContent() {
   const [openFaq, setOpenFaq] = useState(-1);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      
-      {/* UNIFIED STICKY HEADER */}
-      <window.HeaderComponent currentPage="home" />
+      <window.HeaderComponent currentPage="services" />
 
       {/* HERO BANNER */}
       <section className="relative bg-[#0B1F3A] text-white py-20 lg:py-28 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
-            <a href="index.html#services" className="hover:text-[#F4C430] transition-colors">Services</a>
+            <a href="index.php#services" className="hover:text-[#F4C430] transition-colors">Services</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">Emergency Locksmith Auckland</span>
           </div>
 
           <div className="max-w-4xl">
-            <span className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+            <span 
+              className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
               <AlertTriangle size={14} className="mr-2" />
               24/7 FAST MOBILE DISPATCH (20-30 MINS)
             </span>
 
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] font-black leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Emergency Locksmith Auckland – <span style={{ color: COLORS.yellow }}>24/7 Fast Mobile Service</span>
+              Emergency Locksmith Auckland â€“ <span style={{ color: COLORS.yellow }}>24/7 Fast Mobile Service</span>
             </h1>
 
             <div className="pt-2">
@@ -264,7 +211,7 @@ function EmergencyLocksmithHtmlPage() {
             Are you stuck outside your home at 11 pm? Does your automobile have its keys affixed in the ignition? You would require urgent assistance and not a lengthy explanation. The emergency locksmith team in Auckland has trained locksmiths who are capable of reaching you in as little time as 20 minutes, whether during the day or night. This team offers a range of services such as house lockouts, vehicle lockouts, broken keys, and damaged locks for its customers throughout the city. No matter the size of the job, it is valuable. All you need to do is call.
           </p>
           <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            Every year, hundreds of Auckland residents get locked out of their houses. This can occur because a door may slam shut when it’s windy or the key can break during the cold. When this happens, a person does not need to listen to a long speech but would rather straight away call a locksmith near me who completes the job.
+            Every year, hundreds of Auckland residents get locked out of their houses. This can occur because a door may slam shut when itâ€™s windy or the key can break during the cold. When this happens, a person does not need to listen to a long speech but would rather straight away call a locksmith near me who completes the job.
           </p>
         </div>
       </section>
@@ -321,7 +268,7 @@ function EmergencyLocksmithHtmlPage() {
               What to Do If You're Locked Out
             </h3>
             <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              Stay calm first. Check every pocket and bag twice — keys turn up in odd places more than you'd think. Check with a neighbour or building manager for a spare. If none of that works, call an urgent locksmith and stay in a safe, well-lit spot while you wait. Don't try to force the door open yourself. Forcing a lock often makes the repair cost more, not less.
+              Stay calm first. Check every pocket and bag twice â€” keys turn up in odd places more than you'd think. Check with a neighbour or building manager for a spare. If none of that works, call an urgent locksmith and stay in a safe, well-lit spot while you wait. Don't try to force the door open yourself. Forcing a lock often makes the repair cost more, not less.
             </p>
           </div>
 
@@ -389,10 +336,10 @@ function EmergencyLocksmithHtmlPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4">
               <h2 className="text-2xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                Emergency Locksmith Pricing – What Can You Expect?
+                Emergency Locksmith Pricing â€“ What Can You Expect?
               </h2>
               <p className="text-gray-700 text-base leading-relaxed">
-                Costs usually vary according to three factors — the hour of day, the lock hardware, and travel distance. Basic daytime unlocks are cheaper than late-night or holiday callouts. We look for an affordable emergency solution at all times and confirm exact pricing before commencing work.
+                Costs usually vary according to three factors â€” the hour of day, the lock hardware, and travel distance. Basic daytime unlocks are cheaper than late-night or holiday callouts. We look for an affordable emergency solution at all times and confirm exact pricing before commencing work.
               </p>
             </div>
 
@@ -474,47 +421,15 @@ function EmergencyLocksmithHtmlPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <window.FooterComponent currentPage="home" />
-
-      {/* MOBILE STICKY CTA */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] flex justify-between items-center" style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}` }}>
-        <div className="flex flex-col text-white px-2">
-          <span className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: COLORS.yellow }}>Locked Out?</span>
-          <span className="font-bold text-sm">24/7 Emergency Service</span>
-        </div>
-        <a href="tel:0800828345" className="flex items-center justify-center px-6 py-3.5 font-bold rounded-full" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-          <Phone size={18} className="mr-2" /> Call Now
-        </a>
-      </div>
-
-      {/* DESKTOP FLOATING BUTTONS */}
-      <div className="hidden md:flex fixed top-1/2 right-0 -translate-y-1/2 flex-col z-50 rounded-l-lg overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.2)]">
-        <a href="tel:0800828345" className="bg-[#0B1F3A] text-white hover:text-[#1F2937] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer group">
-          <Phone size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Call Now</span>
-        </a>
-        <a href="contact-us.html" className="bg-[#F4C430] text-[#0B1F3A] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer border-t border-[#132B4F] group">
-          <Calendar size={20} className="group-hover:scale-110 transition-transform" />
-          <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Book Appointment</span>
-        </a>
-      </div>
-
-      {/* SCROLL TO TOP */}
-      <button onClick={scrollToTop} className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-50 p-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 ${showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-        <ArrowUp size={24} strokeWidth={2.5} />
-      </button>
-
+      <window.FooterComponent currentPage="services" />
     </div>
   );
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<EmergencyLocksmithHtmlPage />);
-    
+root.render(<EmergencyLocksmithPageContent />);
 </script>
 
 <?php
 include 'footer.php';
 ?>
-

@@ -1,21 +1,16 @@
 <?php
 $pageTitle = "Terms & Conditions of Trade | LostKey Locksmith Auckland";
 $pageDescription = "Terms & Conditions of Trade for Lostkey Locksmith Auckland. Details on services, pricing, acceptance, warranties, lockout protocols, and liability.";
-$currentPage = "home";
+$currentPage = "terms";
 include 'header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { createRoot } from 'react-dom/client';
 import { 
-  Menu, X, Phone, Lock, Home, Car, 
-  ShieldCheck, ChevronRight, ChevronDown,
-  Key, Clock, MapPin, Wrench,
-  Shield, Mail, Facebook, Twitter, Youtube,
-  Zap, BadgeCheck, Settings, KeyRound,
-  Calendar, ArrowUp, FileText, AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers
+  Phone, Lock, Home, Car, ChevronRight, MapPin, Mail, 
+  ShieldCheck, FileText, CheckCircle2, AlertTriangle, Building, HelpCircle
 } from 'lucide-react';
 
 const COLORS = {
@@ -24,73 +19,25 @@ const COLORS = {
   white: '#FFFFFF',
 };
 
-const serviceAreas = [
-  "Auckland Central",
-  "North Shore",
-  "West Auckland",
-  "South Auckland",
-  "East Auckland",
-  "Rodney",
-  "Franklin",
-  "Orewa & Hibiscus Coast"
-];
-
-const MAIN_SERVICES = [
-  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
-  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
-  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
-  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
-  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
-  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
-  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
-  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
-  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
-  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
-  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
-  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
-  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
-  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
-  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
-];
-
-function TermsHtmlPage() {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  
-  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
-  const [showScrollTop, setShowScrollTop] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-      setShowScrollTop(window.scrollY > 400);
-    };
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
+function TermsPageContent() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      
-      {/* UNIFIED STICKY HEADER */}
-      <window.HeaderComponent currentPage="home" />
+      <window.HeaderComponent currentPage="terms" />
 
       {/* HERO BANNER */}
       <section className="relative bg-[#0B1F3A] text-white py-16 lg:py-24 overflow-hidden">
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">Terms & Conditions of Trade</span>
           </div>
 
           <div className="max-w-4xl">
-            <span className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+            <span 
+              className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
               <FileText size={14} className="mr-2" />
               LEGAL & SERVICE AGREEMENT
             </span>
@@ -244,7 +191,7 @@ function TermsHtmlPage() {
             </h2>
             <ul className="space-y-3 text-base text-gray-700 list-disc pl-5">
               <li><strong>11.1</strong> The Provider is responsible for the management of all customer information under the Privacy Act of 2020. The complete information about the data that we collect and how it is utilized can be found in the Privacy Policy.</li>
-              <li><strong>11.2</strong> The purchaser gives consent to the provider to share relevant information with the customer’s insurance company in case of settling the claim (for instance, in case of stolen car keys). The client may ask the provider to correct or provide his information.</li>
+              <li><strong>11.2</strong> The purchaser gives consent to the provider to share relevant information with the customerâ€™s insurance company in case of settling the claim (for instance, in case of stolen car keys). The client may ask the provider to correct or provide his information.</li>
             </ul>
           </div>
 
@@ -276,7 +223,7 @@ function TermsHtmlPage() {
             </h2>
             <ul className="space-y-3 text-base text-gray-700 list-disc pl-5">
               <li><strong>14.1</strong> Disagreements concerning these terms must be resolved first by direct communications between the two parties and, if necessary, mediation before legal action is taken by either one of the parties.</li>
-              <li><strong>14.2</strong> These terms are governed by New Zealand law and fall under its courts’ jurisdiction.</li>
+              <li><strong>14.2</strong> These terms are governed by New Zealand law and fall under its courtsâ€™ jurisdiction.</li>
               <li><strong>14.3</strong> If any part of these provisions is considered illegal or unenforceable, the remaining provisions will remain in full force and effect.</li>
               <li><strong>14.4</strong> The Supplier may update these Terms & Conditions of Trade from time to time. Updates will be posted on this page, with changes applying to jobs booked after the update date.</li>
               <li><strong>14.5</strong> Neither party is liable for delays or failures caused by events outside their reasonable control, including natural disasters, government restrictions, or other circumstances commonly understood as force majeure. This does not excuse the customer from an existing obligation to make payment for services already completed.</li>
@@ -301,35 +248,15 @@ function TermsHtmlPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <window.FooterComponent currentPage="home" />
-
-      {/* MOBILE STICKY CTA */}
-      <div className="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] flex justify-between items-center" style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}` }}>
-        <div className="flex flex-col text-white px-2">
-          <span className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: COLORS.yellow }}>Locked Out?</span>
-          <span className="font-bold text-sm">24/7 Emergency Service</span>
-        </div>
-        <a href="tel:0800828345" className="flex items-center justify-center px-6 py-3.5 font-bold rounded-full" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-          <Phone size={18} className="mr-2" /> Call Now
-        </a>
-      </div>
-
-      {/* SCROLL TO TOP */}
-      <button onClick={scrollToTop} className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-50 p-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 ${showScrollTop ? 'opacity-100' : 'opacity-0 pointer-events-none'}`} style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-        <ArrowUp size={24} strokeWidth={2.5} />
-      </button>
-
+      <window.FooterComponent currentPage="terms" />
     </div>
   );
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<TermsHtmlPage />);
-    
+root.render(<TermsPageContent />);
 </script>
 
 <?php
 include 'footer.php';
 ?>
-
