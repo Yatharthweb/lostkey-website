@@ -414,9 +414,9 @@ function AutomotiveLocksmithPageContent() {
             </p>
           </div>
 
-          <div className="space-y-10">
+          <div className="space-y-24">
             <div>
-              <h3 className="text-3xl font-bold text-[#1F2937] mb-6 flex items-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Cars</h3>
+              <h3 className="text-3xl font-bold text-[#1F2937] mb-8 flex items-center justify-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Cars</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {carBrands.map((brand, idx) => {
                   const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -446,7 +446,7 @@ function AutomotiveLocksmithPageContent() {
             </div>
 
             <div>
-              <h3 className="text-3xl font-bold text-[#1F2937] mb-6 flex items-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
+              <h3 className="text-3xl font-bold text-[#1F2937] mb-8 flex items-center justify-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {vanBrands.map((brand, idx) => {
                   const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -476,7 +476,7 @@ function AutomotiveLocksmithPageContent() {
             </div>
 
             <div>
-              <h3 className="text-3xl font-bold text-[#1F2937] mb-6 flex items-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
+              <h3 className="text-3xl font-bold text-[#1F2937] mb-8 flex items-center justify-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {truckBrands.map((brand, idx) => {
                   const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
