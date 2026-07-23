@@ -416,14 +416,14 @@ function AutomotiveLocksmithPageContent() {
           <div className="space-y-10">
             <div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Car Brands</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {carBrands.map((brand, idx) => {
                   const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-14 sm:h-16 lg:h-20 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-10 sm:h-12 lg:h-16 w-full hover:opacity-75"
                     >
                       <img 
                         src={`images/brands/${slug}.svg`} 
@@ -446,14 +446,14 @@ function AutomotiveLocksmithPageContent() {
 
             <div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {vanBrands.map((brand, idx) => {
                   const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-14 sm:h-16 lg:h-20 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-10 sm:h-12 lg:h-16 w-full hover:opacity-75"
                     >
                       <img 
                         src={`images/brands/${slug}.svg`} 
@@ -476,14 +476,14 @@ function AutomotiveLocksmithPageContent() {
 
             <div>
               <h3 className="text-xl font-bold text-[#1F2937] mb-6 flex items-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
-              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-x-6 gap-y-10 items-center justify-items-center">
+              <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {truckBrands.map((brand, idx) => {
                   const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-14 sm:h-16 lg:h-20 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-10 sm:h-12 lg:h-16 w-full hover:opacity-75"
                     >
                       <img 
                         src={`images/brands/${slug}.svg`} 
