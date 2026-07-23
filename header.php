@@ -92,7 +92,7 @@ const serviceAreas = [
   { name: "South Auckland", url: "south-auckland-locksmith.php" },
   { name: "East Auckland", url: "east-auckland-locksmith.php" },
   { name: "Rodney", url: "rodney-locksmith.php" },
-  { name: "Franklin", url: "contact-us.php" },
+  { name: "Franklin", url: "franklin-locksmith.php" },
   { name: "Orewa & Hibiscus Coast", url: "contact-us.php" }
 ];
 

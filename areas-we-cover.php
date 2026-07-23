@@ -82,7 +82,7 @@ const regionCards = [
     desc: "Servicing Pukekohe, Waiuku, Tuakau, and the surrounding Franklin district, covering both town centres and outlying rural addresses.",
     pills: ["Pukekohe", "Waiuku", "Tuakau"],
     cta: "View Franklin locksmith services →",
-    link: "contact-us.php"
+    link: "franklin-locksmith.php"
   },
   {
     badge: "BEACHSIDE",
