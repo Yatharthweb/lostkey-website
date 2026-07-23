@@ -423,7 +423,7 @@ function AutomotiveLocksmithPageContent() {
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-10 sm:h-12 lg:h-16 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-12 sm:h-16 lg:h-20 w-full hover:opacity-75"
                     >
                       <img 
                         src={`images/brands/${slug}.svg`} 
@@ -453,7 +453,7 @@ function AutomotiveLocksmithPageContent() {
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-10 sm:h-12 lg:h-16 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-12 sm:h-16 lg:h-20 w-full hover:opacity-75"
                     >
                       <img 
                         src={`images/brands/${slug}.svg`} 
@@ -483,7 +483,7 @@ function AutomotiveLocksmithPageContent() {
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-10 sm:h-12 lg:h-16 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-12 sm:h-16 lg:h-20 w-full hover:opacity-75"
                     >
                       <img 
                         src={`images/brands/${slug}.svg`} 
