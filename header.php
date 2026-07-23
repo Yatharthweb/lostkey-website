@@ -444,3 +444,4 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
     </header>
   );
 };
+</script>
