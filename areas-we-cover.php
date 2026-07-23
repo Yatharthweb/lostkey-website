@@ -73,7 +73,7 @@ const regionCards = [
     desc: "Covering Warkworth, Helensville, Wellsford, and the wider Rodney district, including rural properties and lifestyle blocks outside the main city grid.",
     pills: ["Warkworth", "Helensville", "Wellsford"],
     cta: "View Rodney locksmith services →",
-    link: "contact-us.php"
+    link: "rodney-locksmith.php"
   },
   {
     badge: "SOUTHERN REACH",

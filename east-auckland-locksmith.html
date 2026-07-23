@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Emergency Locksmith Auckland | 24/7 Fast Mobile Locksmith Service</title>
-    <meta name="description" content="Emergency Locksmith Auckland – 24/7 urgent lockout response in 20-30 mins. House, apartment, commercial &amp; car lockouts, broken key removal, lock repair &amp; rekeying.">
+    <title>Locksmith East Auckland | Trusted Local Locksmith Services | Lostkey</title>
+    <meta name="description" content="Lostkey is the trusted East Auckland Locksmith for residential, commercial, automotive and emergency lockouts. Covering Howick, Pakuranga, Botany, Flat Bush and more.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
       {
@@ -441,7 +441,7 @@ import {
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
   ShieldCheck, CheckCircle2, BadgeCheck, DollarSign, KeyRound, PenTool,
-  Zap, Settings, Key, Unlock, Plus, Minus, Layers, Cpu, DoorClosed, Power, UserCheck
+  Zap, Settings, Key, Unlock, Plus, Minus, Layers, Cpu, DoorClosed, Power
 } from 'lucide-react';
 
 const COLORS = {
@@ -450,415 +450,390 @@ const COLORS = {
   white: '#FFFFFF',
 };
 
-const emServices = [
+const eaServices = [
   {
-    title: "Home Lockouts",
-    desc: "Have you accidentally locked yourself outside of your house? We will unlock it for you without damaging the lock. Our vehicles have the tools needed for unlocking all types of locks.",
+    title: "Emergency Locksmith East Auckland",
+    desc: "Locked out in Pakuranga at midnight or stuck outside your Botany office on a weekend? We run a genuine 24 hour locksmith service, so the call gets answered and a van gets moving, any hour.",
+    icon: Clock
+  },
+  {
+    title: "Residential Locksmith East Auckland",
+    desc: "House lockout, a rusted-up deadbolt in Bucklands Beach, or fresh locks needed after moving into a new place in Flat Bush, our residential locksmith work covers all of it.",
     icon: Home
   },
   {
-    title: "Apartment & Rental Lockouts",
-    desc: "Locked out of your apartment in Auckland? Apartment locks differ from standard house locks, but our specialists carry parts for every lock type.",
+    title: "Commercial Locksmith East Auckland",
+    desc: "East Tāmaki's warehouses and Botany's shops both call on us for commercial locksmith jobs, from a quick office lockout to full master key systems for staff access across a whole building.",
     icon: Building
   },
   {
-    title: "Commercial & Office Lockouts",
-    desc: "When employees are locked out before opening hours, company time is lost. We prioritize commercial calls and aim to arrive before business starts.",
-    icon: Layers
-  },
-  {
-    title: "Car Lockouts Assistance",
-    desc: "We provide car locksmith service for cars, vans, and utes. We open vehicles without doing even slight scratches on the paint or door frame.",
+    title: "Automotive Locksmith East Auckland",
+    desc: "Snapped a key in the ignition outside Howick Village, or locked your keys in the car at Botany Town Centre? Our automotive locksmith and car locksmith vans carry what's needed to sort most car lockout jobs right there in the car park.",
     icon: Car
   },
   {
-    title: "Lost or Stolen Keys",
-    desc: "If you've lost or misplaced your keys, we can open your property/vehicle, replace the locks the same day, and prevent unauthorized access.",
-    icon: Key
+    title: "Smart Locks & Keyless Entry",
+    desc: "A lot of the newer builds in Flat Bush and Golflands already come smart-lock ready. We install and set up digital locks properly so you're not stuck troubleshooting a code at 11pm.",
+    icon: Zap
   },
   {
-    title: "Broken Key Removal",
-    desc: "Keys often break in older or worn locks. We extract the broken piece cleanly and cut a new replacement key for you instantly.",
-    icon: Wrench
-  },
-  {
-    title: "Emergency Lock Repairs",
-    desc: "Locks can get stuck, jammed, or fail to turn. In such cases, we repair the existing mechanism instead of pushing for replacement.",
-    icon: PenTool
-  },
-  {
-    title: "Emergency Lock Replacement",
-    desc: "In instances where locks are too worn or damaged after a break-in, our mobile vans carry high-quality replacement locks on-site.",
-    icon: Shield
-  },
-  {
-    title: "Lock Rekeying Services",
-    desc: "Moved into a new home or experienced a burglary? Rekeying changes the inner pins so old keys stop working at a fraction of full replacement cost.",
+    title: "Lock Rekeying",
+    desc: "Just bought a place in Pakuranga or lost a key somewhere between home and work? We rekey locks so the old keys stop working without needing a whole new lock fitted.",
     icon: KeyRound
   },
   {
-    title: "Smart & Digital Lock Services",
-    desc: "Smart locks can malfunction due to dead batteries, app errors, or blocked motors. We service almost all smart lock models sold in NZ.",
-    icon: Cpu
+    title: "Lock Repairs & Lock Replacement",
+    desc: "From a sliding door lock that's jammed at the beach house to a garage lock that won't budge, we cover door lock repair and full lock replacement for homes and businesses across the region.",
+    icon: Wrench
+  },
+  {
+    title: "Key Cutting & Key Duplication",
+    desc: "Need extra keys cut for the whole family or a tricky older lock matched? Our key cutting service is usually done while you wait.",
+    icon: Key
   }
 ];
 
-const whyChoosePoints = [
-  { title: "Prompt Response Mobilization", desc: "Our vans are dispersed throughout Auckland rather than sitting at a central depot, allowing us to arrive in 20-30 minutes." },
-  { title: "No-Damage Entry Techniques", desc: "Our priority is using professional lock picking and bypassing methods before resorting to drilling." },
-  { title: "Experienced Locksmith Staff", desc: "Our team has completed over 5,000+ emergency callouts across Auckland homes, businesses, and vehicles." },
-  { title: "Fully Equipped Response Vehicles", desc: "Each van carries full stock including locks, keys, and key-cutting tools to finish 95%+ of jobs in a single visit." },
-  { title: "Upfront Transparent Pricing", desc: "We confirm exact pricing over the phone before starting work so there are zero surprise charges afterwards." },
-  { title: "Workmanship Warranty", desc: "Every lock installed or repaired comes with our full workmanship guarantee at no extra cost to you." }
-];
-
 const workSteps = [
-  { num: "01", title: "Call Our Emergency Team", desc: "Tell us your address and what happened. The call takes under 2 minutes." },
-  { num: "02", title: "Immediate Dispatch", desc: "We send the closest mobile van straight to you with a guaranteed arrival time." },
-  { num: "03", title: "On-Site Assessment", desc: "Our locksmith inspects the lock and confirms the exact price before starting." },
-  { num: "04", title: "Access Restored", desc: "We restore access cleanly and test the lock thoroughly before leaving." }
+  {
+    num: "01",
+    title: "Tell Us the Problem",
+    desc: "Call us — Tell us what's happening, a lockout, a broken key, or a job you'd like quoted."
+  },
+  {
+    num: "02",
+    title: "Get a Time & Price",
+    desc: "We check who's closest across East Auckland and brief them on your job before they head over. You'll get a realistic arrival time and an upfront quote."
+  },
+  {
+    num: "03",
+    title: "Job Sorted on the Spot",
+    desc: "The job gets done properly — Not a rushed patch job that fails again in a month. We fix it so it actually holds, and we check it works perfectly before leaving."
+  }
 ];
 
 const faqs = [
   {
-    q: "How long do emergency locksmiths take?",
-    a: "Most jobs are carried out in 20 - 40 minutes after reaching the site. Reaching the site usually takes about 20 - 40 minutes throughout Auckland."
+    q: "Do you cover the industrial areas around East Tāmaki, not just houses?",
+    a: "Yes. East Tāmaki's warehouses and factories are a regular part of our commercial locksmith work, from roller door locks to full access control and master key setups for staff."
   },
   {
-    q: "What is the cost of hiring emergency locksmiths?",
-    a: "The charges depend on the type of work, type of lock, and timing of service. A reasonable locksmith should tell you the price before commencing work."
+    q: "I'm in a townhouse in Flat Bush, can you still help with a lockout?",
+    a: "Absolutely. Newer townhouse developments often have different door hardware to older standalone homes, and our team is used to working with both, so a Flat Bush house lockout gets handled the same as anywhere else."
   },
   {
-    q: "What do the emergency locksmiths do?",
-    a: "An emergency locksmith helps break open doors and car locks, repair locks, install new locks, and make new keys."
+    q: "My locks near Bucklands Beach are rusty from the sea air, can they be repaired?",
+    a: "Often, yes. Salt air corrosion doesn't always mean the lock needs full replacing. We'll check it in person and give you an honest answer on whether a repair will hold up or whether it's time to replace it."
   },
   {
-    q: "Is there a call-out charge?",
-    a: "Not all locksmiths charge but many of them will especially for working after hours. We inform the client about call-out charges beforehand."
-  },
-  {
-    q: "How soon can a lock be picked?",
-    a: "An experienced locksmith might be able to get past a conventional pin tumbler lock in a matter of minutes. Sometimes, however, it takes longer with older locks or high-security models."
-  },
-  {
-    q: "How much does a local locksmith cost?",
-    a: "Cost varies according to the job. A straightforward lockout situation is generally less expensive than a complete lock change or rekeying operation. We provide clear pricing over the phone."
+    q: "How much does a locksmith in East Auckland usually cost?",
+    a: "It depends on the job, a simple lockout is cheaper than a full lock replacement or smart lock install. We always confirm the price with you before starting, so you know exactly what you're paying."
   }
 ];
 
-function EmergencyLocksmithPageContent() {
-  const [openFaq, setOpenFaq] = useState(-1);
+const SuburbsCovered = () => {
+  const regions = [
+    { title: "Howick Coastal", suburbs: ["Half Moon Bay", "Bucklands Beach", "Cockle Bay"] },
+    { title: "Further Coastal", suburbs: ["Shelly Park", "Farm Cove", "Highland Park"] },
+    { title: "Howick & Pakuranga", suburbs: ["Howick", "Sunnyhills", "Pakuranga"] },
+    { title: "Botany Hub", suburbs: ["Botany", "Botany Downs", "Golflands"] },
+    { title: "South & East", suburbs: ["Dannemora", "Flat Bush", "East Tāmaki"] }
+  ];
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="services" />
-
-      {/* HERO BANNER */}
-      <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
-        <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/keys-on-belt.jpeg')" }}></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
-          <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
-            <ChevronRight size={14} className="text-gray-500" />
-            <a href="index.html#services" className="hover:text-[#F4C430] transition-colors">Services</a>
-            <ChevronRight size={14} className="text-gray-500" />
-            <span className="text-[#F4C430] font-bold">Emergency Locksmith Auckland</span>
-          </div>
-
-          <div className="max-w-4xl">
-            <span 
-              className="inline-flex items-center text-xs md:text-sm font-black uppercase tracking-widest px-5 py-2 rounded-full mb-6"
-              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
-            >
-              <AlertTriangle size={14} className="mr-2" />
-              24/7 FAST MOBILE DISPATCH (20-30 MINS)
-            </span>
-
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[60px] font-black leading-[1.1] tracking-tight mb-6" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Emergency Locksmith Auckland – <span style={{ color: COLORS.yellow }}>24/7 Fast Mobile Service</span>
-            </h1>
-
-            <div className="pt-2">
-              <a 
-                href="tel:0800828345" 
-                className="inline-flex items-center space-x-4 border border-white rounded-full px-2 py-2 pr-10 hover:border-[#F4C430] transition-all group bg-[#0B1F3A]/40"
-              >
-                <div className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0" style={{ backgroundColor: COLORS.yellow }}>
-                  <Phone size={24} style={{ color: COLORS.black, fill: COLORS.black }} />
-                </div>
-                <div className="flex flex-col">
-                  <span className="text-[11px] uppercase tracking-wider text-gray-200 font-bold mb-0.5">Call Urgent Dispatch Now</span>
-                  <span className="text-white font-black text-2xl md:text-3xl tracking-wide leading-none whitespace-nowrap">0800 828 345</span>
-                </div>
-              </a>
-            </div>
-          </div>
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {regions.map((r, i) => (
+        <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow">
+          <h4 className="font-bold text-[#0B1F3A] mb-4 flex items-center">
+            <MapPin size={18} className="text-[#F4C430] mr-2" />
+            {r.title}
+          </h4>
+          <ul className="space-y-2">
+            {r.suburbs.map((s, j) => (
+              <li key={j} className="text-gray-600 text-sm flex items-center hover:text-[#F4C430] transition-colors cursor-pointer">
+                <span className="w-1.5 h-1.5 rounded-full bg-[#F4C430] mr-2"></span>
+                <a href="#">{s} Locksmith</a>
+              </li>
+            ))}
+          </ul>
         </div>
-      </section>
+      ))}
+    </div>
+  );
+};
 
-      {/* PARTNERS LOGO SCROLLER (BELOW HERO BANNER) */}
-      <section className="bg-white py-10 border-b border-gray-100 overflow-hidden relative z-10">
-        <div className="relative w-full overflow-hidden flex items-center">
-          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
-          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+const FAQItem = ({ faq, isOpen, onClick }) => {
+  return (
+    <div className={`border rounded-2xl transition-all duration-300 ${isOpen ? 'border-[#F4C430] bg-white shadow-md' : 'border-gray-200 bg-gray-50 hover:bg-white'}`}>
+      <button className="w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none" onClick={onClick}>
+        <span className={`font-bold pr-8 leading-tight ${isOpen ? 'text-[#0B1F3A]' : 'text-gray-800'}`}>
+          {faq.q}
+        </span>
+        <div className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${isOpen ? 'bg-[#F4C430] text-[#0B1F3A]' : 'bg-gray-200 text-gray-500'}`}>
+          {isOpen ? <Minus size={16} strokeWidth={3} /> : <Plus size={16} strokeWidth={3} />}
+        </div>
+      </button>
+      <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}>
+        <div className="px-6 pb-6 pt-2 text-gray-600 text-sm leading-relaxed border-t border-gray-100 mt-2">
+          {faq.a}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default function EastAucklandLocksmith() {
+  const [openFaq, setOpenFaq] = useState(0);
+
+  return (
+    <div className="min-h-screen bg-gray-50 font-sans text-gray-900" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
+      {typeof window !== 'undefined' && window.HeaderComponent ? <window.HeaderComponent currentPage="areas" /> : null}
+
+      {/* HERO SECTION */}
+      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-[#0B1F3A]">
+        <div className="absolute inset-0 z-0">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=2000&q=80" alt="Locksmith East Auckland" className="w-full h-full object-cover opacity-20" />
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/90 to-[#0B1F3A]"></div>
+        </div>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
+            <span className="w-2 h-2 rounded-full bg-[#F4C430] animate-pulse"></span>
+            <span className="text-white text-xs font-bold tracking-wider uppercase">East Auckland's trusted local locksmith</span>
+          </div>
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
+            Locksmith <span className="text-[#F4C430]">East Auckland</span>
+          </h1>
+          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
+            Need a locksmith in East Auckland you can count on? Don't worry, we can come to your Howick, Pakuranga, Botany, Flat Bush, or other locations you want. Our experienced team will provide you with locksmith services right where you need them, be it at your home or in your workplace.
+          </p>
           
-          <div className="flex animate-marquee whitespace-nowrap items-center">
-            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
-              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain" />
-              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain" />
-              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain" />
-              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain" />
-              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain" />
-              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain" />
-              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain" />
-              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain" />
-              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain" />
-              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <a href="tel:0800828345" className="w-full sm:w-auto px-8 py-4 bg-[#F4C430] hover:bg-white text-[#0B1F3A] rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center shadow-[0_0_20px_rgba(244,196,48,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transform hover:-translate-y-1">
+              <Phone size={18} className="mr-2" /> Call 0800 828 345
+            </a>
+            <a href="contact-us.html" className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
+              <Mail size={18} className="mr-2" /> Book Online
+            </a>
+          </div>
+          <p className="text-white mt-8 text-sm font-medium">
+            Every call is different. Sometimes the nature of the service call can change dramatically, but you can be sure that whatever the issue is that you have, whether it concerns your home, office or car, will be successfully resolved without you having to make another call!
+          </p>
+        </div>
+      </section>
+
+      {/* WHY EAST AUCKLAND NEEDS A LOCKSMITH */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] leading-tight">
+                Why East Auckland Needs a Locksmith It Can Rely On
+              </h2>
+              <div className="w-20 h-1.5 bg-[#F4C430] rounded-full"></div>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                The eastern part of Auckland showcases various parts. Some, such as Pakuranga and Howick, contain older homes constructed in the 1990s. In other places, such as Flat Bush, newer modern homes or townhouses were built. 
+              </p>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Additionally, the district of Tāmaki has its industrial sections consisting of many factories and warehouses, which requires advanced security systems instead of padlocks. Lastly, the coastal area of Half Moon Bay is highly affected by salty water.
+              </p>
+              <div className="bg-gray-50 p-6 rounded-2xl border-l-4 border-[#F4C430]">
+                <p className="text-[#0B1F3A] font-medium italic">
+                  "Because of this blend of technology, the locksmith in East Auckland must be adept in the use of older-style deadbolts, the latest smart locks, and everything that lies in between. That's where Lostkey comes in."
+                </p>
+              </div>
             </div>
-            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
-              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain" />
-              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain" />
-              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain" />
-              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain" />
-              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain" />
-              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain" />
-              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain" />
-              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain" />
-              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain" />
-              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain" />
+            <div className="relative">
+              <div className="absolute inset-0 bg-[#F4C430] rounded-3xl transform translate-x-4 translate-y-4 opacity-20"></div>
+              <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="East Auckland Locksmith Service" className="relative rounded-3xl shadow-xl w-full object-cover h-[500px]" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* INTRO SECTION */}
-      <section className="py-16 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-          <h2 className="text-3xl md:text-4xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-            Need an Emergency Locksmith in Auckland Right Now?
-          </h2>
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            Are you stuck outside your home at 11 pm? Does your automobile have its keys affixed in the ignition? You would require urgent assistance and not a lengthy explanation. The emergency locksmith team in Auckland has trained locksmiths who are capable of reaching you in as little time as 20 minutes, whether during the day or night. This team offers a range of services such as house lockouts, vehicle lockouts, broken keys, and damaged locks for its customers throughout the city. No matter the size of the job, it is valuable. All you need to do is call.
-          </p>
-          <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-            Every year, hundreds of Auckland residents get locked out of their houses. This can occur because a door may slam shut when it’s windy or the key can break during the cold. When this happens, a person does not need to listen to a long speech but would rather straight away call a locksmith near me who completes the job.
-          </p>
-        </div>
-      </section>
-
-      {/* 24/7 EMERGENCY SERVICES GRID */}
-      <section className="py-20 bg-gray-50 border-y border-gray-200">
+      {/* OUR LOCKSMITH EAST AUCKLAND SERVICES */}
+      <section className="py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-              24/7 URGENT SOLUTIONS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1F2937] tracking-tight mb-4" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              24/7 Emergency Locksmith Services Across Auckland
-            </h2>
-            <p className="text-gray-600 text-lg">
-              We provide a find-a-24-hour-locksmith-in-Auckland service dedicated to always having someone ready to respond.
-            </p>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] mb-6">Our Services in East Auckland</h2>
+            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-600 text-lg">Whatever's gone wrong, chances are we've already sorted the exact same problem for someone a few streets over.</p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {emServices.map((service, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col justify-between group">
-                <div>
-                  <div className="w-14 h-14 rounded-2xl bg-[#0B1F3A] flex items-center justify-center mb-6 text-[#F4C430] group-hover:scale-110 transition-transform">
-                    <service.icon size={26} />
-                  </div>
-                  <h3 className="text-2xl font-bold text-[#1F2937] mb-3 group-hover:text-[#F4C430] transition-colors">{service.title}</h3>
-                  <p className="text-gray-600 leading-relaxed text-sm">{service.desc}</p>
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            {eaServices.map((service, idx) => (
+              <div key={idx} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
+                <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-[#F4C430] group-hover:text-[#0B1F3A] transition-colors border border-gray-100">
+                  <service.icon size={24} className="text-[#0B1F3A] group-hover:text-[#0B1F3A]" />
                 </div>
+                <h3 className="text-xl font-bold text-[#0B1F3A] mb-4 group-hover:text-[#F4C430] transition-colors">{service.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed flex-grow">{service.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* COMMON SITUATIONS & WHAT TO DO & HOW IT WORKS */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+      {/* SUBURBS WE COVER */}
+      <section className="py-20 bg-[#0B1F3A] text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Suburbs We Cover</h2>
+            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
+            <p className="text-gray-300 text-lg mb-4">
+              Lostkey provides the following areas with residential, automotive, commercial and emergency essential services right across East Auckland. 
+            </p>
+            <p className="text-gray-300 text-sm italic">
+              Every suburb below has its own local page with call-out times and pricing specific to that area.
+            </p>
+          </div>
           
-          <div className="bg-[#0B1F3A] rounded-3xl p-8 md:p-12 text-white space-y-4 shadow-xl">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-              TYPICAL CALLOUTS
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Common Emergency Locksmith Situations We Handle
-            </h2>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-              Most calls we get fall into a few common patterns. Keys left inside the house. Keys locked in the car with the engine still running. Keys snapped in a rushed morning. Locks that simply give up after years of use. A break-in that damaged the door frame. None of these situations are unusual, and none of them need to turn into a full day of stress.
-            </p>
+          <SuburbsCovered />
+          
+          <div className="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-sm text-gray-300 max-w-4xl mx-auto">
+            <p className="mb-4"><span className="text-[#F4C430] font-bold">Note:</span> Along this stretch of coastline, waterfront homes near Half Moon Bay and Shelly Park tend to call us for deadbolt and sliding door lock repairs more than most other parts of East Auckland.</p>
+            <p>The newer homes and growing business parks around Flat Bush and East Tāmaki keep our commercial locksmith team busy with master key systems and access control setups.</p>
           </div>
-
-          <div className="bg-amber-50 rounded-3xl p-8 md:p-10 border border-amber-200 space-y-4">
-            <h3 className="text-2xl md:text-3xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              What to Do If You're Locked Out
-            </h3>
-            <p className="text-gray-700 text-base md:text-lg leading-relaxed">
-              Stay calm first. Check every pocket and bag twice — keys turn up in odd places more than you'd think. Check with a neighbour or building manager for a spare. If none of that works, call an urgent locksmith and stay in a safe, well-lit spot while you wait. Don't try to force the door open yourself. Forcing a lock often makes the repair cost more, not less.
-            </p>
-          </div>
-
-          <div>
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <h2 className="text-3xl md:text-4xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                How Our Emergency Locksmith Service Works
-              </h2>
-            </div>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-              {workSteps.map((step, idx) => (
-                <div key={idx} className="bg-gray-50 rounded-3xl p-6 border border-gray-200 flex flex-col justify-between">
-                  <div>
-                    <span className="text-3xl font-black text-[#F4C430] block mb-4">{step.num}</span>
-                    <h3 className="text-lg font-bold text-[#1F2937] mb-2">{step.title}</h3>
-                    <p className="text-gray-600 text-xs leading-relaxed">{step.desc}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
         </div>
       </section>
 
-      {/* WHY CHOOSE LOSTKEY & WHO'S COMING TO YOUR DOOR */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          
-          <div>
-            <div className="text-center max-w-3xl mx-auto mb-12">
-              <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-                TRUSTED & LICENSED
-              </span>
-              <h2 className="text-4xl md:text-5xl font-black text-[#1F2937] tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                Why Choose Lostkey for Emergency Locksmith Services?
-              </h2>
+      {/* RESIDENTIAL AND COMMERCIAL WORK */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <div className="order-2 lg:order-1">
+              <div className="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Residential Work" className="rounded-2xl shadow-lg w-full h-48 object-cover" />
+                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Commercial Work" className="rounded-2xl shadow-lg w-full h-48 object-cover mt-8" />
+              </div>
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {whyChoosePoints.map((pt, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-3xl border border-gray-200 shadow-sm space-y-3">
-                  <div className="w-10 h-10 rounded-full bg-[#0B1F3A] text-[#F4C430] flex items-center justify-center font-bold">
-                    <Check size={20} />
-                  </div>
-                  <h3 className="text-lg font-bold text-[#1F2937]">{pt.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{pt.desc}</p>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="bg-[#0B1F3A] rounded-3xl p-8 md:p-12 text-white space-y-4 shadow-xl">
-            <div className="flex items-center space-x-3 text-[#F4C430]">
-              <UserCheck size={28} />
-              <h2 className="text-2xl md:text-3xl font-black" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                Who's Coming to Your Door
+            <div className="space-y-6 order-1 lg:order-2">
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] leading-tight">
+                Residential and Commercial Work in East Auckland
               </h2>
-            </div>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed">
-              Every locksmith on our team is background-checked before they're allowed to work a callout. This matters more for a lockout than for most trades, since we're the ones opening your door. Our locksmiths have handled emergency callouts across Auckland since 2018, and the team has completed over 5,000+ jobs to date. We carry full insurance, so if something goes wrong on the job, you're covered, not out of pocket. Every locksmith wears identification and arrives in a signwritten van, so you can check who's at your door before you open it.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4">
-              <h2 className="text-2xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                Emergency Locksmith Pricing – What Can You Expect?
-              </h2>
-              <p className="text-gray-700 text-base leading-relaxed">
-                Costs usually vary according to three factors — the hour of day, the lock hardware, and travel distance. Basic daytime unlocks are cheaper than late-night or holiday callouts. We look for an affordable emergency solution at all times and confirm exact pricing before commencing work.
+              <div className="w-20 h-1.5 bg-[#F4C430] rounded-full"></div>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Homes and businesses get handled a bit differently here, because the stakes are different. A house lockout or a broken key at home in Howick or Sunnyhills needs someone there fast, with a fix that leaves the family properly secure that night, so those calls jump the queue. 
               </p>
-            </div>
-
-            <div className="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm space-y-4">
-              <h2 className="text-2xl font-black text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-                Tips to Prevent Future Lockouts
-              </h2>
-              <p className="text-gray-700 text-base leading-relaxed">
-                Keep a spare key with a reliable neighbour or family member. Use Bluetooth key trackers connected to your phone. Consider installing keypad smart locks so physical keys aren't required, and service your door locks annually to prevent sudden mechanical jams.
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Commercial jobs around East Tāmaki's industrial estates or Botany's retail strip are more about access and timing, getting a commercial locksmith out before a warehouse opens for deliveries, or sorting a master key system so staff aren't juggling ten separate keys. The same local mobile locksmith van can easily do a home job in Flat Bush in the morning and a business one in East Tāmaki that afternoon.
               </p>
             </div>
           </div>
-
         </div>
       </section>
 
-      {/* FREQUENTLY ASKED QUESTIONS */}
+      {/* HOW BOOKING WORKS */}
+      <section className="py-20 bg-gray-50 border-y border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] mb-6">How Booking an East Auckland Locksmith Works</h2>
+            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
+          </div>
+          
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+            <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gray-200 z-0"></div>
+            {workSteps.map((step, idx) => (
+              <div key={idx} className="relative z-10 flex flex-col items-center text-center">
+                <div className="w-24 h-24 rounded-full bg-white border-4 border-[#F4C430] flex items-center justify-center text-[#0B1F3A] font-black text-2xl shadow-xl mb-6">
+                  {step.num}
+                </div>
+                <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">{step.title}</h3>
+                <p className="text-gray-600 text-sm leading-relaxed px-4">{step.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* WHY CHOOSE US & RESPONSE TIMES */}
       <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <div className="space-y-6">
+              <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] leading-tight">
+                Why Choose Lostkey in East Auckland
+              </h2>
+              <div className="w-20 h-1.5 bg-[#F4C430] rounded-full"></div>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                Our vans operate in East Auckland consistently, thus avoiding a scenario whereby someone inexperienced in the geography of the region is being sent across town. Each job we perform is protected by a workmanship guarantee, and we provide an upfront quote, so you never have to worry about hidden charges appearing on the final invoice. If you are unable to pay for our services right away due to other financial commitments, you can always request Afterpay as a method of payment.
+              </p>
+              <p className="text-gray-600 leading-relaxed text-lg">
+                People who call a local locksmith are usually going through some unfortunate occurrences; either they are locked out, expect someone to break into their homes, or have lost their keys. Therefore, we keep everything cool and simple at our office. Customers say that our technicians always explain the problems to them instead of simply disappearing after fixing something.
+              </p>
+            </div>
+            <div className="space-y-6">
+              <div className="bg-[#0B1F3A] text-white p-10 rounded-3xl shadow-xl relative overflow-hidden">
+                <div className="absolute top-0 right-0 w-32 h-32 bg-[#F4C430] opacity-10 rounded-full blur-3xl transform translate-x-10 -translate-y-10"></div>
+                <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center">
+                  <Clock size={28} className="text-[#F4C430] mr-3" /> Response Times in East Auckland
+                </h2>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  In areas of East Auckland such as Pakuranga, Howick, and Botany, our locksmith East Auckland team typically arrives within 20 to 30 minutes. 
+                </p>
+                <p className="text-gray-300 leading-relaxed">
+                  On the other hand, in locations such as Maraetai and Beachlands, it will take around 30 to 45 minutes due to traffic, etc. For any clarifications, give us a call rather than asking for an estimate.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ SECTION */}
+      <section className="py-20 bg-gray-50 border-y border-gray-100">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-              FREQUENTLY ASKED QUESTIONS
-            </span>
-            <h2 className="text-4xl md:text-5xl font-black text-[#1F2937] tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Emergency Locksmith FAQs
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] mb-6">Frequently Asked Questions</h2>
+            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
           </div>
-
           <div className="space-y-4">
-            {faqs.map((faq, idx) => {
-              const isOpen = openFaq === idx;
-              return (
-                <div key={idx} className="bg-gray-50 rounded-2xl border border-gray-200 overflow-hidden">
-                  <button 
-                    onClick={() => setOpenFaq(isOpen ? -1 : idx)}
-                    className="w-full text-left p-6 flex justify-between items-center font-bold text-gray-900 text-base md:text-lg"
-                  >
-                    <span>{faq.q}</span>
-                    <span className="w-8 h-8 rounded-full bg-white flex items-center justify-center ml-4 flex-shrink-0 text-[#0B1F3A]">
-                      {isOpen ? <Minus size={18} /> : <Plus size={18} />}
-                    </span>
-                  </button>
-                  {isOpen && (
-                    <div className="px-6 pb-6 text-gray-600 text-sm leading-relaxed border-t border-gray-200/60 pt-4 bg-white">
-                      {faq.a}
-                    </div>
-                  )}
-                </div>
-              );
-            })}
+            {faqs.map((faq, idx) => (
+              <FAQItem 
+                key={idx} 
+                faq={faq} 
+                isOpen={openFaq === idx} 
+                onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)} 
+              />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* CONTACT / CALLOUT SECTION (WITH SPACING & CARD) */}
-      <section className="py-20 bg-gray-50 border-t border-gray-200">
+      {/* CTA SECTION */}
+      <section className="py-20 bg-white">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-[#0B1F3A] rounded-3xl p-10 md:p-16 text-white text-center space-y-6 shadow-2xl relative overflow-hidden border border-[#132B4F]">
-            <span className="inline-block text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-2" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
-              URGENT LOCKOUT DISPATCH 24/7
-            </span>
-            <h2 className="text-4xl md:text-6xl font-black tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
-              Contact Lostkey Emergency Locksmith Team in Auckland
-            </h2>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              If you are currently locked out, do not just sit on your doorstep waiting for someone to unlock the door for you. Call <strong className="text-[#F4C430]">0800 828 345</strong> and have someone dispatched to your location in no time.
+          <div className="bg-gradient-to-br from-[#0B1F3A] to-gray-900 rounded-3xl p-10 md:p-14 text-white text-center shadow-2xl relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F4C430] opacity-5 rounded-full blur-3xl transform translate-x-20 -translate-y-20"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F4C430] opacity-5 rounded-full blur-3xl transform -translate-x-20 translate-y-20"></div>
+            
+            <h2 className="text-3xl md:text-5xl font-black mb-6 relative z-10">Need a Locksmith in East Auckland?</h2>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10 relative z-10">
+              Whatever the case may be, our locksmith East Auckland team is just a phone call away; get in touch with us day or night.
             </p>
-            <div className="pt-4">
-              <a 
-                href="tel:0800828345" 
-                className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
-                style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
-              >
-                <Phone size={24} className="fill-current" />
-                <span>Call Now: 0800 828 345</span>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10 mb-8">
+              <a href="tel:0800828345" className="px-8 py-4 bg-[#F4C430] hover:bg-white text-[#0B1F3A] rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center shadow-[0_0_20px_rgba(244,196,48,0.3)] transform hover:-translate-y-1 w-full sm:w-auto justify-center">
+                <Phone size={18} className="mr-2" /> 0800 828 345
+              </a>
+              <a href="contact-us.html" className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center backdrop-blur-sm w-full sm:w-auto justify-center">
+                <Mail size={18} className="mr-2" /> Contact Us
               </a>
             </div>
+            <p className="text-sm text-gray-400 relative z-10">
+              Check our <a href="residential-locksmith-auckland.html" className="text-[#F4C430] hover:underline">residential locksmith</a>, <a href="commercial-locksmith-auckland.html" className="text-[#F4C430] hover:underline">commercial locksmith</a>, <a href="automotive-locksmith-auckland.html" className="text-[#F4C430] hover:underline">automotive locksmith</a>, and <a href="emergency-locksmith-auckland.html" className="text-[#F4C430] hover:underline">emergency locksmith</a> pages for more on how we can help.
+            </p>
           </div>
         </div>
       </section>
 
-      <window.FooterComponent currentPage="services" />
+      {typeof window !== 'undefined' && window.FooterComponent ? <window.FooterComponent /> : null}
     </div>
   );
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<EmergencyLocksmithPageContent />);
+root.render(<EastAucklandLocksmith />);
 </script>
+
+<div id="root"></div>
 
 <script type="text/babel" data-type="module">
 import React, { useState, useEffect } from 'react';

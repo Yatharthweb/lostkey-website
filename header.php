@@ -86,14 +86,14 @@ const COLORS = {
 };
 
 const serviceAreas = [
-  "Auckland Central",
-  "North Shore",
-  "West Auckland",
-  "South Auckland",
-  "East Auckland",
-  "Rodney",
-  "Franklin",
-  "Orewa & Hibiscus Coast"
+  { name: "Auckland Central", url: "contact-us.php" },
+  { name: "North Shore", url: "north-shore-locksmith.php" },
+  { name: "West Auckland", url: "west-auckland-locksmith.php" },
+  { name: "South Auckland", url: "south-auckland-locksmith.php" },
+  { name: "East Auckland", url: "east-auckland-locksmith.php" },
+  { name: "Rodney", url: "rodney-locksmith.php" },
+  { name: "Franklin", url: "contact-us.php" },
+  { name: "Orewa & Hibiscus Coast", url: "contact-us.php" }
 ];
 
 const MAIN_SERVICES = [
@@ -247,14 +247,14 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                     {serviceAreas.map((area, idx) => (
                       <a 
                         key={idx} 
-                        href="areas-we-cover.php" 
+                        href={area.url} 
                         className="flex items-center space-x-3 group/item hover:bg-gray-50 p-2 -m-2 rounded-xl transition-colors"
                       >
                         <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                           <MapPin size={14} strokeWidth={2.5} />
                         </div>
                         <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors line-clamp-1">
-                          {area}
+                          {area.name}
                         </span>
                       </a>
                     ))}
@@ -279,6 +279,12 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                       <Phone size={16} strokeWidth={2.5} />
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Contact Us</span>
+                  </a>
+                  <a href="faq.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">FAQ</span>
                   </a>
                 </div>
               </div>
@@ -350,14 +356,14 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   {serviceAreas.map((area, idx) => (
                     <a 
                       key={idx} 
-                      href="areas-we-cover.php" 
+                      href={area.url} 
                       className="flex items-center space-x-2 group p-2 rounded-xl hover:bg-gray-50 transition-colors" 
                       onClick={() => { setMobileMenuOpen(false); setMobileAreasOpen(false); }}
                     >
                       <div className="w-7 h-7 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500 group-hover:bg-[#F4C430] group-hover:text-[#1F2937] transition-colors flex-shrink-0">
                         <MapPin size={13} strokeWidth={2.5} />
                       </div>
-                      <span className="text-[12px] font-bold text-gray-800 leading-tight group-hover:text-[#F4C430] transition-colors line-clamp-1">{area}</span>
+                      <span className="text-[12px] font-bold text-gray-800 leading-tight group-hover:text-[#F4C430] transition-colors line-clamp-1">{area.name}</span>
                     </a>
                   ))}
                 </div>
