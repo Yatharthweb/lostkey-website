@@ -199,8 +199,8 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
       <nav className="w-full" style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           
-          <a href="index.php" className="flex items-center space-x-1 cursor-pointer group">
-            <img src="images/lost-key-logo.png" alt="Lost Key NZ" className="h-12 md:h-14 w-auto object-contain" />
+          <a href="index.php" className="flex items-center space-x-1 cursor-pointer group bg-white px-3 py-1.5 rounded-xl shadow-sm">
+            <img src="images/lost-key-logo.png" alt="Lost Key NZ" className="h-10 md:h-12 w-auto object-contain" />
           </a>
 
           <div className="hidden lg:flex items-center space-x-12">
