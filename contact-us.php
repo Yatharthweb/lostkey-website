@@ -41,7 +41,7 @@ function ContactPageContent() {
       <window.HeaderComponent currentPage="contact" />
 
       {/* PAGE HERO / BREADCRUMB */}
-      <section className="relative bg-[#0B1F3A] text-white py-20 lg:py-28 overflow-hidden">
+      <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F4C430_1px,transparent_1px)] [background-size:24px_24px]"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#F4C430]/15 rounded-full blur-3xl"></div>
         <div className="absolute -bottom-24 -left-24 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl"></div>
