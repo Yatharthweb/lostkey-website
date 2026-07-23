@@ -33,6 +33,15 @@
       .hover-ring:hover .phone-icon {
         animation: ring-shake 0.5s ease-in-out infinite;
       }
+    
+      /* Hide scrollbar for custom-scrollbar */
+      .custom-scrollbar::-webkit-scrollbar {
+        display: none;
+      }
+      .custom-scrollbar {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollbar-width: none;  /* Firefox */
+      }
     </style>
 </head>
 <body>
