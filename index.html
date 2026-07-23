@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="description" content="LostKey is Auckland's trusted 24/7 locksmith. Fast 20-40 min arrival across Auckland for home, business, and vehicle lockouts, lock repairs, and key cutting.">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Key Locksmith Auckland | 24/7 Mobile Locksmith Service</title>
+    <title>Lost Key Locksmith</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
       {
@@ -1250,8 +1249,8 @@ function App() {
             
             <div 
               ref={textSliderRef}
-              className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
-              style={{ scrollBehavior: 'smooth' }}
+              className="flex gap-6 lg:gap-8 overflow-x-scroll snap-x snap-mandatory pb-4 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0" 
+              style={{ scrollBehavior: 'smooth', scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
             {testimonials.map((review, idx) => (
               <div 
@@ -1276,19 +1275,6 @@ function App() {
                     <p className="font-bold text-slate-800 text-[16px]">{review.name}</p>
                     <p className="text-sm text-gray-400">{review.role}</p>
                   </div>
-                </div>
-                <div className="absolute -bottom-8 right-8 z-0 select-none pointer-events-none">
-                  <span 
-                    style={{ 
-                      fontSize: '140px',
-                      lineHeight: '1',
-                      fontFamily: 'Georgia, serif', 
-                      color: 'transparent', 
-                      WebkitTextStroke: '1px #BFDBFE'
-                    }}
-                  >
-                    ΓÇ¥
-                  </span>
                 </div>
               </div>
             ))}
