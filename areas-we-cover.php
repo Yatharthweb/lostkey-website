@@ -91,7 +91,7 @@ const regionCards = [
     desc: "Covering Orewa, Silverdale, Whangaparāoa, and the wider Hibiscus Coast, an area that's grown fast and needs a locksmith who knows it well.",
     pills: ["Orewa", "Silverdale", "Whangaparāoa"],
     cta: "View Orewa & Hibiscus Coast locksmith services →",
-    link: "contact-us.php"
+    link: "orewa-locksmith.php"
   }
 ];
 
