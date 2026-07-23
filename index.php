@@ -405,7 +405,7 @@ function HomePageContent() {
                 return (
                   <div 
                     key={video.id}
-                    className={`relative rounded-3xl overflow-hidden transition-all duration-500 ease-in-out cursor-pointer shadow-xl snap-center flex-shrink-0 w-[85vw] sm:w-[320px] lg:w-[260px] aspect-[9/16] ${
+                    className={`relative rounded-3xl overflow-hidden transition-all duration-500 ease-in-out cursor-pointer shadow-xl snap-center flex-shrink-0 w-[85vw] sm:w-[320px] lg:w-[260px] aspect-[3/4] ${
                       isCenter ? 'lg:w-[320px] lg:z-20 lg:transform lg:scale-105 lg:shadow-2xl' : 'lg:z-10 lg:opacity-75 lg:hover:opacity-100'
                     }`}
                     onClick={() => setActionSlide(idx)}
