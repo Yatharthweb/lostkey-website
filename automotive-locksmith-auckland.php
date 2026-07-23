@@ -428,7 +428,7 @@ function AutomotiveLocksmithPageContent() {
                       <img 
                         src={`images/brands/${slug}.svg`} 
                         alt={`${brand} Key Replacement`} 
-                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 mix-blend-multiply"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
@@ -458,7 +458,7 @@ function AutomotiveLocksmithPageContent() {
                       <img 
                         src={`images/brands/${slug}.svg`} 
                         alt={`${brand} Van Key Replacement`} 
-                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 mix-blend-multiply"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
@@ -488,7 +488,7 @@ function AutomotiveLocksmithPageContent() {
                       <img 
                         src={`images/brands/${slug}.svg`} 
                         alt={`${brand} Truck Key Replacement`} 
-                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 mix-blend-multiply"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
