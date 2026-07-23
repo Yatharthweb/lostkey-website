@@ -423,13 +423,13 @@ function AutomotiveLocksmithPageContent() {
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-between text-center transition-all shadow-sm hover:shadow-md group aspect-square"
+                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all group aspect-square"
                       style={{ aspectRatio: '1 / 1' }}
                     >
-                      <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-xl p-3 group-hover:bg-[#FFF8E1] transition-colors relative overflow-hidden">
+                      <div className="w-full h-full flex items-center justify-center bg-white rounded-xl p-3 relative overflow-hidden">
                         <img 
                           src={`images/brands/${slug}.svg`} 
-                          alt={`${brand} logo`} 
+                          alt={`${brand} Key Replacement`} 
                           className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
                             e.target.onerror = null;
@@ -440,10 +440,6 @@ function AutomotiveLocksmithPageContent() {
                         <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
                           {brand.substring(0, 2).toUpperCase()}
                         </div>
-                      </div>
-                      <div className="mt-2 w-full">
-                        <span className="text-xs font-bold text-gray-800 group-hover:text-[#F4C430] transition-colors block truncate">{brand}</span>
-                        <span className="text-[10px] text-gray-400 font-semibold block uppercase tracking-tight">Key Replacement</span>
                       </div>
                     </a>
                   );
@@ -460,13 +456,13 @@ function AutomotiveLocksmithPageContent() {
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-between text-center transition-all shadow-sm hover:shadow-md group aspect-square"
+                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all group aspect-square"
                       style={{ aspectRatio: '1 / 1' }}
                     >
-                      <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-xl p-3 group-hover:bg-[#FFF8E1] transition-colors relative overflow-hidden">
+                      <div className="w-full h-full flex items-center justify-center bg-white rounded-xl p-3 relative overflow-hidden">
                         <img 
                           src={`images/brands/${slug}.svg`} 
-                          alt={`${brand} logo`} 
+                          alt={`${brand} Van Key Replacement`} 
                           className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
                             e.target.onerror = null;
@@ -477,10 +473,6 @@ function AutomotiveLocksmithPageContent() {
                         <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
                           {brand.substring(0, 2).toUpperCase()}
                         </div>
-                      </div>
-                      <div className="mt-2 w-full">
-                        <span className="text-xs font-bold text-gray-800 group-hover:text-[#F4C430] transition-colors block truncate">{brand}</span>
-                        <span className="text-[10px] text-gray-400 font-semibold block uppercase tracking-tight">Van Key Replacement</span>
                       </div>
                     </a>
                   );
@@ -497,13 +489,13 @@ function AutomotiveLocksmithPageContent() {
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-between text-center transition-all shadow-sm hover:shadow-md group aspect-square"
+                      className="bg-white hover:border-[#F4C430] border border-gray-200 rounded-2xl p-4 flex flex-col items-center justify-center text-center transition-all group aspect-square"
                       style={{ aspectRatio: '1 / 1' }}
                     >
-                      <div className="w-full h-32 flex items-center justify-center bg-gray-50 rounded-xl p-3 group-hover:bg-[#FFF8E1] transition-colors relative overflow-hidden">
+                      <div className="w-full h-full flex items-center justify-center bg-white rounded-xl p-3 relative overflow-hidden">
                         <img 
                           src={`images/brands/${slug}.svg`} 
-                          alt={`${brand} logo`} 
+                          alt={`${brand} Truck Key Replacement`} 
                           className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                           onError={(e) => {
                             e.target.onerror = null;
@@ -514,10 +506,6 @@ function AutomotiveLocksmithPageContent() {
                         <div className="hidden w-16 h-16 rounded-full bg-[#0B1F3A] text-[#F4C430] items-center justify-center font-black text-xl shadow-inner">
                           {brand.substring(0, 2).toUpperCase()}
                         </div>
-                      </div>
-                      <div className="mt-2 w-full">
-                        <span className="text-xs font-bold text-gray-800 group-hover:text-[#F4C430] transition-colors block truncate">{brand}</span>
-                        <span className="text-[10px] text-gray-400 font-semibold block uppercase tracking-tight">Truck Key Replacement</span>
                       </div>
                     </a>
                   );
