@@ -27,7 +27,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=600&q=80",
     desc: "Fast call-outs across the CBD, apartments, and inner-city suburbs, with parking and access challenges factored into every job.",
     pills: ["CBD Access", "Apartment Lockouts", "Commercial Callouts"],
-    cta: "View Auckland City locksmith services →"
+    cta: "View Auckland City locksmith services →",
+    link: "contact-us.php"
   },
   {
     badge: "COASTAL SUBURBS",
@@ -35,7 +36,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Takapuna, Albany, Devonport, and everywhere between, with a focus on both home lockouts and coastal properties prone to lock corrosion.",
     pills: ["Takapuna", "Albany", "Devonport"],
-    cta: "View North Shore locksmith services →"
+    cta: "View North Shore locksmith services →",
+    link: "north-shore-locksmith.php"
   },
   {
     badge: "FAST RESPONSE",
@@ -43,7 +45,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=600&q=80",
     desc: "Servicing Henderson, New Lynn, Te Atatū, and surrounding suburbs, with vans based locally to keep response times short across the west.",
     pills: ["Henderson", "New Lynn", "Te Atatū"],
-    cta: "View West Auckland locksmith services →"
+    cta: "View West Auckland locksmith services →",
+    link: "contact-us.php"
   },
   {
     badge: "FAMILY SUBURBS",
@@ -51,7 +54,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Howick, Pakuranga, Botany, and nearby suburbs, handling everything from family home lockouts to local business security upgrades.",
     pills: ["Howick", "Pakuranga", "Botany"],
-    cta: "View East Auckland locksmith services →"
+    cta: "View East Auckland locksmith services →",
+    link: "contact-us.php"
   },
   {
     badge: "WIDE COVERAGE",
@@ -59,7 +63,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80",
     desc: "Servicing Manukau, Papatoetoe, Ōtāhuhu, and the wider south, with a team large enough to cover this spread-out region without long waits.",
     pills: ["Manukau", "Papatoetoe", "Ōtāhuhu"],
-    cta: "View South Auckland locksmith services →"
+    cta: "View South Auckland locksmith services →",
+    link: "contact-us.php"
   },
   {
     badge: "RURAL & COASTAL",
@@ -67,7 +72,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Warkworth, Helensville, Wellsford, and the wider Rodney district, including rural properties and lifestyle blocks outside the main city grid.",
     pills: ["Warkworth", "Helensville", "Wellsford"],
-    cta: "View Rodney locksmith services →"
+    cta: "View Rodney locksmith services →",
+    link: "contact-us.php"
   },
   {
     badge: "SOUTHERN REACH",
@@ -75,7 +81,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80",
     desc: "Servicing Pukekohe, Waiuku, Tuakau, and the surrounding Franklin district, covering both town centres and outlying rural addresses.",
     pills: ["Pukekohe", "Waiuku", "Tuakau"],
-    cta: "View Franklin locksmith services →"
+    cta: "View Franklin locksmith services →",
+    link: "contact-us.php"
   },
   {
     badge: "BEACHSIDE",
@@ -83,7 +90,8 @@ const regionCards = [
     image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=600&q=80",
     desc: "Covering Orewa, Silverdale, Whangaparāoa, and the wider Hibiscus Coast, an area that's grown fast and needs a locksmith who knows it well.",
     pills: ["Orewa", "Silverdale", "Whangaparāoa"],
-    cta: "View Orewa & Hibiscus Coast locksmith services →"
+    cta: "View Orewa & Hibiscus Coast locksmith services →",
+    link: "contact-us.php"
   }
 ];
 
@@ -183,7 +191,7 @@ function AreasWeCoverPageContent() {
                     {/* Card CTA Footer */}
                     <div className="mt-6">
                       <a 
-                    href="contact-us.php"
+                    href={card.link}
                     className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#0B1F3A] group-hover:text-[#F4C430] transition-colors"
                   >
                     {card.cta}
