@@ -42,11 +42,13 @@
     
       /* Hide scrollbar for custom-scrollbar */
       .custom-scrollbar::-webkit-scrollbar {
-        display: none;
+        display: none !important;
+        width: 0 !important;
+        height: 0 !important;
       }
       .custom-scrollbar {
-        -ms-overflow-style: none;  /* IE and Edge */
-        scrollbar-width: none;  /* Firefox */
+        -ms-overflow-style: none !important;  /* IE and Edge */
+        scrollbar-width: none !important;  /* Firefox */
       }
     </style>
 </head>
@@ -1059,7 +1061,7 @@ function App() {
             {/* Cards Container */}
             <div 
               ref={videoSliderRef}
-              className="flex gap-4 lg:gap-8 justify-start lg:justify-center items-center w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory px-4 lg:px-0 pb-6 lg:pb-0 custom-scrollbar"
+              className="flex gap-4 lg:gap-8 justify-start lg:justify-center items-center w-full overflow-x-auto overflow-y-hidden lg:overflow-x-visible snap-x snap-mandatory px-4 lg:px-0 pb-6 lg:pb-0 custom-scrollbar"
               style={{ scrollBehavior: 'smooth' }}
             >
               {actionVideos.map((video, idx) => {
@@ -1383,7 +1385,7 @@ function App() {
             
             <div 
               ref={textSliderRef}
-              className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
+              className="flex gap-6 lg:gap-8 overflow-x-auto overflow-y-hidden snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
               style={{ scrollBehavior: 'smooth' }}
             >
             {testimonials.map((review, idx) => (
