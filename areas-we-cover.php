@@ -64,7 +64,7 @@ const regionCards = [
     desc: "Servicing Manukau, Papatoetoe, Ōtāhuhu, and the wider south, with a team large enough to cover this spread-out region without long waits.",
     pills: ["Manukau", "Papatoetoe", "Ōtāhuhu"],
     cta: "View South Auckland locksmith services →",
-    link: "contact-us.php"
+    link: "south-auckland-locksmith.php"
   },
   {
     badge: "RURAL & COASTAL",
