@@ -357,23 +357,7 @@ function App() {
     radial-gradient(circle at 0 100%, #000 16px, transparent 16.5px) right 0 top 80px / 16px 16px no-repeat
   `;
 
-  const MAIN_SERVICES = [
-    { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
-    { name: '24 Hour Locksmith Auckland', icon: Clock },
-    { name: 'Residential Locksmith Auckland', icon: Home },
-    { name: 'Commercial Locksmith Auckland', icon: Building },
-    { name: 'Automotive Locksmith Auckland', icon: Car },
-    { name: 'Car Key Replacement Auckland', icon: Key },
-    { name: 'Lock Rekeying Auckland', icon: Wrench },
-    { name: 'Lock Repair Auckland', icon: PenTool },
-    { name: 'Lock Replacement Auckland', icon: Shield },
-    { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
-    { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
-    { name: 'Ignition Repair Auckland', icon: Settings },
-    { name: 'Ignition Replacement Auckland', icon: Power },
-    { name: 'Master Key Systems Auckland', icon: Layers },
-    { name: 'Restricted Key Systems Auckland', icon: Lock },
-  ];
+
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
@@ -498,7 +482,7 @@ function App() {
                 </a>
                 
                 {/* Dropdown Panel */}
-                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[850px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-8 border-t-[4px] border-[#F4C430] cursor-default">
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[850px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-8 border-t-[4px] border-[#F4C430] cursor-default z-50">
                   <div className="grid grid-cols-3 gap-x-8 gap-y-6">
                     {MAIN_SERVICES.map((service, idx) => (
                       <a 
@@ -525,7 +509,7 @@ function App() {
                 </a>
                 
                 {/* Dropdown Panel */}
-                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[500px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-6 border-t-[4px] border-[#F4C430] cursor-default">
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[500px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-6 border-t-[4px] border-[#F4C430] cursor-default z-50">
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                     {serviceAreas.map((area, idx) => (
                       <a 
