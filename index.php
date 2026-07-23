@@ -1,16 +1,18 @@
 <?php
-$pageTitle = "Lost Key Locksmith Auckland | 24/7 Mobile Locksmith Service";
-$pageDescription = "LostKey is Auckland's trusted 24/7 locksmith. Fast 20-40 min arrival across Auckland for home, business, and vehicle lockouts, lock repairs, and key cutting.";
+$pageTitle = "Lost Key Locksmith";
+$pageDescription = "Auckland's trusted mobile locksmith";
 $currentPage = "home";
 include 'header.php';
 ?>
 
 <script type="text/babel" data-type="module">
+
 import React, { useState, useEffect, useRef } from 'react';
-import { createRoot } from 'react-dom/client';
 import { 
-  Phone, Lock, Home, Car, ChevronRight, ChevronLeft, ChevronDown,
-  Key, Clock, Award, MapPin, Wrench, Star, Quote, CheckCircle2,
+  Menu, X, Phone, Lock, Home, Car, 
+  ShieldCheck, ChevronRight, ChevronLeft, ChevronDown,
+  Key, Clock, Award, MapPin, Wrench,
+  Star, Quote, CheckCircle2,
   ArrowRight, Shield, Mail, Facebook, Twitter, Youtube,
   Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound,
   Users, Check, User, Calendar, Play, ArrowUp, FileText,
@@ -18,6 +20,7 @@ import {
   Plus, Minus, ThumbsUp, ClipboardCheck, Video
 } from 'lucide-react';
 
+// ——— Design Tokens (Lost Key Premium) ———
 const COLORS = {
   yellow: '#F4C430',
   yellowHover: '#E8B61A',
@@ -34,46 +37,76 @@ const COLORS = {
   lightGray: '#F8FAFC',
 };
 
-function HomePageContent() {
+const MAIN_SERVICES = [
+  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
+  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
+  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
+  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
+  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
+  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
+  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
+  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
+  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
+  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
+  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
+  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
+  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
+  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
+  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
+];
+
+function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const [currentSlide, setCurrentSlide] = useState(0);
   const [heroSlide, setHeroSlide] = useState(0);
   const [actionSlide, setActionSlide] = useState(1);
-  const [quoteStep, setQuoteStep] = useState(1);
-  const [selectedQuoteService, setSelectedQuoteService] = useState(null);
-  const [openFaq, setOpenFaq] = useState(2);
-  const [currentSlide, setCurrentSlide] = useState(0);
-
-  const videoSliderRef = useRef(null);
+  const [countersVisible, setCountersVisible] = useState(false);
+  const countersRef = useRef(null);
+  const [aboutCountersVisible, setAboutCountersVisible] = useState(false);
   const aboutCountersRef = useRef(null);
 
-  const heroImages = [
-    'car-lockout.jpeg',
-    'office-lock.jpeg',
-    'key-locksmith.jpeg',
-  ];
+  const videoSliderRef = useRef(null);
+  const textSliderRef = useRef(null);
+
+  const scrollSlider = (ref, direction) => {
+    if (ref.current) {
+      const scrollAmount = ref.current.clientWidth * 0.8;
+      ref.current.scrollBy({ left: direction === 'left' ? -scrollAmount : scrollAmount, behavior: 'smooth' });
+    }
+  };
+
+  const [quoteStep, setQuoteStep] = useState(1);
+  const [selectedQuoteService, setSelectedQuoteService] = useState(null);
+  const [openFaq, setOpenFaq] = useState(2); // 2nd index open by default to match image
 
   const quoteServices = [
-    { id: 'home', title: 'Home / Flat', icon: Home, color: '#F97316' },
-    { id: 'office', title: 'Commercial', icon: Building, color: '#3B82F6' },
-    { id: 'auto', title: 'Auto / Car', icon: Car, color: '#EF4444' },
-    { id: 'key', title: 'Key Replace', icon: Key, color: '#A855F7' },
-    { id: 'repair', title: 'Lock Repair', icon: Wrench, color: '#06B6D4' },
-    { id: 'emergency', title: 'Emergency', icon: AlertTriangle, color: '#EC4899' },
+    { id: 'home', title: 'Home / Flat', icon: Home, color: '#F97316' }, // Orange
+    { id: 'office', title: 'Commercial', icon: Building, color: '#3B82F6' }, // Blue
+    { id: 'auto', title: 'Auto / Car', icon: Car, color: '#EF4444' }, // Red
+    { id: 'key', title: 'Key Replace', icon: Key, color: '#A855F7' }, // Purple
+    { id: 'repair', title: 'Lock Repair', icon: Wrench, color: '#06B6D4' }, // Teal
+    { id: 'emergency', title: 'Emergency', icon: AlertTriangle, color: '#EC4899' }, // Pink
   ];
 
   const faqData = [
     {
       question: "How quickly can you arrive at my location?",
-      answer: "We strive to reach you within 20-40 minutes for all emergency callouts across Auckland.",
+      answer: "We strive to reach you within 20-30 minutes for all emergency lockouts.",
       tags: []
     },
     {
       question: "Are you available 24/7 for emergencies?",
-      answer: "Yes, our team is on standby 24 hours a day, 7 days a week, including public holidays.",
+      answer: "Yes, our team is on standby 24 hours a day, 7 days a week, including holidays.",
       tags: []
     },
     {
       question: "Can you unlock my car without damage?",
-      answer: "Yes. Our technicians use non-destructive entry methods whenever possible to unlock your vehicle without causing damage.",
+      answer: "Yes. Our technicians use non-destructive entry methods whenever possible to unlock your vehicle without causing any damage.",
       tags: [
         { label: "24/7 Service", icon: Clock },
         { label: "Damage-Free", icon: Shield },
@@ -82,7 +115,7 @@ function HomePageContent() {
     },
     {
       question: "Do you replace lost car keys?",
-      answer: "Yes, we can cut and program new transponder keys and key fobs on-site.",
+      answer: "Yes, we can cut and program new transponder keys and key fobs on the spot.",
       tags: []
     },
     {
@@ -92,14 +125,25 @@ function HomePageContent() {
     },
     {
       question: "What payment methods do you accept?",
-      answer: "We accept all major credit cards, debit cards, cash, and Afterpay for easy payments.",
+      answer: "We accept all major credit cards, debit cards, cash, and digital payments.",
       tags: []
     },
     {
       question: "Are your locksmiths licensed and insured?",
-      answer: "Yes, all our locksmiths are fully trained, licensed, and insured for your peace of mind.",
+      answer: "Yes, all our locksmiths are fully licensed, bonded, and insured for your peace of mind.",
       tags: []
     }
+  ];
+
+  const serviceAreas = [
+    "Auckland City",
+    "North Shore",
+    "West Auckland",
+    "East Auckland",
+    "South Auckland",
+    "Rodney",
+    "Franklin",
+    "Orewa Hibiscus Coast"
   ];
 
   const actionVideos = [
@@ -129,12 +173,21 @@ function HomePageContent() {
     }
   ];
 
-  const testimonials = [
-    { name: 'Sarah Jenkins', role: 'Homeowner', text: 'Locked my keys in the car at 10PM. They were there in 20 minutes and let me back in — absolute lifesavers.', rating: 5, img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80' },
-    { name: 'David Chen', role: 'Business Owner', text: 'Upgraded our shop to smart locks and CCTV. The team was professional, clean, and walked us through everything. Highly recommend.', rating: 5, img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80' },
-    { name: 'Emma Thompson', role: 'Property Manager', text: 'We use them for all our rental properties. They\'re fast, well-priced, and the invoicing is always spot on.', rating: 5, img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&q=80' },
-  ];
+  // Handle scroll effect for sticky navbar and scroll-to-top button
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
+  // Hero slideshow auto-advance
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroSlide((prev) => (prev + 1) % heroImages.length);
@@ -142,12 +195,157 @@ function HomePageContent() {
     return () => clearInterval(timer);
   }, []);
 
+  // Counter animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setCountersVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (countersRef.current) {
+      observer.observe(countersRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  // About counter animation observer
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setAboutCountersVisible(true);
+        }
+      },
+      { threshold: 0.3 }
+    );
+    if (aboutCountersRef.current) {
+      observer.observe(aboutCountersRef.current);
+    }
+    return () => observer.disconnect();
+  }, []);
+
+  // Smooth scroll handler with offset for sticky header
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    const element = document.getElementById(targetId);
+    if (element) {
+      const headerOffset = 100; 
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth"
+      });
+    }
+    setMobileMenuOpen(false);
+  };
+
+  const heroImages = [
+    'car-lockout.jpeg',
+    'office-lock.jpeg',
+    'key-locksmith.jpeg',
+  ];
+
+  const features = [
+    { title: 'Emergency Services', icon: Zap, desc: 'Locked out at 3am? Our mobile locksmiths reach you fast, day or night, anywhere in Auckland.' },
+    { title: 'Car Key Expert', icon: KeyRound, desc: 'Lost or broken car keys, transponder programming, and remote fob replacement for all makes and models.' },
+    { title: '100% Guarantee', icon: BadgeCheck, desc: 'Every job is backed by our satisfaction guarantee and fully licensed workmanship.' },
+  ];
+
+  const services = [
+    { title: 'Residential Locksmith', icon: Home, desc: 'Home lockouts, rekeying, deadbolt installations, and complete home security solutions for Kiwi families.', img: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80' },
+    { title: 'Commercial Locksmith', icon: Lock, desc: 'Master key systems, restricted keys, access control, and high-security solutions for businesses.', img: 'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80' },
+    { title: 'Car Key Replacement', icon: Car, desc: 'Car lockouts, transponder key programming, key cutting, and ignition repair for all vehicle types.', img: 'https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?auto=format&fit=crop&w=600&q=80' },
+    { title: 'Lock Repair & Service', icon: Settings, desc: 'Expert repair, maintenance, and servicing of all mechanical and electronic lock types.', img: 'https://images.unsplash.com/photo-1504148455328-c376907d081c?auto=format&fit=crop&w=600&q=80' },
+
+    { title: 'Rekeying Services', icon: KeyRound, desc: 'Rekey your existing locks for enhanced security without the cost of full replacement.', img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80' },
+    { title: 'Smart Lock Installation', icon: Smartphone, desc: 'Modern keyless entry systems and smart lock upgrades for your home or office.', img: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80' },
+  ];
+
+  const stats = [
+    { number: 8, suffix: '+', label: 'Years Experience', icon: Award },
+    { number: 7, suffix: 'K+', label: 'Happy Clients', icon: Users },
+    { number: 12, suffix: '+', label: 'Expert Technicians', icon: User },
+    { number: 98, suffix: '%', label: 'Satisfaction Rate', icon: BadgeCheck },
+  ];
+
+  const testimonials = [
+    { name: 'Sarah Jenkins', role: 'Homeowner', text: 'Locked my keys in the car at 10PM. They were there in 20 minutes and let me back in — absolute lifesavers.', rating: 5, img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80' },
+    { name: 'David Chen', role: 'Business Owner', text: 'Upgraded our shop to smart locks and CCTV. The team was professional, clean, and walked us through everything. Highly recommend.', rating: 5, img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80' },
+    { name: 'Emma Thompson', role: 'Property Manager', text: 'We use them for all our rental properties. They\'re fast, well-priced, and the invoicing is always spot on.', rating: 5, img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&q=80' },
+  ];
+
+  // Review slider logic
+  const nextSlide = () => setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
+  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
+
+  useEffect(() => {
+    const timer = setInterval(nextSlide, 6000);
+    return () => clearInterval(timer);
+  }, [currentSlide]);
+
+  // Animated Counter Component
+  const AnimatedCounter = ({ target, suffix, visible, prefix = '' }) => {
+    const [count, setCount] = useState(0);
+    useEffect(() => {
+      if (!visible) return;
+      let start = 0;
+      const duration = 2000;
+      const increment = target / (duration / 16);
+      const timer = setInterval(() => {
+        start += increment;
+        if (start >= target) {
+          setCount(target);
+          clearInterval(timer);
+        } else {
+          setCount(Math.floor(start));
+        }
+      }, 16);
+      return () => clearInterval(timer);
+    }, [visible, target]);
+    return <span>{prefix}{count.toLocaleString()}{suffix}</span>;
+  };
+
+  const smoothCornerMask = `
+    linear-gradient(#000, #000) 0 0 / calc(100% - 96px) 100% no-repeat,
+    linear-gradient(#000, #000) 0 100% / 100% calc(100% - 96px) no-repeat,
+    linear-gradient(#000, #000) right 80px top 16px / 16px 80px no-repeat,
+    linear-gradient(#000, #000) right 16px top 80px / 64px 16px no-repeat,
+    radial-gradient(circle at 100% 0, transparent 40px, #000 40.5px) right 40px top 40px / 40px 40px no-repeat,
+    radial-gradient(circle at 0 100%, #000 16px, transparent 16.5px) right 80px top 0 / 16px 16px no-repeat,
+    radial-gradient(circle at 0 100%, #000 16px, transparent 16.5px) right 0 top 80px / 16px 16px no-repeat
+  `;
+
+  const MAIN_SERVICES = [
+    { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
+    { name: '24 Hour Locksmith Auckland', icon: Clock },
+    { name: 'Residential Locksmith Auckland', icon: Home },
+    { name: 'Commercial Locksmith Auckland', icon: Building },
+    { name: 'Automotive Locksmith Auckland', icon: Car },
+    { name: 'Car Key Replacement Auckland', icon: Key },
+    { name: 'Lock Rekeying Auckland', icon: Wrench },
+    { name: 'Lock Repair Auckland', icon: PenTool },
+    { name: 'Lock Replacement Auckland', icon: Shield },
+    { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
+    { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
+    { name: 'Ignition Repair Auckland', icon: Settings },
+    { name: 'Ignition Replacement Auckland', icon: Power },
+    { name: 'Master Key Systems Auckland', icon: Layers },
+    { name: 'Restricted Key Systems Auckland', icon: Lock },
+  ];
+
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
+      
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• TOP INFO BAR â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <window.HeaderComponent currentPage="home" />
 
-      {/* HERO SECTION */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• HERO SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="home" className="relative text-white overflow-hidden min-h-[600px] md:h-[680px] flex items-center" style={{ backgroundColor: COLORS.black }}>
+        {/* Background Image Slideshow */}
         {heroImages.map((img, idx) => (
           <div 
             key={idx}
@@ -175,7 +373,9 @@ function HomePageContent() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 mt-12 md:mt-0 pb-16 lg:pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
+            {/* Left Column: Text & CTA */}
             <div className="lg:col-span-7 space-y-7">
+              {/* Badge */}
               <div 
                 className="inline-flex items-center px-4 py-1 text-[13px] font-bold uppercase tracking-wider rounded-full"
                 style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
@@ -183,15 +383,18 @@ function HomePageContent() {
                 24/7 EMERGENCY CALL OUT
               </div>
 
+              {/* Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-black leading-[1.05] tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
                 Your Trusted Partner <br />
                 in <span style={{ color: COLORS.yellow }}>Locksmith</span> Services
               </h1>
 
+              {/* Subtext */}
               <p className="text-lg md:text-[17px] text-white max-w-[500px] leading-relaxed font-medium mt-6">
                 LostKey provides fast, reliable locksmith services across Auckland — from emergency lockouts to advanced security upgrades. Licensed, insured, and available around the clock when you need us most.
               </p>
 
+              {/* Call Now CTA */}
               <div className="pt-6">
                 <a 
                   href="tel:0800828345" 
@@ -211,14 +414,17 @@ function HomePageContent() {
               </div>
             </div>
 
+            {/* Right Column: Floating Enquiry Form */}
             <div className="lg:col-span-5 relative z-20">
               <div className="bg-[#0B1F3A] rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-[#132B4F]">
+                {/* Form Header */}
                 <div className="text-white px-6 md:px-8 py-6">
                   <h3 className="text-2xl font-bold mb-2 tracking-tight">Get in touch with us today</h3>
                   <p className="text-gray-400 text-[13px] md:text-sm">
                     Hassle-free booking &bull; Quick response &bull; Serving your local community.
                   </p>
                   
+                  {/* Progress Bar & Step */}
                   <div className="mt-6">
                     <div className="text-xs text-gray-400 mb-2 font-medium tracking-wide">
                       Step {quoteStep} of 3
@@ -232,6 +438,7 @@ function HomePageContent() {
                   </div>
                 </div>
 
+                {/* Form Body (Step 1) */}
                 <div className="px-6 md:px-8 pb-6 md:pb-8 bg-white pt-6">
                   <h4 className="text-[13px] font-bold text-gray-400 tracking-widest uppercase mb-4">What do you need help with?</h4>
                   
@@ -276,6 +483,7 @@ function HomePageContent() {
           </div>
         </div>
 
+        {/* Slide indicators */}
         <div className="absolute bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
           {heroImages.map((_, idx) => (
             <button 
@@ -292,13 +500,57 @@ function HomePageContent() {
         </div>
       </section>
 
-      {/* ABOUT US SECTION */}
+      {/* ═══════════════ PARTNERS LOGO SCROLLER ═══════════════ */}
+      <section className="bg-white py-10 border-b border-gray-100 overflow-hidden relative z-10">
+        <div className="relative w-full overflow-hidden flex items-center">
+          {/* Gradient Masks for smooth fading edges */}
+          <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
+          <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
+          
+          <div className="flex animate-marquee whitespace-nowrap items-center">
+            {/* Set 1 */}
+            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
+              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
+            </div>
+            {/* Set 2 */}
+            <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
+              <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/site-safe.jpeg" alt="Site Safe" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/auckland-business.jpeg" alt="Auckland Business Chamber" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/Abus.jpeg" alt="Abus" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/kaba.jpeg" alt="Kaba" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/lockwood.jpeg" alt="Lockwood" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/master-lock.jpeg" alt="Master Lock" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
+              <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• YELLOW FEATURE CARDS â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• ABOUT US SECTION (REVIEWS & STATS) â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="about" className="pt-20 lg:pt-24 pb-24 bg-white overflow-hidden" ref={aboutCountersRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-24 items-center">
             
+            {/* LEFT COLUMN: Image & Stat Blocks */}
             <div className="relative mb-20 lg:mb-0">
+              {/* Main Image Container */}
               <div className="relative z-10 w-full md:w-[85%] md:ml-auto shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white rounded-3xl">
+                {/* Yellow Dot Pattern */}
                 <div 
                   className="absolute -bottom-16 -left-20 w-64 h-64 z-[-1]" 
                   style={{ 
@@ -311,14 +563,19 @@ function HomePageContent() {
                   alt="Locksmith keys on belt" 
                   className="w-full h-[550px] object-cover rounded-3xl"
                 />
+                
+
+                {/* Bottom Yellow Box (Overlapping) - moved to bottom-right */}
                 <div className="absolute -bottom-16 right-0 md:right-[-5%] bg-[#F4C430] p-5 shadow-xl w-[80%] md:w-[60%] border-l-4 border-[#0B1F3A] rounded-2xl z-20">
-                  <p className="text-[#1F2937] font-bold text-sm md:text-base leading-snug mb-1.5">"Called LostKey after locking myself out at midnight — they arrived in 20 minutes and had the door open in no time."</p>
-                  <p className="text-[#1F2937] font-semibold text-xs md:text-sm">— Satisfied Customer</p>
+                  <p className="text-[#1F2937] font-bold text-sm md:text-base leading-snug mb-1.5">"Called LostKey after locking myself out at midnight — they arrived in 20 minutes and had the door open in no time. Absolute lifesavers."</p>
+                  <p className="text-[#1F2937] font-semibold text-xs md:text-sm">— Jason Statham</p>
                 </div>
               </div>
             </div>
 
+            {/* RIGHT COLUMN: Content */}
             <div className="relative">
+              {/* Yellow Pill */}
               <span 
                 className="inline-block text-[11px] md:text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4"
                 style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
@@ -329,16 +586,19 @@ function HomePageContent() {
                 Fast, Friendly and Reliable Locksmith Services
               </h2>
               <p className="text-gray-500 text-[17px] mb-10 leading-relaxed max-w-lg">
-                From residential lockouts to commercial security systems, LostKey combines Kiwi reliability with modern locksmith technology. Our fully equipped mobile units carry the tools and parts to solve most jobs on the first visit.
+                From residential lockouts to commercial security systems, LostKey combines Kiwi reliability with modern locksmith technology. Our fully equipped mobile units carry the tools and parts to solve most jobs on the first visit — no waiting, no hidden fees.
               </p>
 
+              {/* Flex container for list and side boxes */}
               <div className="flex flex-col xl:flex-row gap-10 items-start">
+                
+                {/* List and Call CTA */}
                 <div className="flex-1 space-y-10">
                   <ul className="space-y-4">
                     {[
-                      'Fully licensed & trained technicians',
+                      'Fully licensed & police-vetted technicians',
                       'Upfront, transparent pricing',
-                      'Rapid 20-40 min response across Auckland',
+                      'Rapid response across greater Auckland',
                       'Genuine parts and modern lock systems'
                     ].map((item, i) => (
                       <li key={i} className="flex items-start space-x-3">
@@ -350,28 +610,29 @@ function HomePageContent() {
                     ))}
                   </ul>
 
+                  {/* Call Button */}
                   <div className="inline-flex items-center p-2 pr-10 border border-gray-200 rounded-full hover:shadow-xl hover:border-gray-300 transition-all bg-white cursor-pointer group">
-                     <a href="about-us.php" className="flex items-center">
-                       <div className="w-16 h-16 rounded-full bg-[#F4C430] flex items-center justify-center mr-5 group-hover:scale-105 transition-transform">
-                         <Phone size={24} className="text-[#1F2937]" />
-                       </div>
-                       <div className="flex flex-col">
-                         <span className="text-xs font-bold tracking-widest text-gray-500 uppercase mb-0.5">Learn More</span>
-                         <span className="text-[22px] font-bold text-[#1F2937] tracking-tight leading-none whitespace-nowrap">Read About Us &rarr;</span>
-                       </div>
-                     </a>
+                     <div className="w-16 h-16 rounded-full bg-[#F4C430] flex items-center justify-center mr-5 group-hover:scale-105 transition-transform">
+                       <Phone size={24} className="text-[#1F2937]" />
+                     </div>
+                     <div className="flex flex-col">
+                       <span className="text-xs font-bold tracking-widest text-gray-500 uppercase mb-0.5">Call Now</span>
+                       <span className="text-[26px] font-normal text-[#1F2937] tracking-tight leading-none whitespace-nowrap">0761-8523-398</span>
+                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
           </div>
         </div>
       </section>
 
-      {/* SEE LOST KEY IN ACTION */}
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SERVICES SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      {/* â• â• â• â• â• â• â• â• â• â• â• â• â• â• â•  SEE LOST KEY IN ACTION SECTION â• â• â• â• â• â• â• â• â• â• â• â• â• â• â•  */}
       <section id="in-action" className="py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
+          
+          {/* Header */}
           <div className="flex flex-col items-center text-center mb-12">
             <span 
               className="inline-flex items-center text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
@@ -384,24 +645,36 @@ function HomePageContent() {
               See Lost Key <span style={{ color: COLORS.yellow }}>In Action</span>
             </h2>
             <p className="text-gray-500 max-w-2xl text-lg">
-              Watch how our expert locksmiths handle real situations with speed, precision and care.
+              Watch how our expert locksmiths handle real situations<br className="hidden md:block" /> with speed, precision and care.
             </p>
           </div>
 
+          {/* Carousel */}
           <div className="relative w-full max-w-5xl flex items-center justify-center mb-16">
+            
+            {/* Left Arrow */}
             <button 
-              onClick={() => setActionSlide(prev => prev === 0 ? actionVideos.length - 1 : prev - 1)}
-              className="absolute left-2 md:left-[-40px] z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all"
+              onClick={() => {
+                const nextSlide = actionSlide === 0 ? actionVideos.length - 1 : actionSlide - 1;
+                setActionSlide(nextSlide);
+                if (videoSliderRef.current) {
+                  videoSliderRef.current.children[nextSlide]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+              }}
+              className="absolute left-2 md:left-[-40px] z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               <ChevronLeft size={24} />
             </button>
 
+            {/* Cards Container */}
             <div 
               ref={videoSliderRef}
-              className="flex gap-4 lg:gap-8 justify-start lg:justify-center items-center w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory px-4 lg:px-0 pb-6 lg:pb-0"
+              className="flex gap-4 lg:gap-8 justify-start lg:justify-center items-center w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory px-4 lg:px-0 pb-6 lg:pb-0 custom-scrollbar"
+              style={{ scrollBehavior: 'smooth' }}
             >
               {actionVideos.map((video, idx) => {
                 const isCenter = idx === actionSlide;
+                
                 return (
                   <div 
                     key={video.id}
@@ -410,15 +683,34 @@ function HomePageContent() {
                     }`}
                     onClick={() => setActionSlide(idx)}
                   >
-                    <img src={video.image} alt={video.title} className="absolute inset-0 w-full h-full object-cover" />
+                    <img 
+                      src={video.image} 
+                      alt={video.title} 
+                      className="absolute inset-0 w-full h-full object-cover" 
+                    />
+                    
+                    {/* Dark gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
+
+                    {/* Duration badge */}
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center">
                       <Play size={12} className="mr-1.5 fill-current" />
                       {video.duration}
                     </div>
-                    <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#F4C430] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
-                      <Play size={24} className="fill-[#1F2937] text-[#1F2937] ml-1" />
-                    </div>
+
+                    {/* Center Play Button */}
+                    {isCenter && (
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#F4C430] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
+                        <Play size={24} className="fill-[#1F2937] text-[#1F2937] ml-1" />
+                      </div>
+                    )}
+                    {!isCenter && (
+                      <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-[#F4C430] rounded-full flex items-center justify-center shadow-lg opacity-80">
+                        <Play size={18} className="fill-[#1F2937] text-[#1F2937] ml-1" />
+                      </div>
+                    )}
+
+                    {/* Bottom Info */}
                     <div className="absolute bottom-6 left-6 right-6 flex items-end">
                       <div className={`w-10 h-10 rounded-full bg-[#F4C430] flex items-center justify-center flex-shrink-0 mr-4 ${isCenter ? 'w-12 h-12' : ''}`}>
                         <video.icon size={isCenter ? 24 : 20} className="text-[#1F2937]" />
@@ -438,21 +730,477 @@ function HomePageContent() {
               })}
             </div>
 
+            {/* Right Arrow */}
             <button 
-              onClick={() => setActionSlide(prev => (prev + 1) % actionVideos.length)}
-              className="absolute right-2 md:right-[-40px] z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:scale-105 transition-all"
+              onClick={() => {
+                const nextSlide = actionSlide === actionVideos.length - 1 ? 0 : actionSlide + 1;
+                setActionSlide(nextSlide);
+                if (videoSliderRef.current) {
+                  videoSliderRef.current.children[nextSlide]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                }
+              }}
+              className="absolute right-2 md:right-[-40px] z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
             >
               <ChevronRight size={24} />
             </button>
           </div>
+
+          {/* Dots */}
+          <div className="hidden lg:flex items-center space-x-3 mb-16">
+            {actionVideos.map((_, idx) => (
+              <button
+                key={idx}
+                onClick={() => setActionSlide(idx)}
+                className={`h-2.5 rounded-full transition-all ${
+                  idx === actionSlide ? 'w-8 bg-[#F4C430]' : 'w-4 bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
+
+          {/* Stats Bar */}
+          <div className="w-full max-w-5xl bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] py-8 px-4 md:px-10 mb-8">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 md:gap-4 divide-x-0 md:divide-x divide-gray-100">
+              
+              {/* Stat 1 */}
+              <div className="flex items-center justify-start md:justify-center gap-4 px-4">
+                <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
+                  <ClipboardCheck size={28} />
+                </div>
+                <div>
+                  <div className="text-3xl font-black text-[#1F2937]">900+</div>
+                  <div className="text-[13px] sm:text-sm font-medium text-gray-500 leading-tight">Jobs Completed</div>
+                </div>
+              </div>
+
+              {/* Stat 2 */}
+              <div className="flex items-center justify-start md:justify-center gap-4 px-4 border-l md:border-l-0 border-gray-100">
+                <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
+                  <div className="relative flex items-center justify-center">
+                    <Clock size={28} />
+                    <span className="absolute -bottom-1 -right-2 text-[9px] font-bold bg-white text-[#F4C430] rounded-sm px-0.5">24/7</span>
+                  </div>
+                </div>
+                <div>
+                  <div className="text-3xl font-black text-[#1F2937]">24/7</div>
+                  <div className="text-[13px] sm:text-sm font-medium text-gray-500 leading-tight">Emergency Service</div>
+                </div>
+              </div>
+
+              {/* Stat 3 */}
+              <div className="flex items-center justify-start md:justify-center gap-4 px-4">
+                <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
+                  <Star size={28} className="fill-current" />
+                </div>
+                <div>
+                  <div className="text-3xl font-black text-[#1F2937]">930+</div>
+                  <div className="text-[13px] sm:text-sm font-medium text-gray-500 leading-tight">Google Reviews</div>
+                </div>
+              </div>
+
+              {/* Stat 4 */}
+              <div className="flex items-center justify-start md:justify-center gap-4 px-4 border-l md:border-l-0 border-gray-100">
+                <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
+                  <ThumbsUp size={28} />
+                </div>
+                <div>
+                  <div className="text-3xl font-black text-[#1F2937] flex items-center">
+                    4.9 <Star size={20} className="ml-1 fill-[#F4C430] text-[#F4C430]" />
+                  </div>
+                  <div className="text-[13px] sm:text-sm font-medium text-gray-500 leading-tight">Average Rating</div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          
         </div>
       </section>
 
-      {/* CONTACT FORM SECTION */}
+      <section id="services" className="relative py-16 overflow-hidden" style={{ backgroundColor: COLORS.black }}>
+        {/* Single Background Image */}
+        <div className="absolute inset-0 z-0">
+          <img 
+            src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=2000&q=80" 
+            alt="Locksmith services background" 
+            className="w-full h-full object-cover opacity-40"
+          />
+          <div className="absolute inset-0" style={{ backgroundColor: 'rgba(0,0,0,0.55)' }}></div>
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header Text */}
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <span 
+              className="inline-block text-[13px] font-bold uppercase tracking-widest px-5 py-1.5 mb-6 rounded-full"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              LOSTKEY SERVICES
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black mb-6 text-white leading-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              Your Safety. Our Expertise.
+            </h2>
+            <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto">
+              Trusted locksmith solutions for homes, businesses, and vehicles across Auckland — backed by experienced local technicians.
+            </p>
+          </div>
+
+          {/* Service Cards */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div 
+                key={index} 
+                className="group relative rounded-3xl cursor-pointer h-[360px] flex flex-col justify-end p-6 md:p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:-translate-y-2"
+              >
+                {/* Background Image & Overlay with Smooth Mask */}
+                <div 
+                  className="absolute inset-0 z-0 overflow-hidden rounded-3xl"
+                  style={{ 
+                    backgroundColor: COLORS.darkGray,
+                    WebkitMask: smoothCornerMask,
+                    mask: smoothCornerMask
+                  }}
+                >
+                  <img src={service.img} alt={service.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+                  <div className="absolute inset-0 bg-[#08182F]/70 group-hover:bg-[#08182F]/60 transition-colors duration-300"></div>
+                </div>
+
+                {/* Yellow Icon Circle */}
+                <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-20 transition-colors duration-300 bg-[#F4C430] text-[#1F2937] group-hover:bg-[#0B1F3A] group-hover:text-white">
+                  <service.icon size={20} strokeWidth={2.5} color="currentColor" />
+                </div>
+
+                {/* Content */}
+                <div className="relative z-20 flex flex-col h-full justify-end items-center mt-8">
+                  <h4 className="text-xl font-bold mb-3" style={{ color: COLORS.yellow }}>{service.title}</h4>
+                  <p className="text-gray-200 text-sm leading-relaxed mb-8 px-2">{service.desc}</p>
+                  
+                  <button className="w-[85%] mx-auto py-3 rounded-full font-bold flex items-center justify-center space-x-2 transition-all hover:brightness-110" style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}>
+                    <span>Learn More</span>
+                    <ArrowRight size={18} strokeWidth={2.5} />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ┈┈┈┈┈┈┈┈┈┈┈┈┈┈ AREAS WE COVER SECTION ┈┈┈┈┈┈┈┈┈┈┈┈┈┈ */}
+      <section className="py-16 bg-[#F8FAFC]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-8">
+            <span 
+              className="inline-flex items-center text-[11px] md:text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-6"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              <MapPin size={14} className="mr-2" strokeWidth={2.5} />
+              AREAS WE COVER
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[46px] font-bold mb-6 text-[#0B1F3A] tracking-tight leading-[1.1]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              24/7 Locksmith Services<br/>Across <span style={{ color: COLORS.yellow }}>Auckland</span>
+            </h2>
+            <p className="text-[#6B7280] text-base md:text-lg max-w-2xl mx-auto leading-relaxed">
+              Our mobile locksmiths are always nearby.<br/>Wherever you are in Auckland, we're just a call away.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {serviceAreas.map((area, idx) => (
+              <div key={idx} className="bg-white rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer border border-gray-100">
+                <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5" style={{ backgroundColor: '#FFF4E5' }}>
+                  <MapPin size={26} color="#000000" fill="#F9A620" strokeWidth={2} />
+                </div>
+                <h3 className="text-[17px] sm:text-lg font-black text-[#0B1F3A] leading-tight mb-5">{area}<br/>Locksmith</h3>
+                <div className="w-full border-t border-dashed border-gray-200"></div>
+                <div className="flex items-center justify-between w-full pt-5">
+                  <span className="text-[13px] font-bold text-[#0B1F3A] group-hover:text-[#F9A620] transition-colors">Learn More</span>
+                  <div className="w-8 h-8 rounded-full flex items-center justify-center transition-transform group-hover:translate-x-1" style={{ backgroundColor: '#F9A620' }}>
+                    <ArrowRight size={16} color="#000000" strokeWidth={2.5} />
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ┈┈┈┈┈┈┈┈┈┈┈┈┈┈ STATS / ACHIEVEMENTS COUNTERS ┈┈┈┈┈┈┈┈┈┈┈┈┈┈ */}
+      <section ref={countersRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-8 mb-16 relative z-10">
+        <div className="bg-[#0B1F3A] rounded-2xl md:rounded-3xl py-8 md:py-10 px-4 md:px-8 shadow-2xl border border-[#132B4F]">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-4 divide-y lg:divide-y-0 lg:divide-x divide-white/10">
+            {stats.map((stat, index) => (
+              <div key={index} className={`flex flex-col md:flex-row items-center justify-center text-center md:text-left space-y-4 md:space-y-0 md:space-x-5 px-4 ${index > 1 ? 'pt-8 lg:pt-0' : index === 1 ? 'pt-0 lg:pt-0' : ''}`}>
+                {stat.icon && (
+                  <stat.icon size={44} style={{ color: COLORS.yellow }} strokeWidth={1.5} className="flex-shrink-0" />
+                )}
+                <div>
+                  <div className="text-3xl md:text-4xl lg:text-5xl font-black mb-2 leading-none text-white tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+                    <AnimatedCounter target={stat.number} suffix={stat.suffix} visible={countersVisible} />
+                  </div>
+                  <div className="text-[10px] md:text-[11px] font-bold uppercase tracking-[0.15em] text-gray-400">
+                    {stat.label}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════ TESTIMONIALS / REVIEWS ═══════════════ */}
+      <section id="reviews" className="pt-8 pb-16 relative overflow-hidden" style={{ backgroundColor: COLORS.white }}>
+        {/* World map background */}
+        <div 
+          className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none" 
+          style={{ 
+            backgroundImage: "url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')",
+            backgroundSize: '80%',
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat'
+          }}
+        ></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <span 
+              className="inline-flex items-center text-[11px] md:text-xs font-bold uppercase tracking-widest pr-4 pl-1 py-1 rounded-full mb-6 shadow-sm"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              <span className="w-7 h-7 rounded-full flex items-center justify-center mr-2" style={{ backgroundColor: COLORS.black }}>
+                <ArrowRight size={14} style={{ color: COLORS.yellow }} strokeWidth={3} />
+              </span>
+              TESTIMONIALS
+            </span>
+            <h2 className="text-4xl md:text-[36px] font-bold mb-6" style={{ color: COLORS.black, fontFamily: "'Plus Jakarta Sans', sans-serif" }}>
+              Auckland's Highest-Rated Locksmith Experience
+            </h2>
+            <p className="text-gray-500 text-lg">
+              With a 4.9★ Google rating from over 930 verified reviews, our reputation is built on fast response times, quality workmanship and exceptional customer service.
+            </p>
+          </div>
+
+          {/* Review Grid (3 Columns Desktop / Slider Mobile & Tablet) */}
+          <div className="relative">
+            {/* Left Arrow Mobile/Tablet/Desktop */}
+            <button 
+              onClick={() => scrollSlider(textSliderRef, 'left')}
+              className="absolute left-2 md:left-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+            >
+              <ChevronLeft size={24} />
+            </button>
+            
+            <div 
+              ref={textSliderRef}
+              className="flex gap-6 lg:gap-8 overflow-x-auto snap-x snap-mandatory pb-8 lg:pb-0 -mx-4 px-4 lg:mx-0 lg:px-0 custom-scrollbar" 
+              style={{ scrollBehavior: 'smooth' }}
+            >
+            {testimonials.map((review, idx) => (
+              <div 
+                key={idx} 
+                className="bg-white p-8 md:p-10 shadow-[0_15px_50px_rgba(0,0,0,0.06)] relative flex flex-col rounded-3xl w-[85vw] md:w-[350px] lg:w-[400px] snap-center flex-shrink-0"
+              >
+                <div className="flex space-x-1 mb-6">
+                  {[...Array(review.rating)].map((_, i) => (
+                    <Star key={i} size={18} className="fill-current" style={{ color: COLORS.yellow }} />
+                  ))}
+                </div>
+                <p className="text-gray-500 text-[15px] leading-relaxed mb-10 flex-1 relative z-10" style={{ fontFamily: "'Inter', sans-serif" }}>
+                  "{review.text}"
+                </p>
+                <div className="flex items-center space-x-4 relative z-10">
+                  <img 
+                    src={review.img} 
+                    alt={review.name} 
+                    className="w-14 h-14 rounded-full object-cover"
+                  />
+                  <div>
+                    <p className="font-bold text-slate-800 text-[16px]">{review.name}</p>
+                    <p className="text-sm text-gray-400">{review.role}</p>
+                  </div>
+                </div>
+                <div className="absolute -bottom-8 right-8 z-0 select-none pointer-events-none">
+                  <span 
+                    style={{ 
+                      fontSize: '140px',
+                      lineHeight: '1',
+                      fontFamily: 'Georgia, serif', 
+                      color: 'transparent', 
+                      WebkitTextStroke: '1px #BFDBFE'
+                    }}
+                  >
+                    ”
+                  </span>
+                </div>
+              </div>
+            ))}
+            </div>
+            
+            {/* Right Arrow Mobile/Tablet/Desktop */}
+            <button 
+              onClick={() => scrollSlider(textSliderRef, 'right')}
+              className="absolute right-2 md:right-[-20px] top-1/2 -translate-y-1/2 z-30 bg-[#F4C430] text-[#0B1F3A] w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-lg hover:shadow-xl hover:scale-105 transition-all"
+            >
+              <ChevronRight size={24} />
+            </button>
+          </div>
+
+          {/* Review Us on Google Button */}
+          <div className="mt-14 flex justify-center relative z-10">
+            <a 
+              href="https://www.google.com/maps/place/Lost+Key+NZ+%7C+Automotive+Locksmith+Auckland/@-36.8686223,174.7369081,11z/data=!4m8!3m7!1s0x54062ef2b1bb7df:0x5233608b17fcbe38!8m2!3d-36.8690108!4d174.9017184!9m1!1b1!16s%2Fg%2F11rygzq2ym?entry=ttu&g_ep=EgoyMDI2MDcwOC4wIKXMDSoASAFQAw%3D%3D"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-3 px-8 py-4 font-bold text-[14px] md:text-[15px] uppercase tracking-widest rounded-full transition-all shadow-xl hover:-translate-y-1 bg-[#0B1F3A] border border-[#132B4F] group"
+              style={{ color: 'white' }}
+            >
+              <span className="text-white group-hover:text-[#F4C430] transition-colors">Review Us on Google</span>
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 48 48">
+                <path fill="#FFC107" d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z" />
+                <path fill="#FF3D00" d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z" />
+                <path fill="#4CAF50" d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z" />
+                <path fill="#1976D2" d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ┈┈┈┈┈┈┈┈┈┈┈┈┈┈ FAQ SECTION ┈┈┈┈┈┈┈┈┈┈┈┈┈┈ */}
+      <section className="py-16 bg-white border-t border-[#E5E7EB]">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          <div className="mb-12 text-center flex flex-col items-center">
+            <span 
+              className="inline-flex items-center text-[11px] md:text-xs font-bold uppercase tracking-widest pr-4 pl-1 py-1 rounded-full mb-6"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              <span className="w-7 h-7 rounded-full flex items-center justify-center mr-2" style={{ backgroundColor: COLORS.black }}>
+                <ArrowRight size={14} style={{ color: COLORS.yellow }} strokeWidth={3} />
+              </span>
+              FREQUENTLY ASKED QUESTIONS
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[56px] font-black mb-6 tracking-tight leading-[1.05]" style={{ color: COLORS.black, fontFamily: "'Inter Tight', sans-serif" }}>
+              Frequently Asked<br/><span style={{ color: COLORS.yellow }}>Questions</span>
+            </h2>
+            <p className="text-[#6B7280] text-base md:text-lg leading-relaxed max-w-xl text-center">
+              Find quick answers about our locksmith<br className="hidden md:block"/>services, emergency support and more.
+            </p>
+          </div>
+          
+          <div className="space-y-4">
+            {faqData.map((faq, idx) => {
+              const isOpen = openFaq === idx;
+              return (
+                <div 
+                  key={idx} 
+                  className="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden"
+                >
+                  <button 
+                    className="w-full text-left px-6 py-5 md:px-8 md:py-6 flex items-center justify-between"
+                    onClick={() => setOpenFaq(isOpen ? -1 : idx)}
+                  >
+                    <div className="flex items-center">
+                      <div 
+                        className="w-8 h-8 rounded-full flex items-center justify-center mr-4 flex-shrink-0 transition-colors"
+                        style={{ backgroundColor: COLORS.yellow }}
+                      >
+                        {isOpen 
+                          ? <Minus size={18} style={{ color: COLORS.black }} strokeWidth={2.5} />
+                          : <Plus size={18} style={{ color: COLORS.black }} strokeWidth={2.5} />
+                        }
+                      </div>
+                      <span className="font-bold text-base md:text-lg tracking-tight" style={{ color: COLORS.black }}>{faq.question}</span>
+                    </div>
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`}
+                      style={{ color: COLORS.black }}
+                      strokeWidth={2.5}
+                    />
+                  </button>
+                  
+                  <div 
+                    className={`px-6 md:px-8 overflow-hidden transition-all duration-300 ${isOpen ? 'max-h-96 pb-6 md:pb-8 opacity-100' : 'max-h-0 opacity-0'}`}
+                  >
+                    <div className="pl-12">
+                      <p className="text-[#6B7280] text-[15px] leading-relaxed mb-4">
+                        {faq.answer}
+                      </p>
+                      
+                      {faq.tags && faq.tags.length > 0 && (
+                        <div className="flex flex-wrap gap-3 mt-5">
+                          {faq.tags.map((tag, tIdx) => (
+                            <span key={tIdx} className="inline-flex items-center text-xs font-bold px-4 py-2 rounded-full" style={{ backgroundColor: COLORS.yellowLight, color: COLORS.black }}>
+                              <tag.icon size={14} className="mr-2" style={{ color: COLORS.black }} strokeWidth={2.5} />
+                              {tag.label}
+                            </span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+          
+        </div>
+      </section>
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• EMERGENCY CTA BANNER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section className="relative overflow-hidden py-12 flex items-center justify-center">
+        {/* Background Image with Dark Overlay */}
+        <div className="absolute inset-0 z-0">
+          <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=1920&q=80" alt="Locksmith Service" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-[#08182F]/80"></div>
+        </div>
+        
+        <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center text-center">
+          {/* Yellow Pill */}
+          <span 
+            className="inline-block text-[11px] md:text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-6"
+            style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+          >
+            LOST KEY LOCKSMITH & KEY MAKER SERVICES
+          </span>
+          
+          {/* Headline */}
+          <h2 className="text-3xl md:text-5xl lg:text-[46px] text-white mb-6 tracking-tight leading-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+            Your Safety, <br className="md:hidden" /><span style={{ color: COLORS.yellow }}>Now 30% More Affordable</span>
+          </h2>
+          
+          {/* Subtext */}
+          <p className="text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
+            Book this month and save on residential and commercial lock upgrades across Auckland.
+          </p>
+          
+          {/* Call Now Pill Button */}
+          <a 
+            href="tel:07618523398" 
+            className="inline-flex items-center space-x-4 border border-white/40 rounded-full px-2 py-2 pr-10 hover:border-white transition-all group"
+          >
+            <div 
+              className="w-14 h-14 rounded-full flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform"
+              style={{ backgroundColor: COLORS.yellow }}
+            >
+              <Phone size={22} style={{ color: COLORS.black }} />
+            </div>
+            <div className="flex flex-col text-left">
+              <span className="text-[11px] uppercase tracking-widest text-gray-300 font-semibold mb-0.5">Call Now</span>
+              <span className="font-bold text-xl md:text-2xl tracking-wide leading-none" style={{ color: COLORS.yellow }}>0800 828 345</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• CONTACT CTA SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <section id="contact" className="py-16 bg-white border-t border-gray-100">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
             
+            {/* Left Column: Contact Info */}
             <div className="flex flex-col justify-center pr-0 lg:pr-12">
               <span 
                 className="inline-block text-sm font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-6 self-start"
@@ -481,9 +1229,22 @@ function HomePageContent() {
                   <span className="text-base md:text-lg font-bold text-[#1F2937]">hello@lostkey.co.nz</span>
                 </li>
               </ul>
+
+              <div className="flex space-x-4">
+                {[
+                  { icon: Facebook, label: 'Facebook' },
+                  { icon: Twitter, label: 'Twitter' },
+                  { icon: Youtube, label: 'YouTube' }
+                ].map((social, idx) => (
+                  <a key={idx} href="#" className="w-10 h-10 flex items-center justify-center border border-gray-300 hover:border-[#0B1F3A] hover:bg-[#0B1F3A] hover:text-white transition-all text-[#1F2937]" aria-label={social.label}>
+                    <social.icon size={16} />
+                  </a>
+                ))}
+              </div>
             </div>
 
-            <div className="bg-[#0B1F3A] p-10 md:p-14 lg:p-16 relative w-full flex flex-col justify-center rounded-3xl overflow-hidden shadow-2xl">
+            {/* Right Column: Contact Form */}
+            <div className="bg-[#0B1F3A] p-10 md:p-14 lg:p-16 relative w-full flex flex-col justify-center rounded-3xl overflow-hidden">
                <h3 className="text-3xl font-bold text-white mb-10" style={{ fontFamily: "'Inter Tight', sans-serif" }}>Contact Form</h3>
                <form className="space-y-8 relative z-10 w-full max-w-lg">
                   <div>
@@ -493,10 +1254,17 @@ function HomePageContent() {
                     <input type="email" placeholder="Email" className="w-full bg-transparent border-b border-[#132B4F] text-white placeholder-gray-500 py-3 text-sm focus:outline-none focus:border-[#F4C430] transition-colors" />
                   </div>
                   <div className="flex border-b border-[#132B4F] focus-within:border-[#F4C430] transition-colors items-center">
-                    <div className="flex items-center pr-3 py-3 text-gray-400 text-xs font-bold">
-                      <span className="mr-2 text-white">🇳🇿 +64</span>
+                    <div className="flex items-center pr-3 py-3 text-gray-500 text-xs">
+                      {/* CSS-drawn Indonesian Flag */}
+                      <span className="mr-2 w-4 h-3 rounded-sm flex flex-col overflow-hidden shadow-sm">
+                        <span className="w-full h-1/2 bg-red-600"></span>
+                        <span className="w-full h-1/2 bg-white"></span>
+                      </span>
+                      <svg width="10" height="6" viewBox="0 0 10 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L5 5L9 1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                      </svg>
                     </div>
-                    <input type="tel" placeholder="Phone Number" className="w-full bg-transparent text-white placeholder-gray-500 py-3 text-sm pl-2 focus:outline-none" />
+                    <input type="tel" placeholder="Input Number Here" className="w-full bg-transparent text-white placeholder-gray-500 py-3 text-sm pl-2 focus:outline-none" />
                   </div>
                   <div>
                     <textarea placeholder="Write Your Message Here" rows={3} className="w-full bg-transparent border-b border-[#132B4F] text-white placeholder-gray-500 py-3 text-sm focus:outline-none focus:border-[#F4C430] transition-colors resize-none"></textarea>
@@ -507,21 +1275,127 @@ function HomePageContent() {
                     </button>
                   </div>
                </form>
+               {/* Yellow Dot Pattern */}
                <div className="absolute bottom-0 right-0 w-40 h-28 opacity-50" style={{ backgroundImage: `radial-gradient(${COLORS.yellow} 3px, transparent 3px)`, backgroundSize: '16px 16px' }}></div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• BLOG SECTION â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <section className="py-20 bg-white relative overflow-hidden border-t border-gray-100">
+        {/* Yellow Dot Pattern Background */}
+        <div className="absolute top-1/2 -left-10 w-48 h-full z-0 opacity-50" style={{ backgroundImage: `radial-gradient(${COLORS.yellow} 4px, transparent 4px)`, backgroundSize: '30px 30px' }}></div>
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-8">
+            <span 
+              className="inline-block text-sm font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-6"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              BLOG
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-[54px] font-bold mb-6 tracking-tight text-[#1F2937]" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+              Tips, Tricks, and Locksmith Wisdom
+            </h2>
+            <p className="text-gray-500 text-lg">
+              Handy advice on home security, car keys, and choosing the right locksmith — straight from the LostKey team.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { img: 'https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=600&q=80', date: '29 Oct', author: 'LostKey Team', title: 'Top Reasons to Hire a Professional Locksmith', excerpt: 'Why DIY lock fixes often cost more in the long run.' },
+              { img: 'https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=600&q=80', date: '29 Oct', author: 'LostKey Team', title: 'How Professional Locksmiths Save You Time', excerpt: 'What to expect during a callout and how fast help can really arrive.' },
+              { img: 'https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=600&q=80', date: '29 Oct', author: 'LostKey Team', title: 'Smart Locks for Modern Kiwi Homes', excerpt: 'A beginner\'s guide to keyless entry and home automation security.' },
+            ].map((post, idx) => (
+              <div key={idx} className="bg-white border border-gray-200 shadow-sm hover:shadow-xl transition-shadow group overflow-hidden rounded-3xl">
+                <div className="relative h-[260px] overflow-hidden">
+                  <img src={post.img} alt={post.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+                  <div className="absolute bottom-0 translate-y-1/2 right-6 w-[60px] h-[60px] flex flex-col items-center justify-center z-10" style={{ backgroundColor: COLORS.yellow }}>
+                    <span className="font-bold text-lg leading-none text-[#1F2937]">{post.date.split(' ')[0]}</span>
+                    <span className="font-medium text-[13px] text-[#1F2937]">{post.date.split(' ')[1]}</span>
+                  </div>
+                </div>
+                <div className="p-7 pt-10 pb-8">
+                  <div className="flex items-center space-x-5 text-[13px] text-gray-500 mb-4">
+                    <span className="flex items-center"><User size={14} className="mr-2" /> {post.author}</span>
+                    <span className="flex items-center"><Calendar size={14} className="mr-2" /> October 29, 2025</span>
+                  </div>
+                  <h4 className="text-xl md:text-[22px] font-bold text-[#1F2937] mb-3 hover:text-[#F4C430] transition-colors cursor-pointer leading-tight">{post.title}</h4>
+                  <p className="text-gray-500 leading-relaxed text-[15px] mb-6">{post.excerpt}</p>
+                  <a href="#" className="inline-flex items-center text-[13px] font-bold uppercase tracking-widest text-[#1F2937] hover:text-[#F4C430] transition-colors">
+                    READ MORE
+                    <ArrowRight size={16} strokeWidth={2.5} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• FOOTER â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
       <window.FooterComponent currentPage="home" />
+
+      {/* ═══════════════ MOBILE STICKY CTA ═══════════════ */}
+      <div 
+        className="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] flex justify-between items-center"
+        style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}` }}
+      >
+        <div className="flex flex-col text-white px-2">
+          <span className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: COLORS.yellow }}>Locked Out?</span>
+          <span className="font-bold text-sm">24/7 Emergency Service</span>
+        </div>
+        <a 
+          href="tel:0800828345" 
+          className="flex items-center justify-center px-6 py-3.5 font-bold active:scale-95 transition-transform rounded-full"
+          style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+        >
+          <Phone size={18} className="mr-2" />
+          Call Now
+        </a>
+      </div>
+
+      {/* ═══════════════ DESKTOP FLOATING BUTTONS ═══════════════ */}
+      <div className="hidden md:flex fixed top-1/2 right-0 -translate-y-1/2 flex-col z-50 rounded-l-lg overflow-hidden shadow-[0_0_20px_rgba(0,0,0,0.2)]">
+        <a 
+          href="tel:0800828345" 
+          className="bg-[#0B1F3A] text-white hover:text-[#1F2937] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer group"
+        >
+          <Phone size={20} className="group-hover:scale-110 transition-transform" />
+          <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Call Now</span>
+        </a>
+        <a 
+          href="contact-us.html" 
+          className="bg-[#F4C430] text-[#0B1F3A] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer border-t border-[#132B4F] group"
+        >
+          <Calendar size={20} className="group-hover:scale-110 transition-transform" />
+          <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Book Appointment</span>
+        </a>
+      </div>
+
+      {/* â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• SCROLL TO TOP BUTTON â•â•â•â•â•â•â•â•â•â•â•â•â•â•â• */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-50 p-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+        style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={24} strokeWidth={2.5} />
+      </button>
+
     </div>
   );
 }
-
-const root = createRoot(document.getElementById('root'));
-root.render(<HomePageContent />);
+        
+        import { createRoot } from 'react-dom/client';
+        const root = createRoot(document.getElementById('root'));
+        root.render(<App />);
+    
 </script>
 
 <?php
 include 'footer.php';
 ?>
+

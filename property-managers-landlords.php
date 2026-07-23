@@ -1,18 +1,22 @@
 <?php
 $pageTitle = "Property Managers & Landlords Locksmith Auckland | Lostkey";
 $pageDescription = "Lostkey provides fast, reliable lock rekeying and replacement between tenants for property managers and landlords across Auckland. Secure your rental properties with ease.";
-$currentPage = "property-managers";
+$currentPage = "home";
 include 'header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React, { useState } from 'react';
+
+import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
-import {
-  Phone, Shield, Mail,
-  Clock, Check, Building, KeyRound, PenTool,
-  Smartphone, Layers, Calendar, DoorClosed, AlertTriangle,
-  ClipboardCheck, BadgeCheck, CheckCircle2, ChevronRight
+import { 
+  Menu, X, Phone, Lock, Home, Car, 
+  ChevronRight, ChevronDown, Key, Clock, MapPin, Wrench,
+  Shield, Mail, Facebook, Twitter, Youtube,
+  Zap, BadgeCheck, Settings, Smartphone, KeyRound,
+  Users, Check, Calendar, ArrowUp,
+  AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers,
+  ClipboardCheck, CheckCircle2
 } from 'lucide-react';
 
 const COLORS = {
@@ -20,6 +24,35 @@ const COLORS = {
   black: '#0B1F3A',
   white: '#FFFFFF',
 };
+
+const serviceAreas = [
+  "Auckland Central",
+  "North Shore",
+  "West Auckland",
+  "South Auckland",
+  "East Auckland",
+  "Rodney",
+  "Franklin",
+  "Orewa & Hibiscus Coast"
+];
+
+const MAIN_SERVICES = [
+  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
+  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
+  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
+  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
+  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
+  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
+  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
+  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
+  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
+  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
+  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
+  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
+  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
+  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
+  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
+];
 
 const services = [
   {
@@ -186,17 +219,40 @@ function ContactForm() {
   );
 }
 
-function PropertyManagersPage() {
+function PropertyManagersPageContent() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
+  const [showScrollTop, setShowScrollTop] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+      setShowScrollTop(window.scrollY > 400);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="property-managers" />
+      
+      {/* HEADER */}
+      <window.HeaderComponent currentPage="home" />
 
       {/* PAGE HERO */}
       <section className="relative bg-[#0B1F3A] text-white py-20 lg:py-28 overflow-hidden">
         <div style={{ position: 'absolute', inset: 0, opacity: 0.06, pointerEvents: 'none', background: 'radial-gradient(circle at 75% 50%, #F4C430 0%, transparent 65%)' }} />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">Property Managers &amp; Landlords</span>
           </div>
@@ -496,13 +552,25 @@ function PropertyManagersPage() {
         </div>
       </section>
 
-      <window.FooterComponent currentPage="property-managers" />
+      {/* FOOTER */}
+      <window.FooterComponent currentPage="home" />
+
+      {/* SCROLL TO TOP BUTTON */}
+      <button
+        onClick={scrollToTop}
+        className={`fixed bottom-24 md:bottom-8 right-6 md:right-8 z-50 p-4 rounded-full shadow-[0_10px_30px_rgba(0,0,0,0.2)] transition-all duration-300 hover:scale-110 hover:-translate-y-1 ${showScrollTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10 pointer-events-none'}`}
+        style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+        aria-label="Scroll to top"
+      >
+        <ArrowUp size={24} strokeWidth={2.5} />
+      </button>
     </div>
   );
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<PropertyManagersPage />);
+root.render(<PropertyManagersPageContent />);
+
 </script>
 
 <?php
