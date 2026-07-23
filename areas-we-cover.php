@@ -138,7 +138,7 @@ function AreasWeCoverPageContent() {
             {regionCards.map((card, idx) => (
               <div 
                 key={idx}
-                className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between group"
+                className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full pb-7"
               >
                 <div>
                   {/* Card Image & Badge */}
@@ -179,17 +179,17 @@ function AreasWeCoverPageContent() {
                         </span>
                       ))}
                     </div>
-                  </div>
-                </div>
 
-                {/* Card CTA Footer */}
-                <div className="px-7 pb-7">
-                  <a 
+                    {/* Card CTA Footer */}
+                    <div className="mt-6">
+                      <a 
                     href="contact-us.php"
                     className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-[#0B1F3A] group-hover:text-[#F4C430] transition-colors"
                   >
                     {card.cta}
                   </a>
+                    </div>
+                  </div>
                 </div>
               </div>
             ))}
