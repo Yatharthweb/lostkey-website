@@ -140,7 +140,7 @@ function AreasWeCoverPageContent() {
                 key={idx}
                 className="bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 flex flex-col group h-full pb-7"
               >
-                <div>
+                <div className="flex flex-col h-full">
                   {/* Card Image & Badge */}
                   <div className="relative h-56 overflow-hidden">
                     <img 
@@ -158,7 +158,7 @@ function AreasWeCoverPageContent() {
                   </div>
 
                   {/* Card Content */}
-                  <div className="p-7">
+                  <div className="p-7 flex flex-col flex-grow">
                     <h3 className="text-2xl font-bold text-[#1F2937] mb-3 leading-tight group-hover:text-[#F4C430] transition-colors">
                       {card.title}
                     </h3>
@@ -168,7 +168,7 @@ function AreasWeCoverPageContent() {
                     </p>
 
                     {/* Pills */}
-                    <div className="flex flex-wrap gap-2 mb-6">
+                    <div className="flex flex-wrap gap-2 mb-6 mt-auto">
                       {card.pills.map((pill, pIdx) => (
                         <span 
                           key={pIdx}
