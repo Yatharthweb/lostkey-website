@@ -2,12 +2,12 @@
 $pageTitle = "Areas We Cover | Locksmith Services Across Greater Auckland | Lostkey";
 $pageDescription = "Lostkey provides mobile locksmith services across all of Greater Auckland. From Auckland City CBD to North Shore, West, East, South Auckland, Rodney, Franklin, and Hibiscus Coast.";
 $currentPage = "areas";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React from 'react';
 import { createRoot } from 'react-dom/client';
+import React from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Check, ArrowRight, AlertTriangle, Building, ShieldCheck, CheckCircle2,
@@ -96,11 +96,11 @@ const regionCards = [
 ];
 
 function AreasWeCoverPageContent() {
-  return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="areas" />
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
 
-      {/* HERO SECTION */}
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="areas" />{/* HERO SECTION */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F4C430_1px,transparent_1px)] [background-size:24px_24px]"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#F4C430]/15 rounded-full blur-3xl"></div>
@@ -236,10 +236,7 @@ function AreasWeCoverPageContent() {
             <div className="absolute bottom-0 right-0 w-40 h-28 opacity-30" style={{ backgroundImage: `radial-gradient(${COLORS.yellow} 3px, transparent 3px)`, backgroundSize: '16px 16px' }}></div>
           </div>
         </div>
-      </section>
-
-      <window.FooterComponent currentPage="areas" />
-    </div>
+      </section><FooterComponent currentPage="areas" /></div>
   );
 }
 
@@ -255,5 +252,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

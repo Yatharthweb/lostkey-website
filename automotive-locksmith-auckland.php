@@ -2,12 +2,12 @@
 $pageTitle = "Automotive Locksmith Auckland | Mobile Car Key Replacement 24/7";
 $pageDescription = "Automotive Locksmith Auckland – 24/7 emergency car key replacement, transponder programming, car lockout assistance, and ignition repair across Auckland. Fast 20-40 min mobile response.";
 $currentPage = "services";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import React, { useState } from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
@@ -152,13 +152,13 @@ const faqs = [
 ];
 
 function AutomotiveLocksmithPageContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [openFaq, setOpenFaq] = useState(-1);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="services" />
-
-      {/* PAGE HERO */}
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="services" />{/* PAGE HERO */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/car-lockout.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -419,24 +419,26 @@ function AutomotiveLocksmithPageContent() {
               <h3 className="text-3xl font-bold text-[#1F2937] mb-8 flex items-center justify-center"><Car size={20} className="mr-2 text-[#F4C430]" /> Cars</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {carBrands.map((brand, idx) => {
-                  const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  const brandName = brand === 'Mini' ? 'Mini Cooper' : brand;
+                  const logoUrl = `images/brands/CAR LOGO/${brandName} Key Replacement Auckland.png`;
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-12 sm:h-16 lg:h-20 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-14 sm:h-20 lg:h-24 w-full p-2 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200"
+                      title={`${brand} Key Replacement`}
                     >
                       <img 
-                        src={`images/brands/${slug}.svg`} 
+                        src={logoUrl} 
                         alt={`${brand} Key Replacement`} 
-                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
                         }}
                       />
-                      <div className="hidden w-14 h-14 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300">
+                      <div className="hidden w-12 h-12 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-base group-hover:scale-105 transition-transform duration-300">
                         {brand.substring(0, 2).toUpperCase()}
                       </div>
                     </a>
@@ -449,24 +451,25 @@ function AutomotiveLocksmithPageContent() {
               <h3 className="text-3xl font-bold text-[#1F2937] mb-8 flex items-center justify-center"><Building size={20} className="mr-2 text-[#F4C430]" /> Vans & Commercial Vehicles</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {vanBrands.map((brand, idx) => {
-                  const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  const logoUrl = `images/brands/VAN LOGO/${brand} Key Replacement Auckland.png`;
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-12 sm:h-16 lg:h-20 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-14 sm:h-20 lg:h-24 w-full p-2 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200"
+                      title={`${brand} Van Key Replacement`}
                     >
                       <img 
-                        src={`images/brands/${slug}.svg`} 
+                        src={logoUrl} 
                         alt={`${brand} Van Key Replacement`} 
-                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
                         }}
                       />
-                      <div className="hidden w-14 h-14 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300">
+                      <div className="hidden w-12 h-12 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-base group-hover:scale-105 transition-transform duration-300">
                         {brand.substring(0, 2).toUpperCase()}
                       </div>
                     </a>
@@ -479,24 +482,26 @@ function AutomotiveLocksmithPageContent() {
               <h3 className="text-3xl font-bold text-[#1F2937] mb-8 flex items-center justify-center"><Wrench size={20} className="mr-2 text-[#F4C430]" /> Trucks</h3>
               <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 lg:grid-cols-8 gap-x-4 gap-y-6 items-center justify-items-center">
                 {truckBrands.map((brand, idx) => {
-                  const slug = brand.toLowerCase().replace(/[^a-z0-9]/g, '');
+                  const brandName = brand === 'UD Trucks' ? 'UD' : brand;
+                  const logoUrl = `images/brands/TRUCK LOGO/${brandName} Truck Key Replacement Auckland.png`;
                   return (
                     <a 
                       key={idx} 
                       href="tel:0800828345" 
-                      className="flex items-center justify-center transition-all group h-12 sm:h-16 lg:h-20 w-full hover:opacity-75"
+                      className="flex items-center justify-center transition-all group h-14 sm:h-20 lg:h-24 w-full p-2 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md hover:border-gray-200"
+                      title={`${brand} Truck Key Replacement`}
                     >
                       <img 
-                        src={`images/brands/${slug}.svg`} 
+                        src={logoUrl} 
                         alt={`${brand} Truck Key Replacement`} 
-                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300 mix-blend-multiply"
+                        className="max-h-full max-w-full object-contain filter group-hover:scale-105 transition-transform duration-300"
                         onError={(e) => {
                           e.target.onerror = null;
                           e.target.style.display = 'none';
                           e.target.nextSibling.style.display = 'flex';
                         }}
                       />
-                      <div className="hidden w-14 h-14 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-lg group-hover:scale-105 transition-transform duration-300">
+                      <div className="hidden w-12 h-12 rounded-full bg-gray-100 text-gray-500 items-center justify-center font-bold text-base group-hover:scale-105 transition-transform duration-300">
                         {brand.substring(0, 2).toUpperCase()}
                       </div>
                     </a>
@@ -657,10 +662,7 @@ function AutomotiveLocksmithPageContent() {
             </div>
           </div>
         </div>
-      </section>
-
-      <window.FooterComponent currentPage="services" />
-    </div>
+      </section><FooterComponent currentPage="services" /></div>
   );
 }
 
@@ -676,5 +678,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

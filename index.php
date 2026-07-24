@@ -1,49 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lost Key Locksmith</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@18.2.0",
-          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-          "lucide-react": "https://esm.sh/lucide-react@0.292.0"
-        }
-      }
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
-      body { margin: 0; padding: 0; }
-      @keyframes ring-shake {
-        0% { transform: rotate(0deg); }
-        15% { transform: rotate(15deg); }
-        30% { transform: rotate(-10deg); }
-        45% { transform: rotate(5deg); }
-        60% { transform: rotate(-5deg); }
-        75% { transform: rotate(2deg); }
-        100% { transform: rotate(0deg); }
-      }
-      .hover-ring:hover .phone-icon {
-        animation: ring-shake 0.5s ease-in-out infinite;
-      }
-      @keyframes marquee {
-        0% { transform: translateX(0%); }
-        100% { transform: translateX(-100%); }
-      }
-      .animate-marquee {
-        animation: marquee 25s linear infinite;
-      }
-    </style>
-</head>
-<body>
-    <div id="root"></div>
-    <script type="text/babel" data-type="module">
+<?php
+$pageTitle = "Lost Key Locksmith Auckland | 24/7 Mobile Locksmith";
+$pageDescription = "Auckland's trusted 24/7 mobile locksmith service. Fast 20-40 min arrival for home, commercial, and auto lockouts.";
+$currentPage = "home";
+include 'includes/header.php';
+?>
+
+<script type="text/babel" data-type="module">
+import { createRoot } from 'react-dom/client';
 import React, { useState, useEffect, useRef } from 'react';
 import { 
   Menu, X, Phone, Lock, Home, Car, 
@@ -75,6 +38,9 @@ const COLORS = {
 };
 
 function HomePageContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -1197,11 +1163,11 @@ function HomePageContent() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {serviceAreas.map((area, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer border border-gray-100">
+              <a key={idx} href={area.url} className="bg-white rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer border border-gray-100">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5" style={{ backgroundColor: '#FFF4E5' }}>
                   <MapPin size={26} color="#000000" fill="#F9A620" strokeWidth={2} />
                 </div>
-                <h3 className="text-[17px] sm:text-lg font-black text-[#0B1F3A] leading-tight mb-5">{area}<br/>Locksmith</h3>
+                <h3 className="text-[17px] sm:text-lg font-black text-[#0B1F3A] leading-tight mb-5">{area.name}<br/>Locksmith</h3>
                 <div className="w-full border-t border-dashed border-gray-200"></div>
                 <div className="flex items-center justify-between w-full pt-5">
                   <span className="text-[13px] font-bold text-[#0B1F3A] group-hover:text-[#F9A620] transition-colors">Learn More</span>
@@ -1209,7 +1175,7 @@ function HomePageContent() {
                     <ArrowRight size={16} color="#000000" strokeWidth={2.5} />
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>
@@ -1817,8 +1783,6 @@ function HomePageContent() {
     </div>
   );
 }
-        
-        import { createRoot } from 'react-dom/client';
         const root = createRoot(document.getElementById('root'));
 const renderApp = () => {
   if (window.HeaderComponent && window.FooterComponent) {
@@ -1829,4 +1793,4 @@ const renderApp = () => {
 };
 renderApp();
 </script>
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

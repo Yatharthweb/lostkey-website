@@ -1,0 +1,51 @@
+# LostKey Locksmith - Apache Configuration & URL Rewrite Rules
+
+RewriteEngine On
+
+# 1. Security: Disable Directory Indexing
+Options -Indexes
+
+# 2. Security: Block Access to Hidden Files & Folders (.git, .vscode, .htaccess, etc.)
+RewriteCond %{SCRIPT_FILENAME} -d [OR]
+RewriteCond %{SCRIPT_FILENAME} -f
+RewriteRule "(^|/)\." - [F]
+
+# 3. Security: Block Access to Sensitive Configs & Source Files
+<FilesMatch "\.(json|config|log|md|sh)$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Order allow,deny
+        Deny from all
+    </IfModule>
+</FilesMatch>
+
+# 4. Clean URLs: Map Extensionless Requests (e.g., /about-us) to .php File
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php [L]
+
+# 5. Clean URLs: Map Legacy .html Requests (e.g., /about-us.html) to .php File
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} ^(.*)\.html$
+RewriteCond %1.php -f
+RewriteRule ^(.*)\.html$ $1.php [L]
+
+# 6. Performance: GZIP Compression
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# 7. Performance: Browser Caching
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/webp "access plus 1 month"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType application/javascript "access plus 1 week"
+</IfModule>

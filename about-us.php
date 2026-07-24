@@ -2,12 +2,12 @@
 $pageTitle = "About Lostkey | Auckland's Mobile Locksmith Team 24/7";
 $pageDescription = "Learn about Lostkey - Auckland's New Zealand-owned mobile locksmith business. 5+ years experience, 5,000+ jobs done, fast 20-40 min response, 24/7 emergency service across homes, businesses & vehicles.";
 $currentPage = "about";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React from 'react';
 import { createRoot } from 'react-dom/client';
+import React from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
@@ -21,14 +21,14 @@ const COLORS = {
 };
 
 const serviceAreas = [
-  "Auckland Central",
-  "North Shore",
-  "West Auckland",
-  "South Auckland",
-  "East Auckland",
-  "Rodney",
-  "Franklin",
-  "Orewa & Hibiscus Coast"
+  { name: "Auckland Central", url: "contact-us.html" },
+  { name: "North Shore", url: "north-shore-locksmith.html" },
+  { name: "West Auckland", url: "west-auckland-locksmith.html" },
+  { name: "South Auckland", url: "south-auckland-locksmith.html" },
+  { name: "East Auckland", url: "east-auckland-locksmith.html" },
+  { name: "Rodney", url: "rodney-locksmith.html" },
+  { name: "Franklin", url: "franklin-locksmith.html" },
+  { name: "Orewa & Hibiscus Coast", url: "orewa-locksmith.html" }
 ];
 
 const whatWeDoList = [
@@ -104,11 +104,11 @@ const whyChooseList = [
 ];
 
 function AboutUsPageContent() {
-  return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="about" />
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
 
-      {/* PAGE HERO */}
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="about" />{/* PAGE HERO */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/key-locksmith.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -410,7 +410,7 @@ function AboutUsPageContent() {
                 {serviceAreas.map((area, idx) => (
                   <li key={idx} className="flex items-center space-x-2">
                     <MapPin size={16} className="text-[#F4C430]" />
-                    <span>{area}</span>
+                    <span>{area.name}</span>
                   </li>
                 ))}
               </ul>
@@ -429,14 +429,14 @@ function AboutUsPageContent() {
                 {serviceAreas.map((area, idx) => (
                   <a 
                     key={idx}
-                    href="areas-we-cover.html"
+                    href={area.url}
                     className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4 hover:border-[#F4C430] hover:shadow-md transition-all group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-[#F4C430] group-hover:text-[#1F2937] transition-colors flex-shrink-0">
                       <MapPin size={18} strokeWidth={2.5} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base group-hover:text-[#F4C430] transition-colors">{area}</h4>
+                      <h4 className="font-bold text-gray-900 text-base group-hover:text-[#F4C430] transition-colors">{area.name}</h4>
                       <p className="text-xs text-gray-400">24/7 Mobile Locksmith Dispatch</p>
                     </div>
                   </a>
@@ -483,10 +483,7 @@ function AboutUsPageContent() {
             </div>
           </div>
         </div>
-      </section>
-
-      <window.FooterComponent currentPage="about" />
-    </div>
+      </section><FooterComponent currentPage="about" /></div>
   );
 }
 
@@ -502,5 +499,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

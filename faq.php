@@ -2,12 +2,12 @@
 $pageTitle = "Frequently Asked Questions | Auckland's Mobile Locksmith Team 24/7";
 $pageDescription = "Got a question about locks, keys, or getting a locksmith out to you? Here are the most frequently asked questions about Lostkey. Auckland's New Zealand-owned mobile locksmith business. 5+ years experience, 5,000+ jobs done, fast 20-40 min response, 24/7 emergency service across homes, businesses & vehicles.";
 $currentPage = "faq";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React from 'react';
 import { createRoot } from 'react-dom/client';
+import React from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, ChevronDown, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
@@ -21,13 +21,16 @@ const COLORS = {
 };
 
 function FAQItem({ item }) {
-  const [isOpen, React_useState] = React.useState(false);
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
+  const [isOpen, setIsOpen] = React.useState(false);
   
   return (
     <div className="border border-gray-200 rounded-2xl mb-4 overflow-hidden bg-white shadow-sm hover:shadow-md transition-all">
       <button 
         className="w-full text-left px-6 py-5 flex justify-between items-center focus:outline-none"
-        onClick={() => React_useState(!isOpen)}
+        onClick={() => setIsOpen(!isOpen)}
       >
         <span className="font-bold text-lg text-[#1F2937] pr-8 leading-tight">{item.q}</span>
         <div className={`w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-colors ${isOpen ? 'bg-[#F4C430] text-[#0B1F3A]' : 'bg-gray-100 text-gray-500'}`}>
@@ -99,6 +102,9 @@ const faqs = [
 ];
 
 function FAQPageContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = React.useState(false);
   const [mobileAreasOpen, setMobileAreasOpen] = React.useState(false);
@@ -107,7 +113,7 @@ function FAQPageContent() {
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      {typeof window !== 'undefined' && window.HeaderComponent ? <window.HeaderComponent currentPage="faq" /> : null}
+      <HeaderComponent currentPage="faq" />
 
       {/* PAGE HERO */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
@@ -115,7 +121,7 @@ function FAQPageContent() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
             <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
-            <ChevronRight, ChevronDown size={14} className="text-gray-500" />
+            <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">FAQ</span>
           </div>
 
@@ -181,7 +187,7 @@ function FAQPageContent() {
         </div>
       </section>
 
-      {typeof window !== 'undefined' && window.FooterComponent ? <window.FooterComponent currentPage="faq" /> : null}
+      <FooterComponent currentPage="faq" />
     </div>
   );
 }
@@ -198,5 +204,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

@@ -1,56 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Afterpay - Pay Later Locksmith Auckland | Lostkey</title>
-    <meta name="description" content="Privacy Policy for Lostkey Locksmith Auckland. Learn how we collect, protect, and manage your personal details, payment info, cookies, and privacy rights.">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script type="importmap">
-      {
-        "imports": {
-          "react": "https://esm.sh/react@18.2.0",
-          "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
-          "lucide-react": "https://esm.sh/lucide-react@0.292.0"
-        }
-      }
-    </script>
-    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-    <style>
-      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap');
-      @import url('https://fonts.googleapis.com/css2?family=Syne:wght@700;800&display=swap');
-      body { margin: 0; padding: 0; }
-      @keyframes ring-shake {
-        0% { transform: rotate(0deg); }
-        15% { transform: rotate(15deg); }
-        30% { transform: rotate(-10deg); }
-        45% { transform: rotate(5deg); }
-        60% { transform: rotate(-5deg); }
-        75% { transform: rotate(2deg); }
-        100% { transform: rotate(0deg); }
-      }
-      .hover-ring:hover .phone-icon {
-        animation: ring-shake 0.5s ease-in-out infinite;
-      }
-    
-      /* Hide scrollbar for custom-scrollbar */
-      .custom-scrollbar::-webkit-scrollbar {
-        display: none !important;
-        width: 0 !important;
-        height: 0 !important;
-      }
-      .custom-scrollbar {
-        -ms-overflow-style: none !important;  /* IE and Edge */
-        scrollbar-width: none !important;  /* Firefox */
-      }
-    </style>
-</head>
-<body>
-    <div id="root"></div>
-    <script type="text/babel" data-type="module">
-import React, { useState, useEffect } from 'react';
+<?php
+$pageTitle = "Afterpay - Pay Later Locksmith Auckland | Lostkey";
+$pageDescription = "Pay later for locksmith services across Auckland with Afterpay. 24/7 emergency callouts, lock repairs & car key replacement.";
+$currentPage = "afterpay";
+include 'includes/header.php';
+?>
+
+<script type="text/babel" data-type="module">
 import { createRoot } from 'react-dom/client';
+import React, { useState, useEffect } from 'react';
 import { 
   Menu, X, Phone, Lock, Home, Car, 
   ShieldCheck, ChevronRight, ChevronDown,
@@ -96,6 +53,9 @@ const MAIN_SERVICES = [
 ];
 
 function AfterpayHtmlPage() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
@@ -120,10 +80,7 @@ function AfterpayHtmlPage() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
       
-      {/* UNIFIED STICKY HEADER */}
-      <window.HeaderComponent currentPage="afterpay" />
-
-      {/* PAGE HERO */}
+      {/* UNIFIED STICKY HEADER */}<HeaderComponent currentPage="afterpay" />{/* PAGE HERO */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/key-cutting.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -244,10 +201,7 @@ function AfterpayHtmlPage() {
         </div>
       </section>
 
-      {/* FOOTER */}
-      <window.FooterComponent />
-
-      {/* MOBILE STICKY CTA */}
+      {/* FOOTER */}<FooterComponent />{/* MOBILE STICKY CTA */}
       <div className="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] flex justify-between items-center" style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}` }}>
         <div className="flex flex-col text-white px-2">
           <span className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: COLORS.yellow }}>Locked Out?</span>
@@ -277,4 +231,4 @@ const renderApp = () => {
 };
 renderApp();
 </script>
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

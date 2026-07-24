@@ -2,12 +2,12 @@
 $pageTitle = "Locksmith Rodney | Trusted Local Locksmith Services | Lostkey";
 $pageDescription = "Lostkey is the trusted Rodney Locksmith for residential, commercial, automotive and emergency lockouts. Covering Orewa, Warkworth, Silverdale and more.";
 $currentPage = "areas";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import React, { useState } from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
@@ -153,11 +153,14 @@ const FAQItem = ({ faq, isOpen, onClick }) => {
 };
 
 export default function RodneyLocksmith() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [openFaq, setOpenFaq] = useState(0);
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans text-gray-900" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      {typeof window !== 'undefined' && window.HeaderComponent ? <window.HeaderComponent currentPage="areas" /> : null}
+      <HeaderComponent currentPage="areas" />
 
       {/* HERO SECTION */}
       <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-[#0B1F3A]">
@@ -390,7 +393,7 @@ export default function RodneyLocksmith() {
         </div>
       </section>
 
-      {typeof window !== 'undefined' && window.FooterComponent ? <window.FooterComponent /> : null}
+      <FooterComponent />
     </div>
   );
 }
@@ -409,5 +412,5 @@ renderApp();
 <div id="root"></div>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

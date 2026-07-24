@@ -2,16 +2,16 @@
 $pageTitle = "Contact Lostkey Locksmith Auckland | Need a Locksmith? Get in Touch Now";
 $pageDescription = "Contact Lostkey Locksmith in Auckland. Emergency locksmith services on call 24/7 across Auckland. Call 0800 828 345 for fast 20-40 min arrival.";
 $currentPage = "contact";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import React, { useState } from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
-  ShieldCheck, CheckCircle2, MessageSquare, Send
+  ShieldCheck, CheckCircle2, MessageSquare, Send, Star, BadgeCheck
 } from 'lucide-react';
 
 const COLORS = {
@@ -21,6 +21,9 @@ const COLORS = {
 };
 
 function ContactPageContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -37,10 +40,7 @@ function ContactPageContent() {
   };
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="contact" />
-
-      {/* PAGE HERO / BREADCRUMB */}
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="contact" />{/* PAGE HERO / BREADCRUMB */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 opacity-10 bg-[radial-gradient(#F4C430_1px,transparent_1px)] [background-size:24px_24px]"></div>
         <div className="absolute -top-24 -right-24 w-96 h-96 bg-[#F4C430]/15 rounded-full blur-3xl"></div>
@@ -501,12 +501,7 @@ function ContactPageContent() {
           </div>
 
         </div>
-      </section>
-
-
-
-      <window.FooterComponent currentPage="contact" />
-    </div>
+      </section><FooterComponent currentPage="contact" /></div>
   );
 }
 
@@ -522,5 +517,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

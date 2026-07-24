@@ -2,12 +2,12 @@
 $pageTitle = "Emergency Locksmith Auckland | 24/7 Fast Mobile Locksmith Service";
 $pageDescription = "Emergency Locksmith Auckland – 24/7 urgent lockout response in 20-30 mins. House, apartment, commercial & car lockouts, broken key removal, lock repair & rekeying.";
 $currentPage = "services";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import React, { useState } from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
@@ -118,13 +118,13 @@ const faqs = [
 ];
 
 function EmergencyLocksmithPageContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [openFaq, setOpenFaq] = useState(-1);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="services" />
-
-      {/* HERO BANNER */}
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="services" />{/* HERO BANNER */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/keys-on-belt.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -420,10 +420,7 @@ function EmergencyLocksmithPageContent() {
             </div>
           </div>
         </div>
-      </section>
-
-      <window.FooterComponent currentPage="services" />
-    </div>
+      </section><FooterComponent currentPage="services" /></div>
   );
 }
 
@@ -439,5 +436,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

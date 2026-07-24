@@ -2,11 +2,11 @@
 $pageTitle = "Customer Reviews & Testimonials | Lost Key Locksmith Auckland";
 $pageDescription = "Read verified 5-star Google reviews from Auckland homeowners, drivers & businesses. Trusted 24/7 mobile locksmith service with fast response across Auckland.";
 $currentPage = "company";
-include 'header.php';
+include 'includes/header.php';
 ?>
 <script type="text/babel" data-type="module">
-import React, { useState, useEffect } from 'react';
 import { createRoot } from 'react-dom/client';
+import React, { useState, useEffect } from 'react';
 import { 
   Phone, Star, ExternalLink, RefreshCw, CheckCircle2, Mail
 } from 'lucide-react';
@@ -21,6 +21,9 @@ const COLORS = {
 const GOOGLE_MAPS_PROFILE_URL = "https://maps.app.goo.gl/SR1hmXoKCeqJERTc6";
 
 function TestimonialsContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [reviewsData, setReviewsData] = useState(null);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState('All');
@@ -123,6 +126,7 @@ function TestimonialsContent() {
 
   return (
     <div className="bg-slate-50 text-gray-900 font-sans">
+      <HeaderComponent currentPage="company" />
       {/* HERO BANNER */}
       <section className="relative text-white py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: COLORS.black }}>
         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#F4C430_1px,transparent_1px)] [background-size:16px_16px]"></div>
@@ -257,12 +261,20 @@ function TestimonialsContent() {
           </div>
         )}
       </section>
+      <FooterComponent currentPage="company" />
     </div>
   );
 }
 
 const root = createRoot(document.getElementById('root'));
-root.render(<TestimonialsContent />);
+const renderApp = () => {
+  if (window.HeaderComponent && window.FooterComponent) {
+    root.render(<TestimonialsContent />);
+  } else {
+    setTimeout(renderApp, 50);
+  }
+};
+renderApp();
 </script>
 
-<?php include 'footer.php'; ?>
+<?php include 'includes/footer.php'; ?>

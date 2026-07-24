@@ -2,12 +2,12 @@
 $pageTitle = "Residential Locksmith Auckland | Trusted Home Locksmith Services 24/7";
 $pageDescription = "Residential Locksmith Auckland – 24/7 home lockout assistance, lock rekeying, lock replacement, deadbolt installation, smart locks, and key cutting across Auckland. Fast 20-40 min arrival.";
 $currentPage = "services";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React, { useState } from 'react';
 import { createRoot } from 'react-dom/client';
+import React, { useState } from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
   Clock, Calendar, Check, ArrowRight, AlertTriangle, Building, CreditCard,
@@ -162,13 +162,13 @@ const faqs = [
 ];
 
 function ResidentialLocksmithPageContent() {
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
+
   const [openFaq, setOpenFaq] = useState(-1);
 
   return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="services" />
-
-      {/* PAGE HERO BANNER */}
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="services" />{/* PAGE HERO BANNER */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/keys-on-belt.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -512,10 +512,7 @@ function ResidentialLocksmithPageContent() {
             </div>
           </div>
         </div>
-      </section>
-
-      <window.FooterComponent currentPage="services" />
-    </div>
+      </section><FooterComponent currentPage="services" /></div>
   );
 }
 
@@ -531,5 +528,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>

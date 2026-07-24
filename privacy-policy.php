@@ -2,12 +2,12 @@
 $pageTitle = "Privacy Policy | LostKey Locksmith Auckland";
 $pageDescription = "Privacy Policy for Lostkey Locksmith Auckland. Learn how we collect, protect, and manage your personal details, payment info, cookies, and privacy rights.";
 $currentPage = "privacy";
-include 'header.php';
+include 'includes/header.php';
 ?>
 
 <script type="text/babel" data-type="module">
-import React from 'react';
 import { createRoot } from 'react-dom/client';
+import React from 'react';
 import { 
   Phone, Lock, Home, Car, ChevronRight, MapPin, Mail, 
   ShieldCheck, FileText, CheckCircle2, AlertTriangle, Building, Shield
@@ -20,11 +20,11 @@ const COLORS = {
 };
 
 function PrivacyPolicyPageContent() {
-  return (
-    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="privacy" />
+  const HeaderComponent = window.HeaderComponent;
+  const FooterComponent = window.FooterComponent;
 
-      {/* HERO BANNER */}
+  return (
+    <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}><HeaderComponent currentPage="privacy" />{/* HERO BANNER */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-16 lg:pt-12 lg:pb-24 overflow-hidden">
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/key-locksmith.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
@@ -218,10 +218,7 @@ function PrivacyPolicyPageContent() {
           </div>
 
         </div>
-      </section>
-
-      <window.FooterComponent currentPage="privacy" />
-    </div>
+      </section><FooterComponent currentPage="privacy" /></div>
   );
 }
 
@@ -237,5 +234,5 @@ renderApp();
 </script>
 
 <?php
-include 'footer.php';
+include 'includes/footer.php';
 ?>
