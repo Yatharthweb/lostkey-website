@@ -39,8 +39,8 @@ function TestimonialsContent() {
         setReviewsData({
           business: {
             name: 'Lost Key NZ | Automotive Locksmith Auckland',
-            rating: 5.0,
-            total_reviews: 58,
+            rating: 4.9,
+            total_reviews: 930,
             google_maps_url: GOOGLE_MAPS_PROFILE_URL
           },
           reviews: [
@@ -153,7 +153,7 @@ function TestimonialsContent() {
           <div className="inline-flex flex-col sm:flex-row items-center justify-between bg-[#132B4F] border border-gray-700/60 p-6 md:p-8 rounded-3xl shadow-2xl gap-6 text-left max-w-2xl w-full">
             <div className="flex items-center space-x-5">
               <div className="w-16 h-16 rounded-2xl bg-[#F4C430] flex items-center justify-center text-slate-900 font-black text-2xl shadow-lg flex-shrink-0">
-                5.0
+                4.9
               </div>
               <div>
                 <div className="flex items-center space-x-1 mb-1">
@@ -161,8 +161,8 @@ function TestimonialsContent() {
                     <Star key={i} size={20} fill="#F4C430" color="#F4C430" />
                   ))}
                 </div>
-                <p className="text-white font-bold text-base">5.0 Out of 5.0 Rating</p>
-                <p className="text-gray-400 text-xs">Based on 58+ verified Google reviews</p>
+                <p className="text-white font-bold text-base">4.9 Out of 5.0 Rating</p>
+                <p className="text-gray-400 text-xs">Based on 930+ verified Google reviews</p>
               </div>
             </div>
 

@@ -1233,7 +1233,7 @@ function HomePageContent() {
               Auckland's Highest-Rated Locksmith Experience
             </h2>
             <p className="text-gray-500 text-lg">
-              With a 4.9Γÿà Google rating from over 930 verified reviews, our reputation is built on fast response times, quality workmanship and exceptional customer service.
+              With a 4.9 ★ Google rating from over 930 verified reviews, our reputation is built on fast response times, quality workmanship and exceptional customer service.
             </p>
           </div>
 
