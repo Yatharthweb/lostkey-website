@@ -1519,11 +1519,11 @@ function App() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {serviceAreas.map((area, idx) => (
-              <div key={idx} className="bg-white rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer border border-gray-100">
+              <a key={idx} href={area.url} className="bg-white rounded-2xl p-6 sm:p-8 flex flex-col items-center text-center shadow-sm hover:shadow-md transition-all duration-300 group cursor-pointer border border-gray-100 no-underline">
                 <div className="w-14 h-14 rounded-full flex items-center justify-center mb-5" style={{ backgroundColor: '#FFF4E5' }}>
                   <MapPin size={26} color="#000000" fill="#F9A620" strokeWidth={2} />
                 </div>
-                <h3 className="text-[17px] sm:text-lg font-black text-[#0B1F3A] leading-tight mb-5">{area}<br/>Locksmith</h3>
+                <h3 className="text-[17px] sm:text-lg font-black text-[#0B1F3A] leading-tight mb-5">{area.name}<br/>Locksmith</h3>
                 <div className="w-full border-t border-dashed border-gray-200"></div>
                 <div className="flex items-center justify-between w-full pt-5">
                   <span className="text-[13px] font-bold text-[#0B1F3A] group-hover:text-[#F9A620] transition-colors">Learn More</span>
@@ -1531,7 +1531,7 @@ function App() {
                     <ArrowRight size={16} color="#000000" strokeWidth={2.5} />
                   </div>
                 </div>
-              </div>
+              </a>
             ))}
           </div>
         </div>

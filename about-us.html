@@ -1003,7 +1003,7 @@ function AboutUsPageContent() {
                 {serviceAreas.map((area, idx) => (
                   <li key={idx} className="flex items-center space-x-2">
                     <MapPin size={16} className="text-[#F4C430]" />
-                    <span>{area}</span>
+                    <span>{area.name}</span>
                   </li>
                 ))}
               </ul>
@@ -1022,14 +1022,14 @@ function AboutUsPageContent() {
                 {serviceAreas.map((area, idx) => (
                   <a 
                     key={idx}
-                    href="areas-we-cover.html"
+                    href={area.url}
                     className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4 hover:border-[#F4C430] hover:shadow-md transition-all group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-[#F4C430] group-hover:text-[#1F2937] transition-colors flex-shrink-0">
                       <MapPin size={18} strokeWidth={2.5} />
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 text-base group-hover:text-[#F4C430] transition-colors">{area}</h4>
+                      <h4 className="font-bold text-gray-900 text-base group-hover:text-[#F4C430] transition-colors">{area.name}</h4>
                       <p className="text-xs text-gray-400">24/7 Mobile Locksmith Dispatch</p>
                     </div>
                   </a>
