@@ -100,9 +100,9 @@ function TwentyFourHourLocksmithPageContent() {
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/keys-on-belt.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
-            <a href="index.php#services" className="hover:text-[#F4C430] transition-colors">Services</a>
+            <a href="index.html#services" className="hover:text-[#F4C430] transition-colors">Services</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">24 Hour Locksmith Auckland</span>
           </div>
@@ -299,7 +299,7 @@ function TwentyFourHourLocksmithPageContent() {
 
           <div>
             <h3 className="text-2xl font-black text-[#1F2937] mb-3">Areas We Cover</h3>
-            <p className="text-gray-600 text-sm mb-6">Our 24-hour service runs across the full region. See the complete list of suburbs and regions on our <a href="areas-we-cover.php" className="text-[#0B1F3A] font-bold underline hover:text-[#F4C430]">Areas We Cover page</a>.</p>
+            <p className="text-gray-600 text-sm mb-6">Our 24-hour service runs across the full region. See the complete list of suburbs and regions on our <a href="areas-we-cover.html" className="text-[#0B1F3A] font-bold underline hover:text-[#F4C430]">Areas We Cover page</a>.</p>
             
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
               {[
@@ -369,7 +369,7 @@ function TwentyFourHourLocksmithPageContent() {
               Contact Lostkey – Locksmith Auckland, Any Time
             </h2>
             <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
-              Whatever the hour, whatever the job, call <strong className="text-[#F4C430]">0800 828 345</strong>, and our team will help sort it or get you on the way to the right service. For more on who we are, visit our <a href="index.php" className="text-[#F4C430] font-bold underline">homepage</a> or read about our team on the <a href="about-us.php" className="text-[#F4C430] font-bold underline">About Us page</a>.
+              Whatever the hour, whatever the job, call <strong className="text-[#F4C430]">0800 828 345</strong>, and our team will help sort it or get you on the way to the right service. For more on who we are, visit our <a href="index.html" className="text-[#F4C430] font-bold underline">homepage</a> or read about our team on the <a href="about-us.html" className="text-[#F4C430] font-bold underline">About Us page</a>.
             </p>
             <div className="pt-4">
               <a 

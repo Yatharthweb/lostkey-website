@@ -49,7 +49,7 @@ function ContactPageContent() {
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/office-lock.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">Contact</span>
           </div>
@@ -305,16 +305,16 @@ function ContactPageContent() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-4">
-                <a href="index.php#services" className="px-6 py-3 bg-[#0B1F3A] text-white hover:bg-[#132B4F] font-bold text-sm rounded-full transition-colors inline-flex items-center">
+                <a href="index.html#services" className="px-6 py-3 bg-[#0B1F3A] text-white hover:bg-[#132B4F] font-bold text-sm rounded-full transition-colors inline-flex items-center">
                   <Home size={16} className="mr-2 text-[#F4C430]" /> Residential
                 </a>
-                <a href="index.php#services" className="px-6 py-3 bg-[#0B1F3A] text-white hover:bg-[#132B4F] font-bold text-sm rounded-full transition-colors inline-flex items-center">
+                <a href="index.html#services" className="px-6 py-3 bg-[#0B1F3A] text-white hover:bg-[#132B4F] font-bold text-sm rounded-full transition-colors inline-flex items-center">
                   <Building size={16} className="mr-2 text-[#F4C430]" /> Commercial
                 </a>
-                <a href="index.php#services" className="px-6 py-3 bg-[#0B1F3A] text-white hover:bg-[#132B4F] font-bold text-sm rounded-full transition-colors inline-flex items-center">
+                <a href="index.html#services" className="px-6 py-3 bg-[#0B1F3A] text-white hover:bg-[#132B4F] font-bold text-sm rounded-full transition-colors inline-flex items-center">
                   <Car size={16} className="mr-2 text-[#F4C430]" /> Automotive
                 </a>
-                <a href="index.php#reviews" className="px-6 py-3 bg-[#F4C430] text-[#0B1F3A] hover:brightness-110 font-bold text-sm rounded-full transition-all inline-flex items-center">
+                <a href="index.html#reviews" className="px-6 py-3 bg-[#F4C430] text-[#0B1F3A] hover:brightness-110 font-bold text-sm rounded-full transition-all inline-flex items-center">
                   <Star size={16} className="mr-2 fill-current" /> Testimonials
                 </a>
               </div>

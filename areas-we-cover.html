@@ -45,19 +45,13 @@
 <body>
     <div id="root"></div>
     <script type="text/babel" data-type="module">
+
 import React, { useState, useEffect, useRef } from 'react';
-import { 
-  Menu, X, Phone, Lock, Home, Car, 
-  ShieldCheck, ChevronRight, ChevronLeft, ChevronDown,
-  Key, Clock, Award, MapPin, Wrench,
-  Star, Quote, CheckCircle2,
-  ArrowRight, Shield, Mail, Facebook, Twitter, Youtube,
-  Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound,
-  Users, Check, User, Calendar, Play, ArrowUp, FileText,
-  AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers,
-  Plus, Minus, ThumbsUp, ClipboardCheck, CreditCard
+import {
+  Menu, X, Phone, Lock, Home, Car, ShieldCheck, ChevronRight, ChevronLeft, ChevronDown, Key, Clock, Award, MapPin, Wrench, Star, Quote, CheckCircle2, ArrowRight, Shield, Mail, Facebook, Twitter, Youtube, Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound, Users, Check, User, Calendar, Play, ArrowUp, FileText, AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers, Plus, Minus, ThumbsUp, ClipboardCheck, Video, CreditCard
 } from 'lucide-react';
 
+//           Design Tokens (Lost Key Premium)          
 const COLORS = {
   yellow: '#F4C430',
   yellowHover: '#E8B61A',
@@ -74,34 +68,6 @@ const COLORS = {
   lightGray: '#F8FAFC',
 };
 
-const serviceAreas = [
-  { name: "Auckland Central", url: "contact-us.php" },
-  { name: "North Shore", url: "north-shore-locksmith.php" },
-  { name: "West Auckland", url: "west-auckland-locksmith.php" },
-  { name: "South Auckland", url: "south-auckland-locksmith.php" },
-  { name: "East Auckland", url: "east-auckland-locksmith.php" },
-  { name: "Rodney", url: "rodney-locksmith.php" },
-  { name: "Franklin", url: "franklin-locksmith.php" },
-  { name: "Orewa & Hibiscus Coast", url: "orewa-locksmith.php" }
-];
-
-const MAIN_SERVICES = [
-  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.php' },
-  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.php' },
-  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.php' },
-  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.php#contact' },
-  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.php' },
-  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.php#contact' },
-  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.php#contact' },
-  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.php#contact' },
-  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.php#contact' },
-  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.php#contact' },
-  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.php#contact' },
-  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.php#contact' },
-  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.php#contact' },
-  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.php#contact' },
-  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.php#contact' },
-];
 
 window.HeaderComponent = function HeaderComponent({ currentPage }) {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -201,7 +167,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                 Home
               </a>
               <div className="relative group h-full flex items-center">
-                <a href="index.php#services" className="flex items-center text-white hover:opacity-80 transition py-6">
+                <a href="index.html#services" className="flex items-center text-white hover:opacity-80 transition py-6">
                   Services <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
                 </a>
                 <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[850px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-8 border-t-[4px] border-[#F4C430] cursor-default z-50">
@@ -262,6 +228,12 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                       <Users size={16} strokeWidth={2.5} />
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">About Us</span>
+                  </a>
+                  <a href="testimonials.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Star size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Testimonials</span>
                   </a>
                   <a href="contact-us.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
@@ -397,20 +369,29 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                 </div>
               </div>
 
-
               {/* Company mobile dropdown */}
               <div className="flex flex-col border-b border-gray-100">
                 <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer" onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}>
                   Company <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${mobileCompanyOpen ? 'rotate-180' : ''}`} />
                 </div>
-                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileCompanyOpen ? 'max-h-40 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileCompanyOpen ? 'max-h-48 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
                   <a href="about-us.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Users size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">About Us</span>
                   </a>
+                  <a href="testimonials.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Star size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Testimonials</span>
+                  </a>
                   <a href="contact-us.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Phone size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">Contact Us</span>
+                  </a>
+                  <a href="faq.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <span className="text-[14px] font-bold text-gray-800">FAQ</span>
                   </a>
                 </div>
               </div>
@@ -453,7 +434,6 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
     </header>
   );
 };
-
 window.FooterComponent = function FooterComponent({ currentPage }) {
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -507,7 +487,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                   </a>
                 </li>
                 <li>
-                  <a href="index.php#reviews" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="index.html#reviews" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Reviews
                   </a>
@@ -555,7 +535,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                 ))}
                 <li className="pt-2">
                   <a 
-                    href="index.php#services"
+                    href="index.html#services"
                     className="inline-flex items-center text-sm font-bold transition-colors group hover:opacity-80"
                     style={{ color: COLORS.yellow }}
                   >
@@ -680,102 +660,41 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
     </>
   );
 };
-</script>
 
-<script type="text/babel" data-type="module">
-import React from 'react';
-import { createRoot } from 'react-dom/client';
-import { 
-  Phone, Lock, Home, Car, ChevronRight, MapPin, Wrench, Shield, Mail, 
-  Clock, Check, ArrowRight, AlertTriangle, Building, ShieldCheck, CheckCircle2,
-  Navigation
-} from 'lucide-react';
 
-const COLORS = {
-  yellow: '#F4C430',
-  black: '#0B1F3A',
-  white: '#FFFFFF',
-};
+const MAIN_SERVICES = [
+    { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
+    { name: '24 Hour Locksmith Auckland', icon: Clock },
+    { name: 'Residential Locksmith Auckland', icon: Home },
+    { name: 'Commercial Locksmith Auckland', icon: Building },
+    { name: 'Automotive Locksmith Auckland', icon: Car },
+    { name: 'Car Key Replacement Auckland', icon: Key },
+    { name: 'Lock Rekeying Auckland', icon: Wrench },
+    { name: 'Lock Repair Auckland', icon: PenTool },
+    { name: 'Lock Replacement Auckland', icon: Shield },
+    { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
+    { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
+    { name: 'Ignition Repair Auckland', icon: Settings },
+    { name: 'Ignition Replacement Auckland', icon: Power },
+    { name: 'Master Key Systems Auckland', icon: Layers },
+    { name: 'Restricted Key Systems Auckland', icon: Lock },
+  ];
+const serviceAreas = [
+    "Auckland City",
+    "North Shore",
+    "West Auckland",
+    "East Auckland",
+    "South Auckland",
+    "Rodney",
+    "Franklin",
+    "Orewa Hibiscus Coast"
+  ];
 
-const regionCards = [
-  {
-    badge: "MOST POPULAR",
-    title: "Auckland City Locksmith",
-    image: "https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&fit=crop&w=600&q=80",
-    desc: "Fast call-outs across the CBD, apartments, and inner-city suburbs, with parking and access challenges factored into every job.",
-    pills: ["CBD Access", "Apartment Lockouts", "Commercial Callouts"],
-    cta: "View Auckland City locksmith services →",
-    link: "contact-us.php"
-  },
-  {
-    badge: "COASTAL SUBURBS",
-    title: "North Shore Locksmith",
-    image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=600&q=80",
-    desc: "Covering Takapuna, Albany, Devonport, and everywhere between, with a focus on both home lockouts and coastal properties prone to lock corrosion.",
-    pills: ["Takapuna", "Albany", "Devonport"],
-    cta: "View North Shore locksmith services →",
-    link: "north-shore-locksmith.php"
-  },
-  {
-    badge: "FAST RESPONSE",
-    title: "West Auckland Locksmith",
-    image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?auto=format&fit=crop&w=600&q=80",
-    desc: "Servicing Henderson, New Lynn, Te Atatū, and surrounding suburbs, with vans based locally to keep response times short across the west.",
-    pills: ["Henderson", "New Lynn", "Te Atatū"],
-    cta: "View West Auckland locksmith services →",
-    link: "west-auckland-locksmith.php"
-  },
-  {
-    badge: "FAMILY SUBURBS",
-    title: "East Auckland Locksmith",
-    image: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600&q=80",
-    desc: "Covering Howick, Pakuranga, Botany, and nearby suburbs, handling everything from family home lockouts to local business security upgrades.",
-    pills: ["Howick", "Pakuranga", "Botany"],
-    cta: "View East Auckland locksmith services →",
-    link: "contact-us.php"
-  },
-  {
-    badge: "WIDE COVERAGE",
-    title: "South Auckland Locksmith",
-    image: "https://images.unsplash.com/photo-1570129477492-45c003edd2be?auto=format&fit=crop&w=600&q=80",
-    desc: "Servicing Manukau, Papatoetoe, Ōtāhuhu, and the wider south, with a team large enough to cover this spread-out region without long waits.",
-    pills: ["Manukau", "Papatoetoe", "Ōtāhuhu"],
-    cta: "View South Auckland locksmith services →",
-    link: "south-auckland-locksmith.php"
-  },
-  {
-    badge: "RURAL & COASTAL",
-    title: "Rodney Locksmith",
-    image: "https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=600&q=80",
-    desc: "Covering Warkworth, Helensville, Wellsford, and the wider Rodney district, including rural properties and lifestyle blocks outside the main city grid.",
-    pills: ["Warkworth", "Helensville", "Wellsford"],
-    cta: "View Rodney locksmith services →",
-    link: "rodney-locksmith.php"
-  },
-  {
-    badge: "SOUTHERN REACH",
-    title: "Franklin Locksmith",
-    image: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=600&q=80",
-    desc: "Servicing Pukekohe, Waiuku, Tuakau, and the surrounding Franklin district, covering both town centres and outlying rural addresses.",
-    pills: ["Pukekohe", "Waiuku", "Tuakau"],
-    cta: "View Franklin locksmith services →",
-    link: "franklin-locksmith.php"
-  },
-  {
-    badge: "BEACHSIDE",
-    title: "Orewa & Hibiscus Coast Locksmith",
-    image: "https://images.unsplash.com/photo-1473116763249-2faaef81ccda?auto=format&fit=crop&w=600&q=80",
-    desc: "Covering Orewa, Silverdale, Whangaparāoa, and the wider Hibiscus Coast, an area that's grown fast and needs a locksmith who knows it well.",
-    pills: ["Orewa", "Silverdale", "Whangaparāoa"],
-    cta: "View Orewa & Hibiscus Coast locksmith services →",
-    link: "orewa-locksmith.php"
-  }
-];
 
 function AreasWeCoverPageContent() {
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      <window.HeaderComponent currentPage="areas" />
+      <window.HeaderComponent currentPage="areas-we-cover" />
 
       {/* HERO SECTION */}
       <section className="relative bg-[#0B1F3A] text-white pt-8 pb-20 lg:pt-12 lg:pb-28 overflow-hidden">
@@ -915,7 +834,7 @@ function AreasWeCoverPageContent() {
         </div>
       </section>
 
-      <window.FooterComponent currentPage="areas" />
+      <window.FooterComponent currentPage="areas-we-cover" />
     </div>
   );
 }

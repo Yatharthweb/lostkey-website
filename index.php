@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -54,10 +54,10 @@ import {
   Zap, BadgeCheck, DollarSign, Settings, Smartphone, KeyRound,
   Users, Check, User, Calendar, Play, ArrowUp, FileText,
   AlertTriangle, Building, PenTool, DoorClosed, Unlock, Power, Layers,
-  Plus, Minus, ThumbsUp, ClipboardCheck, Video
+  Plus, Minus, ThumbsUp, ClipboardCheck, Video, CreditCard
 } from 'lucide-react';
 
-// ΓÇöΓÇöΓÇö Design Tokens (Lost Key Premium) ΓÇöΓÇöΓÇö
+// ——— Design Tokens (Lost Key Premium) ———
 const COLORS = {
   yellow: '#F4C430',
   yellowHover: '#E8B61A',
@@ -79,6 +79,9 @@ function HomePageContent() {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
+  const [mobileAreasOpen, setMobileAreasOpen] = useState(false);
+  const [mobileCompanyOpen, setMobileCompanyOpen] = useState(false);
+  const [mobileMoreOpen, setMobileMoreOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
   const [heroSlide, setHeroSlide] = useState(0);
   const [actionSlide, setActionSlide] = useState(1);
@@ -99,15 +102,15 @@ function HomePageContent() {
 
   const [quoteStep, setQuoteStep] = useState(1);
   const [selectedQuoteService, setSelectedQuoteService] = useState(null);
-  const [openFaq, setOpenFaq] = useState(2); // 2nd index open by default to match image
+  const [openFaq, setOpenFaq] = useState(2); 
 
   const quoteServices = [
-    { id: 'home', title: 'Home / Flat', icon: Home, color: '#F97316' }, // Orange
-    { id: 'office', title: 'Commercial', icon: Building, color: '#3B82F6' }, // Blue
-    { id: 'auto', title: 'Auto / Car', icon: Car, color: '#EF4444' }, // Red
-    { id: 'key', title: 'Key Replace', icon: Key, color: '#A855F7' }, // Purple
-    { id: 'repair', title: 'Lock Repair', icon: Wrench, color: '#06B6D4' }, // Teal
-    { id: 'emergency', title: 'Emergency', icon: AlertTriangle, color: '#EC4899' }, // Pink
+    { id: 'home', title: 'Home / Flat', icon: Home, color: '#F97316' }, 
+    { id: 'office', title: 'Commercial', icon: Building, color: '#3B82F6' }, 
+    { id: 'auto', title: 'Auto / Car', icon: Car, color: '#EF4444' }, 
+    { id: 'key', title: 'Key Replace', icon: Key, color: '#A855F7' }, 
+    { id: 'repair', title: 'Lock Repair', icon: Wrench, color: '#06B6D4' }, 
+    { id: 'emergency', title: 'Emergency', icon: AlertTriangle, color: '#EC4899' }, 
   ];
 
   const faqData = [
@@ -153,14 +156,14 @@ function HomePageContent() {
   ];
 
   const serviceAreas = [
-    "Auckland City",
-    "North Shore",
-    "West Auckland",
-    "East Auckland",
-    "South Auckland",
-    "Rodney",
-    "Franklin",
-    "Orewa Hibiscus Coast"
+    { name: "Auckland Central", url: "contact-us.html" },
+    { name: "North Shore", url: "north-shore-locksmith.html" },
+    { name: "West Auckland", url: "west-auckland-locksmith.html" },
+    { name: "South Auckland", url: "south-auckland-locksmith.html" },
+    { name: "East Auckland", url: "east-auckland-locksmith.html" },
+    { name: "Rodney", url: "rodney-locksmith.html" },
+    { name: "Franklin", url: "franklin-locksmith.html" },
+    { name: "Orewa & Hibiscus Coast", url: "orewa-locksmith.html" }
   ];
 
   const actionVideos = [
@@ -190,7 +193,6 @@ function HomePageContent() {
     }
   ];
 
-  // Handle scroll effect for sticky navbar and scroll-to-top button
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -204,7 +206,6 @@ function HomePageContent() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  // Hero slideshow auto-advance
   useEffect(() => {
     const timer = setInterval(() => {
       setHeroSlide((prev) => (prev + 1) % heroImages.length);
@@ -212,7 +213,6 @@ function HomePageContent() {
     return () => clearInterval(timer);
   }, []);
 
-  // Counter animation observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -228,7 +228,6 @@ function HomePageContent() {
     return () => observer.disconnect();
   }, []);
 
-  // About counter animation observer
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -244,7 +243,6 @@ function HomePageContent() {
     return () => observer.disconnect();
   }, []);
 
-  // Smooth scroll handler with offset for sticky header
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
     const element = document.getElementById(targetId);
@@ -290,21 +288,18 @@ function HomePageContent() {
   ];
 
   const testimonials = [
-    { name: 'Sarah Jenkins', role: 'Homeowner', text: 'Locked my keys in the car at 10PM. They were there in 20 minutes and let me back in ΓÇö absolute lifesavers.', rating: 5, img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80' },
+    { name: 'Sarah Jenkins', role: 'Homeowner', text: 'Locked my keys in the car at 10PM. They were there in 20 minutes and let me back in — absolute lifesavers.', rating: 5, img: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&q=80' },
     { name: 'David Chen', role: 'Business Owner', text: 'Upgraded our shop to smart locks and CCTV. The team was professional, clean, and walked us through everything. Highly recommend.', rating: 5, img: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&q=80' },
     { name: 'Emma Thompson', role: 'Property Manager', text: 'We use them for all our rental properties. They\'re fast, well-priced, and the invoicing is always spot on.', rating: 5, img: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=100&h=100&fit=crop&q=80' },
   ];
 
-  // Review slider logic
   const nextSlide = () => setCurrentSlide((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  const prevSlide = () => setCurrentSlide((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
 
   useEffect(() => {
     const timer = setInterval(nextSlide, 6000);
     return () => clearInterval(timer);
   }, [currentSlide]);
 
-  // Animated Counter Component
   const AnimatedCounter = ({ target, suffix, visible, prefix = '' }) => {
     const [count, setCount] = useState(0);
     useEffect(() => {
@@ -337,31 +332,29 @@ function HomePageContent() {
   `;
 
   const MAIN_SERVICES = [
-    { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
-    { name: '24 Hour Locksmith Auckland', icon: Clock },
-    { name: 'Residential Locksmith Auckland', icon: Home },
-    { name: 'Commercial Locksmith Auckland', icon: Building },
-    { name: 'Automotive Locksmith Auckland', icon: Car },
-    { name: 'Car Key Replacement Auckland', icon: Key },
-    { name: 'Lock Rekeying Auckland', icon: Wrench },
-    { name: 'Lock Repair Auckland', icon: PenTool },
-    { name: 'Lock Replacement Auckland', icon: Shield },
-    { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
-    { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
-    { name: 'Ignition Repair Auckland', icon: Settings },
-    { name: 'Ignition Replacement Auckland', icon: Power },
-    { name: 'Master Key Systems Auckland', icon: Layers },
-    { name: 'Restricted Key Systems Auckland', icon: Lock },
+    { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
+    { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
+    { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
+    { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
+    { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
+    { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
+    { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
+    { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
+    { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
+    { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
+    { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
+    { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
+    { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
+    { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
+    { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
   ];
 
   return (
     <div className="min-h-screen bg-white font-sans text-gray-900 relative pb-16 md:pb-0" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
       
-      {/* ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É TOP INFO BAR ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É */}
       <div className="text-sm py-2.5" style={{ backgroundColor: COLORS.black, borderBottom: '1px solid #222' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center">
           
-          {/* Mobile Layout (2 Rows) */}
           <div className="md:hidden flex flex-col w-full gap-y-2.5 px-1">
             <div className="flex justify-between items-center w-full">
               <span className="flex items-center text-gray-300 text-[11px]">
@@ -392,7 +385,6 @@ function HomePageContent() {
             </div>
           </div>
 
-          {/* Desktop Layout (1 Row) */}
           <div className="hidden md:flex justify-between items-center w-full">
             <div className="flex items-center gap-x-5">
               <span className="flex items-center text-gray-300 text-sm">
@@ -423,45 +415,31 @@ function HomePageContent() {
         </div>
       </div>
 
-      {/* ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É MAIN NAVIGATION ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É */}
       <nav className={`sticky top-0 z-50 w-full transition-all duration-300 ${isScrolled ? 'shadow-2xl' : ''}`} style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           
-          {/* Logo */}
-          <div 
-            className="flex items-center space-x-1 cursor-pointer group" 
-            onClick={(e) => handleNavClick(e, 'home')}
-          >
-            <span className="text-4xl md:text-[42px] font-black tracking-tighter flex items-center" style={{ color: COLORS.yellow, fontFamily: "'Inter Tight', sans-serif" }}>
-              L
-              <span className="relative flex items-center justify-center mx-[1px]">
-                O
-                <Lock size={15} fill={COLORS.black} className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2" style={{ color: COLORS.black }} />
-              </span>
-              ST
-              <span className="text-white ml-2">KEY</span>
-            </span>
-          </div>
+          <a href="index.html" className="flex items-center space-x-1 cursor-pointer group bg-white px-3 py-1.5 rounded-xl shadow-sm">
+            <img src="images/lost-key-logo.png" alt="Lost Key NZ" className="h-10 md:h-12 w-auto object-contain" />
+          </a>
 
-          {/* Desktop Nav Links */}
           <div className="hidden lg:flex items-center space-x-12">
             <div className="flex space-x-8 text-[15px] font-bold tracking-wide h-full items-center">
-              <a href="#home" onClick={(e) => handleNavClick(e, 'home')} className="text-white hover:opacity-80 transition py-6">Home</a>
-              <a href="about-us.html" className="text-white hover:opacity-80 transition py-6">About Us</a>
-              
-              {/* Services Mega Menu */}
+              <a 
+                href="index.html" 
+                className="text-[#F4C430] font-extrabold border-b-2 border-[#F4C430] py-6"
+              >
+                Home
+              </a>
               <div className="relative group h-full flex items-center">
-                <a href="#services" onClick={(e) => handleNavClick(e, 'services')} className="flex items-center text-white hover:opacity-80 transition py-6">
+                <a href="index.html#services" className="flex items-center text-white hover:opacity-80 transition py-6">
                   Services <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
                 </a>
-                
-                {/* Dropdown Panel */}
-                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[850px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-8 border-t-[4px] border-[#F4C430] cursor-default">
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[850px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-8 border-t-[4px] border-[#F4C430] cursor-default z-50">
                   <div className="grid grid-cols-3 gap-x-8 gap-y-6">
                     {MAIN_SERVICES.map((service, idx) => (
                       <a 
                         key={idx} 
-                        href="#contact" 
+                        href={service.url} 
                         className="flex items-center space-x-3 group/item hover:bg-gray-50 p-2 -m-2 rounded-xl transition-colors"
                       >
                         <div className="w-10 h-10 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
@@ -476,33 +454,91 @@ function HomePageContent() {
                 </div>
               </div>
 
-              {/* Areas We Cover Dropdown */}
               <div className="relative group h-full flex items-center">
-                <div className="flex items-center cursor-pointer text-white hover:opacity-80 transition py-6">
+                <a 
+                  href="areas-we-cover.html" 
+                  className="flex items-center text-white hover:opacity-80 transition py-6"
+                >
                   Areas We Cover <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
-                </div>
-                
-                {/* Dropdown Panel */}
-                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[500px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-6 border-t-[4px] border-[#F4C430] cursor-default">
+                </a>
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[500px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-6 border-t-[4px] border-[#F4C430] cursor-default z-50">
                   <div className="grid grid-cols-2 gap-x-6 gap-y-4">
                     {serviceAreas.map((area, idx) => (
                       <a 
                         key={idx} 
-                        href="#contact" 
+                        href={area.url} 
                         className="flex items-center space-x-3 group/item hover:bg-gray-50 p-2 -m-2 rounded-xl transition-colors"
                       >
                         <div className="w-8 h-8 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                           <MapPin size={14} strokeWidth={2.5} />
                         </div>
                         <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors line-clamp-1">
-                          {area}
+                          {area.name}
                         </span>
                       </a>
                     ))}
                   </div>
                 </div>
               </div>
-              <a href="#contact" onClick={(e) => handleNavClick(e, 'contact')} className="text-white hover:opacity-80 transition py-6">Contact</a>
+
+              <div className="relative group h-full flex items-center">
+                <button className="flex items-center text-white hover:opacity-80 transition py-6 font-bold tracking-wide text-[15px] bg-transparent border-none cursor-pointer">
+                  Company <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
+                </button>
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[240px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-4 border-t-[4px] border-[#F4C430] cursor-default z-50">
+                  <a href="about-us.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Users size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">About Us</span>
+                  </a>
+                  <a href="testimonials.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Star size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Testimonials</span>
+                  </a>
+                  <a href="contact-us.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Phone size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Contact Us</span>
+                  </a>
+                  <a href="faq.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">FAQ</span>
+                  </a>
+                </div>
+              </div>
+              
+              <div className="relative group h-full flex items-center">
+                <button className="flex items-center text-white hover:opacity-80 transition py-6 font-bold tracking-wide text-[15px] bg-transparent border-none cursor-pointer">
+                  More <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
+                </button>
+                <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[280px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-4 border-t-[4px] border-[#F4C430] cursor-default z-50">
+                  <a href="property-managers-landlords.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Building size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Property Managers & Landlords</span>
+                  </a>
+                  <a href="insurance-claims.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <FileText size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Insurance Claims</span>
+                  </a>
+                  <a href="afterpay.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <CreditCard size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Afterpay</span>
+                  </a>
+                </div>
+              </div>
+
             </div>
             
             <a 
@@ -515,7 +551,6 @@ function HomePageContent() {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle */}
           <button 
             className="lg:hidden p-2 text-white focus:outline-none"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -524,66 +559,119 @@ function HomePageContent() {
           </button>
         </div>
 
-        {/* Mobile Menu Dropdown */}
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full shadow-2xl bg-white border-t border-gray-100">
             <div className="flex flex-col px-4 py-6 space-y-1">
-              {['Home', 'About Us', 'Services', 'Reviews', 'Contact'].map((item) => {
-                if (item === 'Services') {
-                  return (
-                    <div key={item} className="flex flex-col border-b border-gray-100">
-                      <div 
-                        className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer"
-                        onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                      >
-                        {item} 
-                        <ChevronDown 
-                          size={18} 
-                          className={`text-gray-400 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} 
-                        />
-                      </div>
-                      <div 
-                        className={`grid grid-cols-2 gap-x-2 gap-y-6 transition-all duration-300 custom-scrollbar ${mobileServicesOpen ? 'max-h-[60vh] pt-4 pb-6 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'}`}
-                      >
-                        {MAIN_SERVICES.map((service, idx) => (
-                          <a 
-                            key={idx} 
-                            href="#contact" 
-                            className="flex flex-col items-center text-center group px-1" 
-                            onClick={() => { setMobileMenuOpen(false); setMobileServicesOpen(false); }}
-                          >
-                            <div className="w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-[#F4C430] border border-gray-100 shadow-sm transition-colors flex items-center justify-center mb-3">
-                              <service.icon size={22} className="text-gray-500 group-hover:text-[#1F2937] transition-colors" />
-                            </div>
-                            <span className="text-[12px] md:text-[13px] font-bold text-gray-800 leading-tight group-hover:text-[#F4C430] transition-colors">{service.name}</span>
-                          </a>
-                        ))}
-                      </div>
-                    </div>
-                  );
-                }
-                if (item === 'About Us') {
-                  return (
-                    <a 
-                      key={item}
-                      href="about-us.html"
-                      className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg border-b border-gray-100 hover:pl-2 transition-all hover:text-[#F4C430]"
-                    >
-                      {item} <ChevronRight size={18} className="text-gray-400" />
-                    </a>
-                  );
-                }
-                return (
+              <a href="index.html" className="flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100 text-[#F4C430]">
+                Home <ChevronRight size={18} className="text-[#F4C430]" />
+              </a>
+
+              <div className="flex flex-col border-b border-gray-100">
+                <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg">
                   <a 
-                    key={item}
-                    href={`#${item.toLowerCase().replace(' ', '-')}`} 
-                    onClick={(e) => handleNavClick(e, item === 'Home' ? 'home' : item.toLowerCase())}
-                    className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg border-b border-gray-100 hover:pl-2 transition-all hover:text-[#F4C430]"
+                    href="areas-we-cover.html" 
+                    onClick={() => setMobileMenuOpen(false)}
+                    className="hover:text-[#F4C430] transition-colors flex-1 text-gray-900"
                   >
-                    {item} <ChevronRight size={18} className="text-gray-400" />
+                    Areas We Cover
                   </a>
-                );
-              })}
+                  <button 
+                    onClick={(e) => { e.stopPropagation(); setMobileAreasOpen(!mobileAreasOpen); }}
+                    className="p-2 text-gray-400 hover:text-[#F4C430] focus:outline-none"
+                    aria-label="Toggle Areas We Cover menu"
+                  >
+                    <ChevronDown 
+                      size={20} 
+                      className={`transition-transform duration-300 ${mobileAreasOpen ? 'rotate-180 text-[#F4C430]' : ''}`} 
+                    />
+                  </button>
+                </div>
+                <div className={`grid grid-cols-2 gap-x-2 gap-y-4 transition-all duration-300 ${mobileAreasOpen ? 'max-h-[60vh] pt-2 pb-6 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  {serviceAreas.map((area, idx) => (
+                    <a 
+                      key={idx} 
+                      href={area.url} 
+                      className="flex items-center space-x-2 group p-2 rounded-xl hover:bg-gray-50 transition-colors" 
+                      onClick={() => { setMobileMenuOpen(false); setMobileAreasOpen(false); }}
+                    >
+                      <div className="w-7 h-7 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500 group-hover:bg-[#F4C430] group-hover:text-[#1F2937] transition-colors flex-shrink-0">
+                        <MapPin size={13} strokeWidth={2.5} />
+                      </div>
+                      <span className="text-[12px] font-bold text-gray-800 leading-tight group-hover:text-[#F4C430] transition-colors line-clamp-1">{area.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div className="flex flex-col border-b border-gray-100">
+                <div 
+                  className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer"
+                  onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
+                >
+                  Services 
+                  <ChevronDown 
+                    size={18} 
+                    className={`text-gray-400 transition-transform duration-300 ${mobileServicesOpen ? 'rotate-180' : ''}`} 
+                  />
+                </div>
+                <div className={`grid grid-cols-2 gap-x-2 gap-y-6 transition-all duration-300 ${mobileServicesOpen ? 'max-h-[60vh] pt-4 pb-6 opacity-100 overflow-y-auto' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  {MAIN_SERVICES.map((service, idx) => (
+                    <a 
+                      key={idx} 
+                      href={service.url} 
+                      className="flex flex-col items-center text-center group px-1" 
+                      onClick={() => { setMobileMenuOpen(false); setMobileServicesOpen(false); }}
+                    >
+                      <div className="w-14 h-14 rounded-2xl bg-gray-50 group-hover:bg-[#F4C430] border border-gray-100 shadow-sm transition-colors flex items-center justify-center mb-3">
+                        <service.icon size={22} className="text-gray-500 group-hover:text-[#1F2937] transition-colors" />
+                      </div>
+                      <span className="text-[12px] md:text-[13px] font-bold text-gray-800 leading-tight group-hover:text-[#F4C430] transition-colors">{service.name}</span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="flex flex-col border-b border-gray-100">
+                <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer" onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}>
+                  Company <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${mobileCompanyOpen ? 'rotate-180' : ''}`} />
+                </div>
+                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileCompanyOpen ? 'max-h-40 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <a href="about-us.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Users size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">About Us</span>
+                  </a>
+                  <a href="contact-us.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Phone size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Contact Us</span>
+                  </a>
+                  <a href="faq.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <span className="text-[14px] font-bold text-gray-800">FAQ</span>
+                  </a>
+                </div>
+              </div>
+              
+              <div className="flex flex-col border-b border-gray-100">
+                <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer" onClick={() => setMobileMoreOpen(!mobileMoreOpen)}>
+                  More <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${mobileMoreOpen ? 'rotate-180' : ''}`} />
+                </div>
+                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileMoreOpen ? 'max-h-40 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <a href="property-managers-landlords.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Building size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Property Managers & Landlords</span>
+                  </a>
+                  <a href="insurance-claims.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><FileText size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Insurance Claims</span>
+                  </a>
+                  <a href="afterpay.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><CreditCard size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Afterpay</span>
+                  </a>
+                </div>
+              </div>
+
               <div className="pt-6 pb-2">
                 <a 
                   href="tel:0800828345" 
@@ -591,7 +679,7 @@ function HomePageContent() {
                   style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
                 >
                   <Phone size={18} className="mr-2" />
-                  Make Appointment
+                  0800 828 345
                 </a>
               </div>
             </div>
@@ -599,9 +687,7 @@ function HomePageContent() {
         )}
       </nav>
 
-      {/* ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É HERO SECTION ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É */}
       <section id="home" className="relative text-white overflow-hidden min-h-[600px] md:h-[680px] flex items-center" style={{ backgroundColor: COLORS.black }}>
-        {/* Background Image Slideshow */}
         {heroImages.map((img, idx) => (
           <div 
             key={idx}
@@ -629,9 +715,7 @@ function HomePageContent() {
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 mt-12 md:mt-0 pb-16 lg:pb-0">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             
-            {/* Left Column: Text & CTA */}
             <div className="lg:col-span-7 space-y-7">
-              {/* Badge */}
               <div 
                 className="inline-flex items-center px-4 py-1 text-[13px] font-bold uppercase tracking-wider rounded-full"
                 style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
@@ -639,18 +723,15 @@ function HomePageContent() {
                 24/7 EMERGENCY CALL OUT
               </div>
 
-              {/* Headline */}
               <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-[70px] font-black leading-[1.05] tracking-tight" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
                 Your Trusted Partner <br />
                 in <span style={{ color: COLORS.yellow }}>Locksmith</span> Services
               </h1>
 
-              {/* Subtext */}
               <p className="text-lg md:text-[17px] text-white max-w-[500px] leading-relaxed font-medium mt-6">
-                LostKey provides fast, reliable locksmith services across Auckland ΓÇö from emergency lockouts to advanced security upgrades. Licensed, insured, and available around the clock when you need us most.
+                LostKey provides fast, reliable locksmith services across Auckland — from emergency lockouts to advanced security upgrades. Licensed, insured, and available around the clock when you need us most.
               </p>
 
-              {/* Call Now CTA */}
               <div className="pt-6">
                 <a 
                   href="tel:0800828345" 
@@ -670,17 +751,14 @@ function HomePageContent() {
               </div>
             </div>
 
-            {/* Right Column: Floating Enquiry Form */}
             <div className="lg:col-span-5 relative z-20">
               <div className="bg-[#0B1F3A] rounded-3xl shadow-2xl overflow-hidden flex flex-col border border-[#132B4F]">
-                {/* Form Header */}
                 <div className="text-white px-6 md:px-8 py-6">
                   <h3 className="text-2xl font-bold mb-2 tracking-tight">Get in touch with us today</h3>
                   <p className="text-gray-400 text-[13px] md:text-sm">
-                    Hassle-free booking &bull; Quick response &bull; Serving your local community.
+                    Hassle-free booking • Quick response • Serving your local community.
                   </p>
                   
-                  {/* Progress Bar & Step */}
                   <div className="mt-6">
                     <div className="text-xs text-gray-400 mb-2 font-medium tracking-wide">
                       Step {quoteStep} of 3
@@ -694,7 +772,6 @@ function HomePageContent() {
                   </div>
                 </div>
 
-                {/* Form Body (Step 1) */}
                 <div className="px-6 md:px-8 pb-6 md:pb-8 bg-white pt-6">
                   <h4 className="text-[13px] font-bold text-gray-400 tracking-widest uppercase mb-4">What do you need help with?</h4>
                   
@@ -739,7 +816,6 @@ function HomePageContent() {
           </div>
         </div>
 
-        {/* Slide indicators */}
         <div className="absolute bottom-6 lg:bottom-8 left-1/2 transform -translate-x-1/2 z-10 flex space-x-2">
           {heroImages.map((_, idx) => (
             <button 
@@ -756,15 +832,12 @@ function HomePageContent() {
         </div>
       </section>
 
-      {/* ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ PARTNERS LOGO SCROLLER ΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉΓòÉ */}
       <section className="bg-white py-10 border-b border-gray-100 overflow-hidden relative z-10">
         <div className="relative w-full overflow-hidden flex items-center">
-          {/* Gradient Masks for smooth fading edges */}
           <div className="absolute inset-y-0 left-0 w-16 md:w-32 bg-gradient-to-r from-white to-transparent z-10 pointer-events-none"></div>
           <div className="absolute inset-y-0 right-0 w-16 md:w-32 bg-gradient-to-l from-white to-transparent z-10 pointer-events-none"></div>
           
           <div className="flex animate-marquee whitespace-nowrap items-center">
-            {/* Set 1 */}
             <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
               <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
               <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
@@ -777,7 +850,6 @@ function HomePageContent() {
               <img src="partners/silca.jpeg" alt="Silca" className="h-14 md:h-16 object-contain transition-all duration-300" />
               <img src="partners/yale.jpeg" alt="Yale" className="h-14 md:h-16 object-contain transition-all duration-300" />
             </div>
-            {/* Set 2 */}
             <div className="flex flex-shrink-0 items-center space-x-12 md:space-x-24 px-6 md:px-12">
               <img src="partners/site-wise.jpeg" alt="SiteWise Green" className="h-14 md:h-16 object-contain transition-all duration-300" />
               <img src="partners/master-locksmiths.jpeg" alt="Master Locksmiths" className="h-14 md:h-16 object-contain transition-all duration-300" />
@@ -794,19 +866,12 @@ function HomePageContent() {
         </div>
       </section>
 
-      {/* ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É YELLOW FEATURE CARDS ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É */}
-
-
-      {/* ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É ABOUT US SECTION (REVIEWS & STATS) ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É */}
       <section id="about" className="pt-20 lg:pt-24 pb-24 bg-white overflow-hidden" ref={aboutCountersRef}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="lg:grid lg:grid-cols-2 lg:gap-24 items-center">
             
-            {/* LEFT COLUMN: Image & Stat Blocks */}
             <div className="relative mb-20 lg:mb-0">
-              {/* Main Image Container */}
               <div className="relative z-10 w-full md:w-[85%] md:ml-auto shadow-[0_20px_50px_rgba(0,0,0,0.15)] bg-white rounded-3xl">
-                {/* Yellow Dot Pattern */}
                 <div 
                   className="absolute -bottom-16 -left-20 w-64 h-64 z-[-1]" 
                   style={{ 
@@ -820,18 +885,14 @@ function HomePageContent() {
                   className="w-full h-[550px] object-cover rounded-3xl"
                 />
                 
-
-                {/* Bottom Yellow Box (Overlapping) - moved to bottom-right */}
                 <div className="absolute -bottom-16 right-0 md:right-[-5%] bg-[#F4C430] p-5 shadow-xl w-[80%] md:w-[60%] border-l-4 border-[#0B1F3A] rounded-2xl z-20">
-                  <p className="text-[#1F2937] font-bold text-sm md:text-base leading-snug mb-1.5">"Called LostKey after locking myself out at midnight ΓÇö they arrived in 20 minutes and had the door open in no time. Absolute lifesavers."</p>
-                  <p className="text-[#1F2937] font-semibold text-xs md:text-sm">ΓÇö Jason Statham</p>
+                  <p className="text-[#1F2937] font-bold text-sm md:text-base leading-snug mb-1.5">"Called LostKey after locking myself out at midnight — they arrived in 20 minutes and had the door open in no time. Absolute lifesavers."</p>
+                  <p className="text-[#1F2937] font-semibold text-xs md:text-sm">— Jason Statham</p>
                 </div>
               </div>
             </div>
 
-            {/* RIGHT COLUMN: Content */}
             <div className="relative">
-              {/* Yellow Pill */}
               <span 
                 className="inline-block text-[11px] md:text-xs font-bold uppercase tracking-widest px-5 py-2 rounded-full mb-4"
                 style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
@@ -842,13 +903,11 @@ function HomePageContent() {
                 Fast, Friendly and Reliable Locksmith Services
               </h2>
               <p className="text-gray-500 text-[17px] mb-10 leading-relaxed max-w-lg">
-                From residential lockouts to commercial security systems, LostKey combines Kiwi reliability with modern locksmith technology. Our fully equipped mobile units carry the tools and parts to solve most jobs on the first visit ΓÇö no waiting, no hidden fees.
+                From residential lockouts to commercial security systems, LostKey combines Kiwi reliability with modern locksmith technology. Our fully equipped mobile units carry the tools and parts to solve most jobs on the first visit — no waiting, no hidden fees.
               </p>
 
-              {/* Flex container for list and side boxes */}
               <div className="flex flex-col xl:flex-row gap-10 items-start">
                 
-                {/* List and Call CTA */}
                 <div className="flex-1 space-y-10">
                   <ul className="space-y-4">
                     {[
@@ -866,7 +925,6 @@ function HomePageContent() {
                     ))}
                   </ul>
 
-                  {/* Call Button */}
                   <div className="inline-flex items-center p-2 pr-10 border border-gray-200 rounded-full hover:shadow-xl hover:border-gray-300 transition-all bg-white cursor-pointer group">
                      <div className="w-16 h-16 rounded-full bg-[#F4C430] flex items-center justify-center mr-5 group-hover:scale-105 transition-transform">
                        <Phone size={24} className="text-[#1F2937]" />
@@ -883,12 +941,9 @@ function HomePageContent() {
         </div>
       </section>
 
-      {/* ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É SERVICES SECTION ├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É├óΓÇó┬É */}
-      {/* ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó  SEE LOST KEY IN ACTION SECTION ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó ├óΓÇó  */}
       <section id="in-action" className="py-20 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col items-center">
           
-          {/* Header */}
           <div className="flex flex-col items-center text-center mb-12">
             <span 
               className="inline-flex items-center text-xs font-bold uppercase tracking-widest px-4 py-1.5 rounded-full mb-4"
@@ -905,10 +960,8 @@ function HomePageContent() {
             </p>
           </div>
 
-          {/* Carousel */}
           <div className="relative w-full max-w-5xl flex items-center justify-center mb-16">
             
-            {/* Left Arrow */}
             <button 
               onClick={() => {
                 const nextSlide = actionSlide === 0 ? actionVideos.length - 1 : actionSlide - 1;
@@ -922,7 +975,6 @@ function HomePageContent() {
               <ChevronLeft size={24} />
             </button>
 
-            {/* Cards Container */}
             <div 
               ref={videoSliderRef}
               className="flex gap-4 lg:gap-8 justify-start lg:justify-center items-center w-full overflow-x-auto lg:overflow-x-visible snap-x snap-mandatory px-4 lg:px-0 pb-6 lg:pb-0 custom-scrollbar"
@@ -945,16 +997,13 @@ function HomePageContent() {
                       className="absolute inset-0 w-full h-full object-cover" 
                     />
                     
-                    {/* Dark gradient overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent"></div>
 
-                    {/* Duration badge */}
                     <div className="absolute top-4 left-4 bg-black/70 backdrop-blur-sm text-white text-xs font-bold px-3 py-1.5 rounded-lg flex items-center">
                       <Play size={12} className="mr-1.5 fill-current" />
                       {video.duration}
                     </div>
 
-                    {/* Center Play Button */}
                     {isCenter && (
                       <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-[#F4C430] rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform">
                         <Play size={24} className="fill-[#1F2937] text-[#1F2937] ml-1" />
@@ -966,7 +1015,6 @@ function HomePageContent() {
                       </div>
                     )}
 
-                    {/* Bottom Info */}
                     <div className="absolute bottom-6 left-6 right-6 flex items-end">
                       <div className={`w-10 h-10 rounded-full bg-[#F4C430] flex items-center justify-center flex-shrink-0 mr-4 ${isCenter ? 'w-12 h-12' : ''}`}>
                         <video.icon size={isCenter ? 24 : 20} className="text-[#1F2937]" />
@@ -986,7 +1034,6 @@ function HomePageContent() {
               })}
             </div>
 
-            {/* Right Arrow */}
             <button 
               onClick={() => {
                 const nextSlide = actionSlide === actionVideos.length - 1 ? 0 : actionSlide + 1;
@@ -1001,7 +1048,6 @@ function HomePageContent() {
             </button>
           </div>
 
-          {/* Dots */}
           <div className="hidden lg:flex items-center space-x-3 mb-16">
             {actionVideos.map((_, idx) => (
               <button
@@ -1014,11 +1060,9 @@ function HomePageContent() {
             ))}
           </div>
 
-          {/* Stats Bar */}
           <div className="w-full max-w-5xl bg-white rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.08)] py-8 px-4 md:px-10 mb-8">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-y-8 gap-x-4 md:gap-4 divide-x-0 md:divide-x divide-gray-100">
               
-              {/* Stat 1 */}
               <div className="flex items-center justify-start md:justify-center gap-4 px-4">
                 <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
                   <ClipboardCheck size={28} />
@@ -1029,7 +1073,6 @@ function HomePageContent() {
                 </div>
               </div>
 
-              {/* Stat 2 */}
               <div className="flex items-center justify-start md:justify-center gap-4 px-4 border-l md:border-l-0 border-gray-100">
                 <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
                   <div className="relative flex items-center justify-center">
@@ -1043,7 +1086,6 @@ function HomePageContent() {
                 </div>
               </div>
 
-              {/* Stat 3 */}
               <div className="flex items-center justify-start md:justify-center gap-4 px-4">
                 <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
                   <Star size={28} className="fill-current" />
@@ -1054,7 +1096,6 @@ function HomePageContent() {
                 </div>
               </div>
 
-              {/* Stat 4 */}
               <div className="flex items-center justify-start md:justify-center gap-4 px-4 border-l md:border-l-0 border-gray-100">
                 <div className="w-14 h-14 rounded-2xl bg-[#FFF8E1] flex items-center justify-center text-[#F4C430]">
                   <ThumbsUp size={28} />
@@ -1074,7 +1115,6 @@ function HomePageContent() {
       </section>
 
       <section id="services" className="relative py-16 overflow-hidden" style={{ backgroundColor: COLORS.black }}>
-        {/* Single Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src="https://images.unsplash.com/photo-1582139329536-e7284fece509?auto=format&fit=crop&w=2000&q=80" 
@@ -1085,7 +1125,6 @@ function HomePageContent() {
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Header Text */}
           <div className="text-center max-w-3xl mx-auto mb-16">
             <span 
               className="inline-block text-[13px] font-bold uppercase tracking-widest px-5 py-1.5 mb-6 rounded-full"
@@ -1097,18 +1136,16 @@ function HomePageContent() {
               Your Safety. Our Expertise.
             </h2>
             <p className="text-gray-300 text-lg leading-relaxed max-w-xl mx-auto">
-              Trusted locksmith solutions for homes, businesses, and vehicles across Auckland ΓÇö backed by experienced local technicians.
+              Trusted locksmith solutions for homes, businesses, and vehicles across Auckland — backed by experienced local technicians.
             </p>
           </div>
 
-          {/* Service Cards */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
               <div 
                 key={index} 
                 className="group relative rounded-3xl cursor-pointer h-[360px] flex flex-col justify-end p-6 md:p-8 text-center shadow-[0_10px_30px_rgba(0,0,0,0.1)] transition-transform duration-500 hover:-translate-y-2"
               >
-                {/* Background Image & Overlay with Smooth Mask */}
                 <div 
                   className="absolute inset-0 z-0 overflow-hidden rounded-3xl"
                   style={{ 
@@ -1121,12 +1158,10 @@ function HomePageContent() {
                   <div className="absolute inset-0 bg-[#08182F]/70 group-hover:bg-[#08182F]/60 transition-colors duration-300"></div>
                 </div>
 
-                {/* Yellow Icon Circle */}
                 <div className="absolute top-4 right-4 w-12 h-12 rounded-full flex items-center justify-center shadow-lg z-20 transition-colors duration-300 bg-[#F4C430] text-[#1F2937] group-hover:bg-[#0B1F3A] group-hover:text-white">
                   <service.icon size={20} strokeWidth={2.5} color="currentColor" />
                 </div>
 
-                {/* Content */}
                 <div className="relative z-20 flex flex-col h-full justify-end items-center mt-8">
                   <h4 className="text-xl font-bold mb-3" style={{ color: COLORS.yellow }}>{service.title}</h4>
                   <p className="text-gray-200 text-sm leading-relaxed mb-8 px-2">{service.desc}</p>
@@ -1142,7 +1177,6 @@ function HomePageContent() {
         </div>
       </section>
 
-      {/* ΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöê AREAS WE COVER SECTION ΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöêΓöê */}
       <section className="py-16 bg-[#F8FAFC]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-8">

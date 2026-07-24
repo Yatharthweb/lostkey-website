@@ -86,32 +86,32 @@ const COLORS = {
 };
 
 const serviceAreas = [
-  { name: "Auckland Central", url: "contact-us.php" },
-  { name: "North Shore", url: "north-shore-locksmith.php" },
-  { name: "West Auckland", url: "west-auckland-locksmith.php" },
-  { name: "South Auckland", url: "south-auckland-locksmith.php" },
-  { name: "East Auckland", url: "east-auckland-locksmith.php" },
-  { name: "Rodney", url: "rodney-locksmith.php" },
-  { name: "Franklin", url: "franklin-locksmith.php" },
-  { name: "Orewa & Hibiscus Coast", url: "orewa-locksmith.php" }
+  { name: "Auckland Central", url: "contact-us.html" },
+  { name: "North Shore", url: "north-shore-locksmith.html" },
+  { name: "West Auckland", url: "west-auckland-locksmith.html" },
+  { name: "South Auckland", url: "south-auckland-locksmith.html" },
+  { name: "East Auckland", url: "east-auckland-locksmith.html" },
+  { name: "Rodney", url: "rodney-locksmith.html" },
+  { name: "Franklin", url: "franklin-locksmith.html" },
+  { name: "Orewa & Hibiscus Coast", url: "orewa-locksmith.html" }
 ];
 
 const MAIN_SERVICES = [
-  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.php' },
-  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.php' },
-  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.php' },
-  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.php#contact' },
-  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.php' },
-  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.php#contact' },
-  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.php#contact' },
-  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.php#contact' },
-  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.php#contact' },
-  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.php#contact' },
-  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.php#contact' },
-  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.php#contact' },
-  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.php#contact' },
-  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.php#contact' },
-  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.php#contact' },
+  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
+  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
+  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
+  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
+  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
+  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
+  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
+  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
+  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
+  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
+  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
+  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
+  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
+  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
+  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
 ];
 
 window.HeaderComponent = function HeaderComponent({ currentPage }) {
@@ -199,20 +199,20 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
       <nav className="w-full" style={{ backgroundColor: COLORS.black }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center h-20">
           
-          <a href="index.php" className="flex items-center space-x-1 cursor-pointer group bg-white px-3 py-1.5 rounded-xl shadow-sm">
+          <a href="index.html" className="flex items-center space-x-1 cursor-pointer group bg-white px-3 py-1.5 rounded-xl shadow-sm">
             <img src="images/lost-key-logo.png" alt="Lost Key NZ" className="h-10 md:h-12 w-auto object-contain" />
           </a>
 
           <div className="hidden lg:flex items-center space-x-12">
             <div className="flex space-x-8 text-[15px] font-bold tracking-wide h-full items-center">
               <a 
-                href="index.php" 
+                href="index.html" 
                 className={currentPage === 'home' ? 'text-[#F4C430] font-extrabold border-b-2 border-[#F4C430] py-6' : 'text-white hover:opacity-80 transition py-6'}
               >
                 Home
               </a>
               <div className="relative group h-full flex items-center">
-                <a href="index.php#services" className="flex items-center text-white hover:opacity-80 transition py-6">
+                <a href="index.html#services" className="flex items-center text-white hover:opacity-80 transition py-6">
                   Services <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
                 </a>
                 <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[850px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-8 border-t-[4px] border-[#F4C430] cursor-default z-50">
@@ -237,7 +237,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
 
               <div className="relative group h-full flex items-center">
                 <a 
-                  href="areas-we-cover.php" 
+                  href="areas-we-cover.html" 
                   className={currentPage === 'areas' ? 'flex items-center text-[#F4C430] font-extrabold border-b-2 border-[#F4C430] py-6' : 'flex items-center text-white hover:opacity-80 transition py-6'}
                 >
                   Areas We Cover <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
@@ -268,19 +268,25 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   Company <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
                 </button>
                 <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[240px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-4 border-t-[4px] border-[#F4C430] cursor-default z-50">
-                  <a href="about-us.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                  <a href="about-us.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                       <Users size={16} strokeWidth={2.5} />
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">About Us</span>
                   </a>
-                  <a href="contact-us.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                  <a href="testimonials.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                    <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
+                      <Star size={16} strokeWidth={2.5} />
+                    </div>
+                    <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Testimonials</span>
+                  </a>
+                  <a href="contact-us.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                       <Phone size={16} strokeWidth={2.5} />
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Contact Us</span>
                   </a>
-                  <a href="faq.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                  <a href="faq.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
                     </div>
@@ -295,19 +301,19 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   More <ChevronDown size={14} className="ml-1" style={{ color: COLORS.yellow }} />
                 </button>
                 <div className="absolute top-[80px] left-1/2 -translate-x-1/2 w-[280px] bg-white opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 shadow-[0_30px_60px_rgba(0,0,0,0.15)] rounded-2xl p-4 border-t-[4px] border-[#F4C430] cursor-default z-50">
-                  <a href="property-managers-landlords.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                  <a href="property-managers-landlords.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                       <Building size={16} strokeWidth={2.5} />
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Property Managers & Landlords</span>
                   </a>
-                  <a href="insurance-claims.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                  <a href="insurance-claims.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                       <FileText size={16} strokeWidth={2.5} />
                     </div>
                     <span className="text-[#1F2937] font-semibold text-[14px] leading-tight group-hover/item:text-[#F4C430] transition-colors">Insurance Claims</span>
                   </a>
-                  <a href="afterpay.php" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
+                  <a href="afterpay.html" className="flex items-center space-x-3 group/item hover:bg-gray-50 p-3 rounded-xl transition-colors">
                     <div className="w-9 h-9 rounded-full bg-gray-50 flex items-center justify-center flex-shrink-0 group-hover/item:bg-[#F4C430] group-hover/item:text-[#1F2937] transition-colors border border-gray-100 shadow-sm text-gray-500">
                       <CreditCard size={16} strokeWidth={2.5} />
                     </div>
@@ -339,7 +345,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
         {mobileMenuOpen && (
           <div className="lg:hidden absolute top-full left-0 w-full shadow-2xl bg-white border-t border-gray-100">
             <div className="flex flex-col px-4 py-6 space-y-1">
-              <a href="index.php" className={`flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100 ${currentPage === 'home' ? 'text-[#F4C430]' : 'text-gray-900'}`}>
+              <a href="index.html" className={`flex justify-between items-center py-4 font-bold text-lg border-b border-gray-100 ${currentPage === 'home' ? 'text-[#F4C430]' : 'text-gray-900'}`}>
                 Home <ChevronRight size={18} className={currentPage === 'home' ? 'text-[#F4C430]' : 'text-gray-400'} />
               </a>
 
@@ -347,7 +353,7 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
               <div className="flex flex-col border-b border-gray-100">
                 <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg">
                   <a 
-                    href="areas-we-cover.php" 
+                    href="areas-we-cover.html" 
                     onClick={() => setMobileMenuOpen(false)}
                     className={`hover:text-[#F4C430] transition-colors flex-1 ${currentPage === 'areas' ? 'text-[#F4C430]' : 'text-gray-900'}`}
                   >
@@ -408,20 +414,29 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                 </div>
               </div>
 
-
               {/* Company mobile dropdown */}
               <div className="flex flex-col border-b border-gray-100">
                 <div className="flex justify-between items-center py-4 text-gray-900 font-bold text-lg cursor-pointer" onClick={() => setMobileCompanyOpen(!mobileCompanyOpen)}>
                   Company <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${mobileCompanyOpen ? 'rotate-180' : ''}`} />
                 </div>
-                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileCompanyOpen ? 'max-h-40 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                  <a href="about-us.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileCompanyOpen ? 'max-h-48 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
+                  <a href="about-us.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Users size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">About Us</span>
                   </a>
-                  <a href="contact-us.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  <a href="testimonials.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Star size={15} strokeWidth={2.5} /></div>
+                    <span className="text-[14px] font-bold text-gray-800">Testimonials</span>
+                  </a>
+                  <a href="contact-us.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Phone size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">Contact Us</span>
+                  </a>
+                  <a href="faq.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                    <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><line x1="12" y1="17" x2="12.01" y2="17"></line></svg>
+                    </div>
+                    <span className="text-[14px] font-bold text-gray-800">FAQ</span>
                   </a>
                 </div>
               </div>
@@ -432,15 +447,15 @@ window.HeaderComponent = function HeaderComponent({ currentPage }) {
                   More <ChevronDown size={18} className={`text-gray-400 transition-transform duration-300 ${mobileMoreOpen ? 'rotate-180' : ''}`} />
                 </div>
                 <div className={`flex flex-col gap-y-2 transition-all duration-300 ${mobileMoreOpen ? 'max-h-40 pt-2 pb-4 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'}`}>
-                  <a href="property-managers-landlords.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  <a href="property-managers-landlords.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><Building size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">Property Managers & Landlords</span>
                   </a>
-                  <a href="insurance-claims.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  <a href="insurance-claims.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><FileText size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">Insurance Claims</span>
                   </a>
-                  <a href="afterpay.php" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
+                  <a href="afterpay.html" className="flex items-center space-x-3 p-3 rounded-xl hover:bg-gray-50 transition-colors" onClick={() => setMobileMenuOpen(false)}>
                     <div className="w-8 h-8 rounded-full bg-gray-50 border border-gray-100 shadow-sm flex items-center justify-center text-gray-500"><CreditCard size={15} strokeWidth={2.5} /></div>
                     <span className="text-[14px] font-bold text-gray-800">Afterpay</span>
                   </a>
@@ -487,7 +502,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
             <div>
-              <a href="index.php" className="flex items-center space-x-1 cursor-pointer mb-6">
+              <a href="index.html" className="flex items-center space-x-1 cursor-pointer mb-6">
                 <span className="text-3xl font-black tracking-tight">
                   <span style={{ color: COLORS.yellow }}>LOST</span>
                   <span className="text-white ml-1.5">KEY</span>
@@ -500,49 +515,49 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
               <h4 className="text-white font-bold text-lg mb-4">Quick Links</h4>
               <ul className="space-y-3 text-gray-400">
                 <li>
-                  <a href="index.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="index.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Home
                   </a>
                 </li>
                 <li>
-                  <a href="about-us.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="about-us.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     About Us
                   </a>
                 </li>
                 <li>
-                  <a href="areas-we-cover.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="areas-we-cover.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Areas We Cover
                   </a>
                 </li>
                 <li>
-                  <a href="index.php#reviews" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="index.html#reviews" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Reviews
                   </a>
                 </li>
                 <li>
-                  <a href="property-managers-landlords.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="property-managers-landlords.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Property Managers & Landlords
                   </a>
                 </li>
                 <li>
-                  <a href="insurance-claims.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="insurance-claims.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Insurance Claims
                   </a>
                 </li>
                 <li>
-                  <a href="afterpay.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="afterpay.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Afterpay
                   </a>
                 </li>
                 <li>
-                  <a href="contact-us.php" className="hover:text-white transition-colors inline-flex items-center">
+                  <a href="contact-us.html" className="hover:text-white transition-colors inline-flex items-center">
                     <ChevronRight size={14} className="mr-1" style={{ color: COLORS.yellow }} />
                     Contact
                   </a>
@@ -566,7 +581,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
                 ))}
                 <li className="pt-2">
                   <a 
-                    href="index.php#services"
+                    href="index.html#services"
                     className="inline-flex items-center text-sm font-bold transition-colors group hover:opacity-80"
                     style={{ color: COLORS.yellow }}
                   >
@@ -635,8 +650,8 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
               Designed and Developed By <a href="https://atrangihome.com/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-[#F4C430] transition-colors font-bold">Atrangi Home</a>
             </p>
             <div className="flex space-x-6">
-              <a href="terms-and-conditions.php" className="hover:text-[#F4C430] transition-colors">Terms & Conditions</a>
-              <a href="privacy-policy.php" className="hover:text-[#F4C430] transition-colors">Privacy Policy</a>
+              <a href="terms-and-conditions.html" className="hover:text-[#F4C430] transition-colors">Terms & Conditions</a>
+              <a href="privacy-policy.html" className="hover:text-[#F4C430] transition-colors">Privacy Policy</a>
             </div>
           </div>
         </div>
@@ -645,7 +660,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
       {/* MOBILE STICKY CTA */}
       <div 
         className="md:hidden fixed bottom-0 left-0 w-full p-4 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.3)] flex justify-between items-center"
-        style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}` }}
+        style={{ backgroundColor: COLORS.black, borderTop: `2px solid ${COLORS.yellow}}` }}
       >
         <div className="flex flex-col text-white px-2">
           <span className="text-[10px] font-black uppercase tracking-widest mb-0.5" style={{ color: COLORS.yellow }}>Locked Out?</span>
@@ -671,7 +686,7 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
           <span className="font-bold text-[13px] tracking-widest uppercase" style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}>Call Now</span>
         </a>
         <a 
-          href="contact-us.php" 
+          href="contact-us.html" 
           className="bg-[#F4C430] text-[#0B1F3A] hover:bg-white transition-colors py-6 px-2 flex flex-col items-center space-y-3 cursor-pointer border-t border-[#132B4F] group"
         >
           <Calendar size={20} className="group-hover:scale-110 transition-transform" />

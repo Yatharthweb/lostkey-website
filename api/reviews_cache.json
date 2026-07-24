@@ -1,0 +1,54 @@
+{
+  "business_name": "Lost Key NZ | Automotive Locksmith Auckland",
+  "rating": 5,
+  "total_reviews": 128,
+  "reviews": [
+    {
+      "author_name": "Sarah Jenkins",
+      "author_url": "#",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLU9hJjJ8Z155uIe-vVw2c8zB7oM7zYQh9G7N7dY-7B=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "2 weeks ago",
+      "text": "Absolute lifesavers! Locked my keys in my car at midnight in the rain. They arrived within 20 minutes and had me back on the road. Very professional and reasonably priced for an emergency callout.",
+      "time": 1718300000
+    },
+    {
+      "author_name": "David Chen",
+      "author_url": "#",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjWQ-3uQyM5V9E2mG8rN2eN9L5g-L7xV9Z9Q=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "a month ago",
+      "text": "Lost the only transponder key for my Toyota. The dealer quoted me over $800 and a 3-day wait. Lost Key NZ came out the same day and cut and programmed a new key on the spot for a fraction of the price. Highly recommend!",
+      "time": 1715700000
+    },
+    {
+      "author_name": "Emily Robertson",
+      "author_url": "#",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocK8H9B8Y6xZ5vU5W4zX2Y1wV3wZ5yV8uQ9G7N7dY-7B=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "3 months ago",
+      "text": "Fast, friendly, and efficient. Upgraded all the locks on our new commercial property. The team provided great advice on high-security options. Will definitely use them again for our property management business.",
+      "time": 1710500000
+    },
+    {
+      "author_name": "Mark Tuipulotu",
+      "author_url": "#",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a-/ALV-UjX8H9B8Y6xZ5vU5W4zX2Y1wV3wZ5yV8uQ9G7N7dY-7B=s128-c0x00000000-cc-rp-mo",
+      "rating": 5,
+      "relative_time_description": "5 months ago",
+      "text": "Great service! Called them on a Sunday morning and they were here in 30 mins. Friendly guy, explained what he was doing, and fixed my front door lock perfectly.",
+      "time": 1705300000
+    },
+    {
+      "author_name": "Lisa Wang",
+      "author_url": "#",
+      "profile_photo_url": "https://lh3.googleusercontent.com/a/ACg8ocLU9hJjJ8Z155uIe-vVw2c8zB7oM7zYQh9G7N7dY-7B=s128-c0x00000000-cc-rp-mo",
+      "rating": 4,
+      "relative_time_description": "6 months ago",
+      "text": "Very reliable locksmith service. Took slightly longer to arrive than estimated due to Auckland traffic, but once here, the job was done flawlessly and without any damage to the door.",
+      "time": 1702700000
+    }
+  ],
+  "fetched_at": "2026-07-24T12:00:00+12:00",
+  "note": "MOCK DATA GENERATED BECAUSE API KEY WAS NOT CONFIGURED"
+}

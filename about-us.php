@@ -113,7 +113,7 @@ function AboutUsPageContent() {
         <div className="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-[0.1]" style={{ backgroundImage: "url('images/key-locksmith.jpeg')" }}></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="flex items-center space-x-2 text-sm text-gray-400 mb-6 font-medium">
-            <a href="index.php" className="hover:text-[#F4C430] transition-colors">Home</a>
+            <a href="index.html" className="hover:text-[#F4C430] transition-colors">Home</a>
             <ChevronRight size={14} className="text-gray-500" />
             <span className="text-[#F4C430] font-bold">About Us</span>
           </div>
@@ -416,7 +416,7 @@ function AboutUsPageContent() {
               </ul>
               <div className="pt-4 border-t border-gray-200">
                 <a 
-                  href="areas-we-cover.php" 
+                  href="areas-we-cover.html" 
                   className="inline-flex items-center text-sm font-bold uppercase tracking-wider text-[#0B1F3A] hover:text-[#F4C430] transition-colors"
                 >
                   See the full list of suburbs we service on our Areas We Cover page →
@@ -429,7 +429,7 @@ function AboutUsPageContent() {
                 {serviceAreas.map((area, idx) => (
                   <a 
                     key={idx}
-                    href="areas-we-cover.php"
+                    href="areas-we-cover.html"
                     className="bg-white p-5 rounded-2xl border border-gray-200 shadow-sm flex items-center space-x-4 hover:border-[#F4C430] hover:shadow-md transition-all group"
                   >
                     <div className="w-10 h-10 rounded-xl bg-gray-50 border border-gray-100 flex items-center justify-center text-gray-500 group-hover:bg-[#F4C430] group-hover:text-[#1F2937] transition-colors flex-shrink-0">
@@ -474,7 +474,7 @@ function AboutUsPageContent() {
                 <span>Call Now: 0800 828 345</span>
               </a>
               <a 
-                href="contact-us.php" 
+                href="contact-us.html" 
                 className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider border-2 border-white hover:border-[#F4C430] hover:text-[#F4C430] transition-all"
               >
                 <Mail size={24} />

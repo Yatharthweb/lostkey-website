@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html langg="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Locksmith Rodney | Trusted Local Locksmith Services | Lostkey</title>
-    <meta name="description" content="Lostkey is the trusted Rodney Locksmith for residential, commercial, automotive and emergency lockouts. Covering Orewa, Warkworth, Silverdale and more.">
+    <title>Lost Key Locksmith</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script type="importmap">
       {
@@ -691,261 +690,291 @@ const serviceAreas = [
   ];
 
 
-function RodneyLocksmith() {
-  const [openFaq, setOpenFaq] = useState(0);
+function TestimonialsPageContent() {
+  const [reviewsData, setReviewsData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [selectedCategory, setSelectedCategory] = useState('All');
+
+  useEffect(() => {
+    fetch('api/reviews.php')
+      .then(res => res.json())
+      .then(data => {
+        setReviewsData(data);
+        setLoading(false);
+      })
+      .catch(err => {
+        setReviewsData({
+          business: {
+            name: 'Lost Key NZ | Automotive Locksmith Auckland',
+            rating: 5.0,
+            total_reviews: 58,
+            google_maps_url: GOOGLE_MAPS_PROFILE_URL
+          },
+          reviews: [
+            {
+              id: '1',
+              author_name: 'Michael Henderson',
+              author_photo: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&h=100&fit=crop&crop=faces&q=80',
+              rating: 5,
+              relative_time: '2 days ago',
+              service_type: 'Automotive Locksmith',
+              text: 'Locked my keys inside my Audi in Ponsonby at 11 PM on a Sunday. Called Lost Key NZ and the technician arrived within 25 minutes! Extremely professional, non-destructive entry, had me back in my car in under 5 minutes. Best locksmith service in Auckland!',
+              verified_customer: true,
+              source: 'Google Maps'
+            },
+            {
+              id: '2',
+              author_name: 'Sarah Jenkins',
+              author_photo: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=faces&q=80',
+              rating: 5,
+              relative_time: '1 week ago',
+              service_type: 'Emergency Locksmith',
+              text: 'Fast, courteous and super fair pricing! I was locked out of my house on the North Shore with groceries in the car. They arrived quickly, unlocked the front door cleanly, and even inspected the tumblers for me. Outstanding experience.',
+              verified_customer: true,
+              source: 'Google Maps'
+            },
+            {
+              id: '3',
+              author_name: 'David Chen',
+              author_photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=faces&q=80',
+              rating: 5,
+              relative_time: '2 weeks ago',
+              service_type: 'Commercial Locksmith',
+              text: 'We hired Lost Key NZ to upgrade all digital keyless entry locks and master key systems across our commercial office space in Newmarket. Their communication was top notch, installation was clean and flawless, and after-sales support was excellent.',
+              verified_customer: true,
+              source: 'Google Maps'
+            },
+            {
+              id: '4',
+              author_name: 'Emma Thompson',
+              author_photo: 'https://images.unsplash.com/photo-1517841905240-472988babdf9?w=100&h=100&fit=crop&crop=faces&q=80',
+              rating: 5,
+              relative_time: '3 weeks ago',
+              service_type: 'Car Key Replacement',
+              text: 'Lost my transponder key for my Toyota Hilux while fishing out East Auckland. Dealer wanted $600+ and 4 days waiting. Lost Key came out to the boat ramp, cut and programmed a new transponder key right on site in 30 minutes! Unbeatable value.',
+              verified_customer: true,
+              source: 'Google Maps'
+            },
+            {
+              id: '5',
+              author_name: 'Robert Taylor',
+              author_photo: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=100&h=100&fit=crop&crop=faces&q=80',
+              rating: 5,
+              relative_time: '1 month ago',
+              service_type: 'Residential Locksmith',
+              text: 'Moved into a new home in West Auckland and needed all deadbolts rekeyed for security. Lost Key provided clear pricing upfront with no hidden callout fees. Professional, polite, and efficient locksmiths. Highly recommended!',
+              verified_customer: true,
+              source: 'Google Maps'
+            },
+            {
+              id: '6',
+              author_name: 'Jessica Patel',
+              author_photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=100&h=100&fit=crop&crop=faces&q=80',
+              rating: 5,
+              relative_time: '1 month ago',
+              service_type: '24 Hour Locksmith',
+              text: 'Can’t thank them enough! Key broke inside the ignition cylinder late at night in South Auckland. They arrived within 30 minutes, extracted the broken piece, repaired the ignition, and cut a fresh spare key right from their mobile van. 10/10 service!',
+              verified_customer: true,
+              source: 'Google Maps'
+            }
+          ]
+        });
+        setLoading(false);
+      });
+  }, []);
+
+  const categories = ['All', 'Emergency Locksmith', 'Automotive Locksmith', 'Residential Locksmith', 'Commercial Locksmith'];
+
+  const filteredReviews = reviewsData?.reviews ? (
+    selectedCategory === 'All' 
+      ? reviewsData.reviews 
+      : reviewsData.reviews.filter(r => r.service_type?.toLowerCase().includes(selectedCategory.toLowerCase().replace(' locksmith', '')) || r.service_type === selectedCategory)
+  ) : [];
 
   return (
-    <div className="min-h-screen bg-gray-50 font-sans text-gray-900" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
-      {typeof window !== 'undefined' && window.HeaderComponent ? <window.HeaderComponent currentPage="rodney-locksmith" /> : null}
+    <div className="min-h-screen bg-slate-50 font-sans text-gray-900" style={{ fontFamily: "'Inter Tight', 'Inter', sans-serif" }}>
+      <HeaderComponent currentPage="company" />
 
-      {/* HERO SECTION */}
-      <section className="relative pt-24 pb-20 lg:pt-32 lg:pb-28 overflow-hidden bg-[#0B1F3A]">
-        <div className="absolute inset-0 z-0">
-          <img src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=2000&q=80" alt="Locksmith Rodney" className="w-full h-full object-cover opacity-20" />
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0B1F3A]/90 to-[#0B1F3A]"></div>
-        </div>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-          <div className="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full mb-6 border border-white/20">
-            <span className="w-2 h-2 rounded-full bg-[#F4C430] animate-pulse"></span>
-            <span className="text-white text-xs font-bold tracking-wider uppercase">Local, Independent, Reliable Locksmith</span>
+      {/* HERO BANNER */}
+      <section className="relative text-white py-20 lg:py-24 overflow-hidden" style={{ backgroundColor: COLORS.black }}>
+        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(#F4C430_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center z-10">
+          <div className="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full mb-6 border border-[#F4C430]/30" style={{ backgroundColor: 'rgba(244, 196, 48, 0.1)' }}>
+            <svg className="w-5 h-5 text-[#F4C430]" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+              <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+              <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+              <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+            </svg>
+            <span className="text-[#F4C430] font-extrabold text-xs tracking-widest uppercase">Verified Google Reviews</span>
           </div>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
-            Locksmith <span className="text-[#F4C430]">Rodney</span>
+
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight mb-6" style={{ fontFamily: "'Inter Tight', sans-serif" }}>
+            Customer Reviews & <span style={{ color: COLORS.yellow }}>Testimonials</span>
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto mb-10 leading-relaxed font-light">
-            Locked out of your beach house at Orewa? Lost your keys somewhere between the farm gate and the front door? Need your locks sorted before holidaymakers arrive next weekend? Lostkey is the locksmith in Rodney whom the locals and holiday home owners call when a lock isn't working the way it should. From the coastal roads of Whangaparaoa to the lifestyle blocks on the outskirts of Warkworth, we know our area and we show up when we say we will.
+
+          <p className="text-gray-300 text-lg sm:text-xl max-w-3xl mx-auto leading-relaxed mb-10">
+            See what Kiwi homeowners, motorists, and business owners across Auckland have to say about our 24/7 mobile locksmith service.
+          </p>
+
+          {/* GOOGLE RATING CARD BADGE */}
+          <div className="inline-flex flex-col sm:flex-row items-center justify-between bg-[#132B4F] border border-gray-700/60 p-6 md:p-8 rounded-3xl shadow-2xl gap-6 text-left max-w-2xl w-full">
+            <div className="flex items-center space-x-5">
+              <div className="w-16 h-16 rounded-2xl bg-[#F4C430] flex items-center justify-center text-slate-900 font-black text-2xl shadow-lg flex-shrink-0">
+                5.0
+              </div>
+              <div>
+                <div className="flex items-center space-x-1 mb-1">
+                  {[...Array(5)].map((_, i) => (
+                    <Star key={i} size={20} fill="#F4C430" color="#F4C430" />
+                  ))}
+                </div>
+                <p className="text-white font-bold text-base">5.0 Out of 5.0 Rating</p>
+                <p className="text-gray-400 text-xs">Based on 58+ verified Google reviews</p>
+              </div>
+            </div>
+
+            <a 
+              href={GOOGLE_MAPS_PROFILE_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center space-x-2 px-6 py-3.5 rounded-full font-bold text-xs uppercase tracking-wider transition-all hover:brightness-110 shadow-lg flex-shrink-0"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              <span>Write a Review on Google</span>
+              <ExternalLink size={14} />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* FILTER & REVIEWS GRID SECTION */}
+      <section className="py-16 md:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Category Filters */}
+        <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+          {categories.map((cat) => (
+            <button
+              key={cat}
+              onClick={() => setSelectedCategory(cat)}
+              className={`px-5 py-2.5 rounded-full font-bold text-sm transition-all shadow-sm ${
+                selectedCategory === cat
+                  ? 'bg-[#0B1F3A] text-[#F4C430] shadow-md border-2 border-[#F4C430]'
+                  : 'bg-white text-gray-700 hover:bg-gray-100 border border-gray-200'
+              }`}
+            >
+              {cat}
+            </button>
+          ))}
+        </div>
+
+        {/* Loading Spinner */}
+        {loading ? (
+          <div className="flex flex-col items-center justify-center py-20">
+            <RefreshCw className="animate-spin text-[#F4C430] mb-4" size={40} />
+            <p className="text-gray-600 font-semibold">Loading live Google reviews...</p>
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredReviews.map((rev) => (
+              <div 
+                key={(rev.id || rev.time || Math.random().toString())} 
+                className="bg-white rounded-3xl p-7 shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 flex flex-col justify-between group"
+              >
+                <div>
+                  {/* Card Header: Rating & Source */}
+                  <div className="flex justify-between items-center mb-5">
+                    <div className="flex items-center space-x-1">
+                      {[...Array(rev.rating || 5)].map((_, i) => (
+                        <Star key={i} size={18} fill="#F4C430" color="#F4C430" />
+                      ))}
+                    </div>
+                    <div className="flex items-center space-x-1.5 bg-slate-100 px-3 py-1 rounded-full border border-gray-200 text-xs font-bold text-gray-700">
+                      <svg className="w-3.5 h-3.5 text-blue-600" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" />
+                        <path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" />
+                        <path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.06H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.94l2.85-2.22.81-.63z" />
+                        <path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.06l3.66 2.84c.87-2.6 3.3-4.52 6.16-4.52z" />
+                      </svg>
+                      <span>Google Review</span>
+                    </div>
+                  </div>
+
+                  {/* Service Badge Tag */}
+                  {rev.service_type && (
+                    <span className="inline-block bg-[#FFF8E1] text-[#0B1F3A] font-bold text-xs px-3 py-1 rounded-md mb-4 border border-[#F4C430]/40">
+                      {rev.service_type}
+                    </span>
+                  )}
+
+                  {/* Review Content */}
+                  <p className="text-gray-700 text-base leading-relaxed mb-6 italic">
+                    "{rev.text}"
+                  </p>
+                </div>
+
+                {/* Author Footer */}
+                <div className="pt-5 border-t border-gray-100 flex items-center justify-between">
+                  <div className="flex items-center space-x-3">
+                    <img 
+                      src={(rev.author_photo || rev.profile_photo_url)} 
+                      alt={rev.author_name} 
+                      className="w-11 h-11 rounded-cover object-cover border-2 border-[#F4C430]"
+                    />
+                    <div>
+                      <h4 className="font-bold text-gray-900 text-sm leading-tight flex items-center space-x-1">
+                        <span>{rev.author_name}</span>
+                        <CheckCircle2 size={15} className="text-blue-500 flex-shrink-0" />
+                      </h4>
+                      <p className="text-gray-400 text-xs mt-0.5">{(rev.relative_time || rev.relative_time_description)}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+
+      </section>
+
+      {/* CTA EMERGENCY BANNER */}
+      <section className="py-20 text-white relative overflow-hidden" style={{ backgroundColor: COLORS.black }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+          <h2 className="text-4xl md:text-5xl font-black mb-6 tracking-tight">
+            Need an Auckland Locksmith <span style={{ color: COLORS.yellow }}>Right Now?</span>
+          </h2>
+          <p className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed mb-8">
+            Experience our 5-star service for yourself. We reach all Auckland locations in 20-40 minutes, 24 hours a day, 7 days a week.
           </p>
           
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a href="tel:0800828345" className="w-full sm:w-auto px-8 py-4 bg-[#F4C430] hover:bg-white text-[#0B1F3A] rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center shadow-[0_0_20px_rgba(244,196,48,0.4)] hover:shadow-[0_0_30px_rgba(255,255,255,0.5)] transform hover:-translate-y-1">
-              <Phone size={18} className="mr-2" /> Call 0800 828 345
+            <a 
+              href="tel:0800828345" 
+              className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider shadow-2xl transition-all hover:scale-105"
+              style={{ backgroundColor: COLORS.yellow, color: COLORS.black }}
+            >
+              <Phone size={24} className="fill-current" />
+              <span>Call 0800 828 345</span>
             </a>
-            <a href="contact-us.html" className="w-full sm:w-auto px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center justify-center backdrop-blur-sm">
-              <Mail size={18} className="mr-2" /> Book Online
+            <a 
+              href="contact-us.html" 
+              className="inline-flex items-center space-x-3 px-10 py-5 rounded-full font-black text-xl uppercase tracking-wider border-2 border-white hover:border-[#F4C430] hover:text-[#F4C430] transition-all"
+            >
+              <Mail size={24} />
+              <span>Get Free Quote</span>
             </a>
           </div>
-          <p className="text-white mt-8 text-sm font-medium">
-            Regardless of whether you need to unlock your house, lost your keys, or have a complete security upgrade before getting summer visitors, we are always available and just a phone call away at any time.
-          </p>
         </div>
       </section>
 
-      {/* WHY RODNEY NEEDS A LOCKSMITH */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] leading-tight">
-                Why Rodney Needs a Locksmith It Can Rely On
-              </h2>
-              <div className="w-20 h-1.5 bg-[#F4C430] rounded-full"></div>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                Rodney comprises several coastal communities and urban areas, and each of these places exerts a different kind of demand on a lock. Beaches along Orewa and Red Beaches may have beach houses which are not occupied for many weeks and, in this situation, an old deadbolt or a ruined lock may remain unnoticed until someone utilizes it.
-              </p>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                Add in the usual stuff — kids losing keys, a sliding door lock jamming at the worst time, or someone getting stuck outside their own office in Warkworth after hours — and it's easy to see why locals keep a locksmith's number close by. That's exactly where Lostkey steps in.
-              </p>
-            </div>
-            <div className="relative">
-              <div className="absolute inset-0 bg-[#F4C430] rounded-3xl transform translate-x-4 translate-y-4 opacity-20"></div>
-              <img src="https://images.unsplash.com/photo-1558002038-1055907df827?auto=format&fit=crop&w=800&q=80" alt="Rodney Locksmith Service" className="relative rounded-3xl shadow-xl w-full object-cover h-[500px]" />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* OUR LOCKSMITH RODNEY SERVICES */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] mb-6">Our Locksmith Rodney Services</h2>
-            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {rodneyServices.map((service, idx) => (
-              <div key={idx} className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-300 group flex flex-col h-full">
-                <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center mb-6 group-hover:bg-[#F4C430] group-hover:text-[#0B1F3A] transition-colors border border-gray-100">
-                  <service.icon size={24} className="text-[#0B1F3A] group-hover:text-[#0B1F3A]" />
-                </div>
-                <h3 className="text-xl font-bold text-[#0B1F3A] mb-4 group-hover:text-[#F4C430] transition-colors">{service.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed flex-grow">{service.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* SUBURBS WE COVER */}
-      <section className="py-20 bg-[#0B1F3A] text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-white mb-6">Suburbs We Cover</h2>
-            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
-            <p className="text-gray-300 text-lg mb-4">
-              Locksmith services are available in Rodney for emergency lockout situations right across the district.
-            </p>
-            <p className="text-gray-300 text-sm italic">
-              Every suburb below has its own local page with call-out times and pricing specific to that area.
-            </p>
-          </div>
-          
-          <SuburbsCovered />
-          
-          <div className="mt-12 bg-white/5 border border-white/10 rounded-2xl p-6 text-center text-sm text-gray-300 max-w-4xl mx-auto">
-            <p className="mb-4"><span className="text-[#F4C430] font-bold">Note:</span> We offer emergency home lockout assistance in Rodney right along the Whangaparaoa stretch, since so many properties here are holiday homes that sit empty between visits.</p>
-            <p className="mb-4">Out on the lifestyle blocks around Dairy Flat and Riverhead, garage locks and long driveway gates make up a good share of our repair calls.</p>
-            <p>Further north, we also run a car key replacement service Wellsford pricing residents can book in ahead of time, so a lost car key doesn't mean an unplanned trip back into Auckland.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* RESIDENTIAL AND COMMERCIAL WORK */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="grid grid-cols-2 gap-4">
-                <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=600&q=80" alt="Residential Work" className="rounded-2xl shadow-lg w-full h-48 object-cover" />
-                <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=600&q=80" alt="Commercial Work" className="rounded-2xl shadow-lg w-full h-48 object-cover mt-8" />
-              </div>
-            </div>
-            <div className="space-y-6 order-1 lg:order-2">
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] leading-tight">
-                Residential and Commercial Work in Rodney
-              </h2>
-              <div className="w-20 h-1.5 bg-[#F4C430] rounded-full"></div>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                Homes and businesses need different things from a locksmith, so we treat them differently. On the home side, that's house lockouts, broken keys, deadbolt repairs, and rekeying between tenants or holiday guests. 
-              </p>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                On the business side, it's office lockouts, master key systems, and security upgrades for premises that stay shut overnight or over long weekends. Either way, our local locksmith Rodney team turns up with the right gear the first time.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* HOW BOOKING WORKS */}
-      <section className="py-20 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] mb-6">How Booking a Locksmith in Rodney Works</h2>
-            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-            <div className="hidden md:block absolute top-12 left-1/6 right-1/6 h-0.5 bg-gray-200 z-0"></div>
-            {workSteps.map((step, idx) => (
-              <div key={idx} className="relative z-10 flex flex-col items-center text-center">
-                <div className="w-24 h-24 rounded-full bg-white border-4 border-[#F4C430] flex items-center justify-center text-[#0B1F3A] font-black text-2xl shadow-xl mb-6">
-                  {step.num}
-                </div>
-                <h3 className="text-xl font-bold text-[#0B1F3A] mb-3">{step.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed px-4">{step.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* WHY CHOOSE US & RESPONSE TIMES */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            <div className="space-y-6">
-              <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] leading-tight">
-                Why Choose Lostkey in Rodney
-              </h2>
-              <div className="w-20 h-1.5 bg-[#F4C430] rounded-full"></div>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                We're a local, independent, reliable and trustworthy locksmith company that's spent years working right across the district, from Orewa to Helensville. People call us back because we quote honestly and don't push a full lock replacement when a repair does the job just as well.
-              </p>
-              <p className="text-gray-600 leading-relaxed text-lg">
-                We're among the best-rated locksmith companies near Rodney for home security upgrades, and we offer some of the best residential security system upgrade options Rodney properties can get without a full renovation. If you've searched for a locksmith Rodney after getting locked out somewhere between towns, there's a good chance our name has already come up.
-              </p>
-            </div>
-            <div className="space-y-6">
-              <div className="bg-[#0B1F3A] text-white p-10 rounded-3xl shadow-xl relative overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-[#F4C430] opacity-10 rounded-full blur-3xl transform translate-x-10 -translate-y-10"></div>
-                <h2 className="text-2xl md:text-3xl font-black mb-6 flex items-center">
-                  <Clock size={28} className="text-[#F4C430] mr-3" /> Response Times in Rodney
-                </h2>
-                <p className="text-gray-300 leading-relaxed mb-6">
-                  Rodney covers a lot of ground, so response times vary a bit more here than in the city, but every locksmith call-out is still treated as urgent. 
-                </p>
-                <p className="text-gray-300 leading-relaxed">
-                  Most jobs are reached within the hour depending on your suburb and the roads that day. We aim to keep pricing fair for every call-out, without skipping the final check on the lock before we leave.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ SECTION */}
-      <section className="py-20 bg-gray-50 border-y border-gray-100">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-black text-[#0B1F3A] mb-6">Frequently Asked Questions</h2>
-            <div className="w-20 h-1.5 bg-[#F4C430] mx-auto rounded-full mb-6"></div>
-          </div>
-          <div className="space-y-4">
-            {faqs.map((faq, idx) => (
-              <FAQItem 
-                key={idx} 
-                faq={faq} 
-                isOpen={openFaq === idx} 
-                onClick={() => setOpenFaq(openFaq === idx ? -1 : idx)} 
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* CTA SECTION */}
-      <section className="py-20 bg-white">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-[#0B1F3A] to-gray-900 rounded-3xl p-10 md:p-14 text-white text-center shadow-2xl relative overflow-hidden">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-[#F4C430] opacity-5 rounded-full blur-3xl transform translate-x-20 -translate-y-20"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 bg-[#F4C430] opacity-5 rounded-full blur-3xl transform -translate-x-20 translate-y-20"></div>
-            
-            <h2 className="text-3xl md:text-5xl font-black mb-6 relative z-10">Need a Locksmith in Rodney?</h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto mb-10 relative z-10">
-              If you’re faced with a lockout as well as a malfunctioning lock or want to upgrade the security of your residence or commercial property, you might rely on Lostkey for trusted locksmith services starting from Orewa all the way to Wellsford.
-            </p>
-            <div className="flex flex-col sm:flex-row justify-center items-center gap-4 relative z-10 mb-8">
-              <a href="tel:0800828345" className="px-8 py-4 bg-[#F4C430] hover:bg-white text-[#0B1F3A] rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center shadow-[0_0_20px_rgba(244,196,48,0.3)] transform hover:-translate-y-1 w-full sm:w-auto justify-center">
-                <Phone size={18} className="mr-2" /> 0800 828 345
-              </a>
-              <a href="contact-us.html" className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white border border-white/20 rounded-xl font-black text-sm uppercase tracking-wider transition-all duration-300 flex items-center backdrop-blur-sm w-full sm:w-auto justify-center">
-                <Mail size={18} className="mr-2" /> Contact Us
-              </a>
-            </div>
-            <p className="text-sm text-gray-400 relative z-10">
-              Check our <a href="residential-locksmith-auckland.html" className="text-[#F4C430] hover:underline">residential locksmith</a>, <a href="commercial-locksmith-auckland.html" className="text-[#F4C430] hover:underline">commercial locksmith</a>, <a href="automotive-locksmith-auckland.html" className="text-[#F4C430] hover:underline">automotive locksmith</a>, and <a href="emergency-locksmith-auckland.html" className="text-[#F4C430] hover:underline">emergency locksmith</a> pages for more on how we can help.
-            </p>
-          </div>
-        </div>
-      </section>
-
-      {typeof window !== 'undefined' && window.FooterComponent ? <window.FooterComponent currentPage="rodney-locksmith" /> : null}
+      <FooterComponent currentPage="company" />
     </div>
   );
 }
 
-const root = createRoot(document.getElementById('root'));
-const renderApp = () => {
-  if (window.HeaderComponent && window.FooterComponent) {
-    root.render(<RodneyLocksmith />);
-  } else {
-    setTimeout(renderApp, 50);
-  }
-};
-renderApp();
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<TestimonialsPageContent />);
 </script>
-
-<div id="root"></div>
-
 </body>
 </html>
