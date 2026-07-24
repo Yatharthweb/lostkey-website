@@ -69,6 +69,36 @@ const COLORS = {
 };
 
 
+
+const serviceAreas = [
+  { name: "Auckland Central", url: "contact-us.html" },
+  { name: "North Shore", url: "north-shore-locksmith.html" },
+  { name: "West Auckland", url: "west-auckland-locksmith.html" },
+  { name: "South Auckland", url: "south-auckland-locksmith.html" },
+  { name: "East Auckland", url: "east-auckland-locksmith.html" },
+  { name: "Rodney", url: "rodney-locksmith.html" },
+  { name: "Franklin", url: "franklin-locksmith.html" },
+  { name: "Orewa & Hibiscus Coast", url: "orewa-locksmith.html" }
+];
+
+const MAIN_SERVICES = [
+  { name: 'Emergency Locksmith Auckland', icon: AlertTriangle, url: 'emergency-locksmith-auckland.html' },
+  { name: '24 Hour Locksmith Auckland', icon: Clock, url: '24-hour-locksmith-auckland.html' },
+  { name: 'Residential Locksmith Auckland', icon: Home, url: 'residential-locksmith-auckland.html' },
+  { name: 'Commercial Locksmith Auckland', icon: Building, url: 'index.html#contact' },
+  { name: 'Automotive Locksmith Auckland', icon: Car, url: 'automotive-locksmith-auckland.html' },
+  { name: 'Car Key Replacement Auckland', icon: Key, url: 'index.html#contact' },
+  { name: 'Lock Rekeying Auckland', icon: Wrench, url: 'index.html#contact' },
+  { name: 'Lock Repair Auckland', icon: PenTool, url: 'index.html#contact' },
+  { name: 'Lock Replacement Auckland', icon: Shield, url: 'index.html#contact' },
+  { name: 'House Lockout Locksmith Auckland', icon: DoorClosed, url: 'index.html#contact' },
+  { name: 'Car Lockout Locksmith Auckland', icon: Unlock, url: 'index.html#contact' },
+  { name: 'Ignition Repair Auckland', icon: Settings, url: 'index.html#contact' },
+  { name: 'Ignition Replacement Auckland', icon: Power, url: 'index.html#contact' },
+  { name: 'Master Key Systems Auckland', icon: Layers, url: 'index.html#contact' },
+  { name: 'Restricted Key Systems Auckland', icon: Lock, url: 'index.html#contact' },
+];
+
 window.HeaderComponent = function HeaderComponent({ currentPage }) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -662,33 +692,8 @@ window.FooterComponent = function FooterComponent({ currentPage }) {
 };
 
 
-const MAIN_SERVICES = [
-    { name: 'Emergency Locksmith Auckland', icon: AlertTriangle },
-    { name: '24 Hour Locksmith Auckland', icon: Clock },
-    { name: 'Residential Locksmith Auckland', icon: Home },
-    { name: 'Commercial Locksmith Auckland', icon: Building },
-    { name: 'Automotive Locksmith Auckland', icon: Car },
-    { name: 'Car Key Replacement Auckland', icon: Key },
-    { name: 'Lock Rekeying Auckland', icon: Wrench },
-    { name: 'Lock Repair Auckland', icon: PenTool },
-    { name: 'Lock Replacement Auckland', icon: Shield },
-    { name: 'House Lockout Locksmith Auckland', icon: DoorClosed },
-    { name: 'Car Lockout Locksmith Auckland', icon: Unlock },
-    { name: 'Ignition Repair Auckland', icon: Settings },
-    { name: 'Ignition Replacement Auckland', icon: Power },
-    { name: 'Master Key Systems Auckland', icon: Layers },
-    { name: 'Restricted Key Systems Auckland', icon: Lock },
-  ];
-const serviceAreas = [
-    "Auckland City",
-    "North Shore",
-    "West Auckland",
-    "East Auckland",
-    "South Auckland",
-    "Rodney",
-    "Franklin",
-    "Orewa Hibiscus Coast"
-  ];
+
+
 
 
 function FAQPageContent() {
